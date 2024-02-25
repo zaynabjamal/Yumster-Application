@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "933352697122",
+    "project_id": "yumsterapp-c7dc5",
+    "storage_bucket": "yumsterapp-c7dc5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933352697122:android:50067bec34bc568dc2897b",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbX6vtHdAT9gYP1X0tfRHecsTb8iKk-7U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
