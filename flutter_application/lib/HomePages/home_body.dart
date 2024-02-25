@@ -45,7 +45,11 @@ class HomeBody extends StatelessWidget {
               ),
               const SizedBox(
                 height: 500,
+
                child: GridWidget(),
+
+               
+
               ),
             ],
           ),

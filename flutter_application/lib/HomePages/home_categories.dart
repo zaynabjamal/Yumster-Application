@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/model/catagories_module.dart';
-
+import 'package:flutter_application/model/categories_module.dart';
 
 class GridWidget extends StatefulWidget {
   const GridWidget({super.key});
