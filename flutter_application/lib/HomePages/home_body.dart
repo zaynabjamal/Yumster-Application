@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/HomePages/home_categories.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-//import 'package:gridwidget/gridwidget.dart';
 
 
 class HomeBody extends StatelessWidget {
@@ -45,7 +45,7 @@ class HomeBody extends StatelessWidget {
               ),
               const SizedBox(
                 height: 500,
-              //  child: GridWidget(),
+               child: GridWidget(),
               ),
             ],
           ),

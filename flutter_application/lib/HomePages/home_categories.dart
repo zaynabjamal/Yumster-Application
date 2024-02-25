@@ -1,5 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application/model/catagories_module.dart';
 
 
 class GridWidget extends StatefulWidget {
@@ -26,7 +26,7 @@ class _GridWidgetState extends State<GridWidget> {
               });
             },
             child: Container(
-              margin: const EdgeInsets.all(8), 
+              margin: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
                 color: Colors.black,
@@ -42,11 +42,10 @@ class _GridWidgetState extends State<GridWidget> {
                     child: Text(
                       categories[index].text,
                       style: const TextStyle(
-                        color: Color(0xffFCFCF8),
-                        fontSize: 24,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Concreteone'
-                      ),
+                          color: Color(0xffFCFCF8),
+                          fontSize: 24,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'Concreteone'),
                     ),
                   ),
                 ],
@@ -58,4 +57,3 @@ class _GridWidgetState extends State<GridWidget> {
     );
   }
 }
-

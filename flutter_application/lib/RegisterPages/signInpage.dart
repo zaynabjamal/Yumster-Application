@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/RegisterPages/entrysuccessPage.dart';
 import 'package:flutter_application/RegisterPages/loginPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -147,6 +148,7 @@ _success=false;
                   ),
                   onPressed: (){
                     _register();
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>SuccessPage()));
                 }, child:const Text("Sign in",style: TextStyle(
                   fontFamily: 'Rowdies',
                     color: Color(0xFFFFFFFF),
