@@ -1,11 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_application/RegisterPages/entrysuccessPage.dart';
+import 'package:flutter_application/Catagories/others_screen.dart';
 import 'package:flutter_application/provider/Bookmark.dart';
 import 'package:provider/provider.dart';
-
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 Future main() async {
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
       create: (context) => bookmarkProvider(),
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SuccessPage(),
+        home: Others(),
       ),
     );
   }

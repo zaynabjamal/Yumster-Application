@@ -10,21 +10,23 @@ class _SuccessPageState extends State<SuccessPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment:MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset("assets/entrySuccess.png"),
-         const Text("You're In",style: TextStyle(
-            fontFamily: 'Rowdies',
-            fontSize: 52,
-            color: const Color(0xFFFFE9801)
-          ),),
-         const Text("Get ready to create\n       culinary magic",style: TextStyle(
-            fontFamily: 'Rowdies',
-            fontSize: 32,
-            color: Color(0xFFB0AA86)
-          ),),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment:MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset("assets/entrySuccess.png"),
+           const Text("You're In",style: TextStyle(
+              fontFamily: 'Rowdies',
+              fontSize: 52,
+              color:  Color(0xFFFFE9801)
+            ),),
+           const Text("Get ready to create\n       culinary magic",style: TextStyle(
+              fontFamily: 'Rowdies',
+              fontSize: 32,
+              color: Color(0xFFB0AA86)
+            ),),
+          ],
+        ),
       ),
     );
   }
