@@ -36,7 +36,10 @@ class _SavedPageState extends State<SavedPage> {
       child: Scaffold(
         body: Consumer<bookmarkProvider>(
           builder: (context, provider, child) {
-            return ListView.builder(
+            return 
+            provider.Widget.isEmpty
+            ? Text("No Item BookMarked")
+            : ListView.builder(
               itemBuilder: (context, index) {
                 Container(
                   width: 100,
@@ -81,34 +84,31 @@ class _SavedPageState extends State<SavedPage> {
                             ),
                           ),
                           const Gap(85),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Gap(5),
-                              Text(
-                                foodTypeData[index].title,
-                                style: const TextStyle(
-                                  color: Color(0xFF697C37),
-                                  fontFamily: 'Rowdies',
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w300,
+                          GridTileBar(
+                            leading: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Gap(5),
+                                Text(
+                                  foodTypeData[index].title,
+                                  style: const TextStyle(
+                                    color: Color(0xFF697C37),
+                                    fontFamily: 'Rowdies',
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w300,
+                                  ),
                                 ),
-                              ),
-                              const Gap(15),
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    foodTypeData[index].bookmark = !foodTypeData[index].bookmark;
-                                    provider.addItems(food_type);
-                                    print("item added to provider!!");
-                                    print("${foodTypeData[index].id} this is id");
-                                  });
-                                },
-                                child: Container(
-                                  child: foodTypeData[index].bookmark ? const Icon(Icons.bookmark) : const Icon(Icons.bookmark_border),
-                                ),
-                              )
-                            ],
+                                const Gap(15),
+                                GestureDetector(
+                                  onTap: () {
+                                   
+                                  },
+                                  child: Container(
+                                    child: foodTypeData[index].bookmark ? const Icon(Icons.bookmark) : const Icon(Icons.bookmark_border),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),

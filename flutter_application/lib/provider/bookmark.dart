@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/model/food_type.dart';
 
-class bookmarkProvider<food_type> extends ChangeNotifier{
+class bookmarkProvider extends ChangeNotifier{
 
-final List<food_type> _widget=[];
-List<food_type> get Widget => _widget;
-void addItems(food_type items){
+final List<FoodTypeModel> _widget=[];
+List<FoodTypeModel> get Widget => _widget;
+
+void addItems(FoodTypeModel items){
   _widget.add(items);
   notifyListeners();
 }
 
-
+void removeItem(FoodTypeModel items){
+  _widget.remove(items);
+  notifyListeners();
+}
 
 
 

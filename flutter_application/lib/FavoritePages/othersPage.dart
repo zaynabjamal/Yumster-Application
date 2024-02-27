@@ -1,8 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_application/FavoritePages/savePage.dart';
 import 'package:flutter_application/data/food_type_data.dart';
 import 'package:flutter_application/model/food_type.dart';
 import 'package:flutter_application/provider/Bookmark.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
 
@@ -18,21 +22,27 @@ class _OthersState extends State<Others> {
   Widget build(BuildContext context) {
     bool _isBookmark = false;
     final provider = Provider.of<bookmarkProvider>(context,
-        listen: false); //contexte buildContext
+        listen: true); //contexte buildContext
     return Scaffold(
-      backgroundColor: const Color(0xffFCFCF8),
-      appBar: AppBar(
-        backgroundColor: const Color(0xffFCFCF8),
-        title: const Text(
-          'Others',
-          style: TextStyle(
-            color: Color(0xffFE9801),
-          ),
-        ),
-      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+           Row(
+            children: [
+                IconButton(onPressed: () {}, icon: SvgPicture.asset("assets/arrowBack.svg")),
+              const Gap(150),
+            const  Text(
+                'Others',
+                style: TextStyle(
+                  color: Color(0xffFE9801),
+                  fontFamily: 'Rowdies',
+                  fontSize: 32,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
+        
           Expanded(
               child: GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -42,7 +52,9 @@ class _OthersState extends State<Others> {
               crossAxisSpacing: 16,
             ),
             itemCount: 4,
-            itemBuilder: (context, index) => Padding(
+            itemBuilder: (context, index) {
+              FoodTypeModel foodTypeModel = foodTypeData[index];
+              return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: GridTile(
                 header: GridTileBar(
@@ -74,7 +86,7 @@ class _OthersState extends State<Others> {
                   ),
                 ),
                 footer: GridTileBar(
-                  backgroundColor:const Color(0xFFFFF4E5),
+                  backgroundColor: const Color(0xFFFFF4E5),
                   leading: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -91,15 +103,11 @@ class _OthersState extends State<Others> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            foodTypeData[index].bookmark =
-                                !foodTypeData[index].bookmark;
-                            provider.addItems(food_type);
-                            if (foodTypeData[index].bookmark) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const SavedPage()));
-                            }
+                            foodTypeData[index].bookmark = !foodTypeData[index].bookmark;
+                           if(!foodTypeData[index].bookmark){
+                              provider.removeItem(foodTypeMode);
+                           }
+                            provider.addItems(foodTypeModel);
                             print("item added to provider!!");
                             print("${foodTypeData[index].id} this is id");
                           });
@@ -122,7 +130,10 @@ class _OthersState extends State<Others> {
                   fit: BoxFit.cover,
                 ),
               ),
-            ),
+            );
+            }
+            
+             
 
             // itemBuilder: (context,index)
 
