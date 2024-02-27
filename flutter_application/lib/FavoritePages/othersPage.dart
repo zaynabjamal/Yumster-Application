@@ -21,15 +21,16 @@ class _OthersState extends State<Others> {
   @override
   Widget build(BuildContext context) {
     bool _isBookmark = false;
-    final provider = Provider.of<bookmarkProvider>(context,
-        listen: true); //contexte buildContext
+  final provider = Provider.of<bookmarkProvider>(context,listen: true); //contexte buildContext
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
            Row(
             children: [
-                IconButton(onPressed: () {}, icon: SvgPicture.asset("assets/arrowBack.svg")),
+                IconButton(onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder:(context) => SavedPage()));
+                }, icon: SvgPicture.asset("assets/arrowBack.svg")),
               const Gap(150),
             const  Text(
                 'Others',
@@ -105,7 +106,7 @@ class _OthersState extends State<Others> {
                           setState(() {
                             foodTypeData[index].bookmark = !foodTypeData[index].bookmark;
                            if(!foodTypeData[index].bookmark){
-                              provider.removeItem(foodTypeMode);
+                              provider.removeItem(foodTypeModel);
                            }
                             provider.addItems(foodTypeModel);
                             print("item added to provider!!");
