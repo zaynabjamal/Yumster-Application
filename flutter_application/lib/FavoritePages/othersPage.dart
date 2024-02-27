@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_application/FavoritePages/savePage.dart';
 import 'package:flutter_application/data/food_type_data.dart';
 import 'package:flutter_application/model/food_type.dart';
@@ -39,72 +38,89 @@ class _OthersState extends State<Others> {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisExtent: 220,
+              mainAxisSpacing: 16,
+              crossAxisSpacing: 16,
             ),
             itemCount: 4,
-            itemBuilder: (_, index) => GridTile(
-              header: GridTileBar(
-                leading: Container(
-                  width: 50,
-                  height: 12,
-                  decoration: const BoxDecoration(
-                    color: Color(0xFF697C37),
-                    borderRadius: BorderRadius.all(Radius.circular(4)),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 6),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.access_time,
-                          color: Color(0xFFFFF4E5),
-                          size: 9,
-                        ),
-                        const Gap(5),
-                        Text(
-                          '${foodTypeData[index].time}sec',
-                          style: const TextStyle(
-                              fontSize: 8, color: Color(0xFFFFF4E5)),
-                        ),
-                      ],
+            itemBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: GridTile(
+                header: GridTileBar(
+                  leading: Container(
+                    width: 50,
+                    height: 12,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF697C37),
+                      borderRadius: BorderRadius.all(Radius.circular(4)),
                     ),
-                  ),
-                ),
-              ),
-              footer: GridTileBar(
-                backgroundColor: Color(0xFFFFF4E5),
-                leading: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      foodTypeData[index].title,
-                      style: const TextStyle(
-                        color: Color(0xFF697C37),
-                        fontFamily: 'Rowdies',
-                        fontSize: 15,
-                        fontWeight: FontWeight.w300,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 6),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.access_time,
+                            color: Color(0xFFFFF4E5),
+                            size: 9,
+                          ),
+                          const Gap(5),
+                          Text(
+                            '${foodTypeData[index].time}sec',
+                            style: const TextStyle(
+                                fontSize: 8, color: Color(0xFFFFF4E5)),
+                          ),
+                        ],
                       ),
                     ),
-                    GestureDetector(
-                     onTap: (){
-               setState(() {
-               foodTypeData[index].bookmark = !foodTypeData[index].bookmark;
-               provider.addItems(food_type);
-               print("item added to provider!!");
-             print("${ foodTypeData[index].id} this is id");
-               });
-             },
-                    child: Container(
-                     child: foodTypeData[index].bookmark
-             ? const Icon(Icons.bookmark , color: Color(0xFFFE9801),)
-             : const Icon(Icons.bookmark_border , color: Color(0xFFFE9801)),
-                    ),
-                   )
-                  ],
+                  ),
                 ),
-              ),
-              child: Image.asset(
-                foodTypeData[index].image,
-                fit: BoxFit.cover,
+                footer: GridTileBar(
+                  backgroundColor:const Color(0xFFFFF4E5),
+                  leading: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        foodTypeData[index].title,
+                        style: const TextStyle(
+                          color: Color(0xFF697C37),
+                          fontFamily: 'Rowdies',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      const Gap(50),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            foodTypeData[index].bookmark =
+                                !foodTypeData[index].bookmark;
+                            provider.addItems(food_type);
+                            if (foodTypeData[index].bookmark) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const SavedPage()));
+                            }
+                            print("item added to provider!!");
+                            print("${foodTypeData[index].id} this is id");
+                          });
+                        },
+                        child: Container(
+                          child: foodTypeData[index].bookmark
+                              ? const Icon(
+                                  Icons.bookmark,
+                                  color: Color(0xFFFE9801),
+                                )
+                              : const Icon(Icons.bookmark_border,
+                                  color: Color(0xFFFE9801)),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                child: Image.asset(
+                  foodTypeData[index].image,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
 
