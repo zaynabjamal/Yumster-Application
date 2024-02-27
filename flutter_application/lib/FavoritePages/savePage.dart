@@ -32,16 +32,15 @@ class _SavedPageState extends State<SavedPage> {
   @override
   Widget build(BuildContext context) {
     screens[_selectedIndex];
-    return Expanded(
-      child: Scaffold(
-        body: Consumer<bookmarkProvider>(
+    return Scaffold(
+      
+      body: Expanded(
+        child: Consumer<bookmarkProvider>(
           builder: (context, provider, child) {
-            return 
-            provider.Widget.isEmpty
-            ? Text("No Item BookMarked")
-            : ListView.builder(
+            return ListView.builder(
+              itemCount: provider.Widget.length,
               itemBuilder: (context, index) {
-                Container(
+              return  Container(
                   width: 100,
                   height: 130,
                   decoration: const BoxDecoration(
@@ -114,29 +113,29 @@ class _SavedPageState extends State<SavedPage> {
                   //   ],
                   // ),
                 );
-                return null;
+                
               },
             );
           },
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: const Color(0xffFFF5E5),
-          currentIndex: _selectedIndex,
-          selectedItemColor: const Color(0xffFE9801),
-          unselectedItemColor: const Color(0xffB0AA86),
-          selectedIconTheme: const IconThemeData(size: 45, fill: 0.0),
-          iconSize: 40,
-          onTap: _navigateBottomBar,
-          type: BottomNavigationBarType.fixed,
-          items: [
-            BottomNavigationBarItem(
-              icon: _selectedIndex == 0 ? const Icon(Icons.bookmark) : const Icon(Icons.bookmark_border),
-              label: '',
-            ),
-            BottomNavigationBarItem(icon: _selectedIndex == 1 ? const Icon(Icons.home) : const Icon(Icons.home_outlined), label: ''),
-            BottomNavigationBarItem(icon: _selectedIndex == 2 ? const Icon(Icons.person) : const Icon(Icons.person_outline_outlined), label: ''),
-          ],
-        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color(0xffFFF5E5),
+        currentIndex: _selectedIndex,
+        selectedItemColor: const Color(0xffFE9801),
+        unselectedItemColor: const Color(0xffB0AA86),
+        selectedIconTheme: const IconThemeData(size: 45, fill: 0.0),
+        iconSize: 40,
+        onTap: _navigateBottomBar,
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 0 ? const Icon(Icons.bookmark) : const Icon(Icons.bookmark_border),
+            label: '',
+          ),
+          BottomNavigationBarItem(icon: _selectedIndex == 1 ? const Icon(Icons.home) : const Icon(Icons.home_outlined), label: ''),
+          BottomNavigationBarItem(icon: _selectedIndex == 2 ? const Icon(Icons.person) : const Icon(Icons.person_outline_outlined), label: ''),
+        ],
       ),
     );
   }
