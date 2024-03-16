@@ -1,11 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application/Catagories/welcome.dart';
-import 'package:flutter_application/FavoritePages/othersPage.dart';
 import 'package:flutter_application/RegisterPages/loginPage.dart';
-import 'package:flutter_application/RegisterPages/signInpage.dart';
 import 'package:flutter_application/provider/Bookmark.dart';
 import 'package:provider/provider.dart';
 
@@ -34,7 +30,7 @@ class MyApp extends StatelessWidget {
       create: (context) => bookmarkProvider(),
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SignIn(),
+        home: Login(),
       ),
     );
   }

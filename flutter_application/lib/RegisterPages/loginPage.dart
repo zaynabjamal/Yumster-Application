@@ -62,7 +62,7 @@ class _LoginState extends State<Login> {
                 const Text(
                   "Login here",
                   style: TextStyle(
-                    color: Color(0xFFF697C37),
+                    color: Color(0xfff697c37),
                     fontFamily: 'Rowdies',
                     fontSize: 32,
                   ),
