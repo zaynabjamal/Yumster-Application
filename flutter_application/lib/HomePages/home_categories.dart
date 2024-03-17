@@ -18,7 +18,8 @@ class _GridWidgetState extends State<GridWidget> {
     setState(() {
       _selectedIndex = index;
     });
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => screens[index]));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => screens[index]));
   }
 
   List<Widget> screens = [
@@ -30,7 +31,7 @@ class _GridWidgetState extends State<GridWidget> {
 
   @override
   Widget build(BuildContext context) {
-     screens[_selectedIndex];
+    screens[_selectedIndex];
     return Scaffold(
       body: GridView.count(
         crossAxisCount: 2,
@@ -72,10 +73,8 @@ class _GridWidgetState extends State<GridWidget> {
             );
           },
         ),
-        
       ),
-       bottomNavigationBar: BottomNavigationBar( 
-       
+      bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xffFFF5E5),
         currentIndex: _selectedIndex,
         selectedItemColor: const Color(0xffFE9801),
@@ -101,9 +100,8 @@ class _GridWidgetState extends State<GridWidget> {
                   ? const Icon(Icons.person)
                   : const Icon(Icons.person_outline_outlined),
               label: ''),
-        ], 
+        ],
       ),
     );
-    
   }
 }

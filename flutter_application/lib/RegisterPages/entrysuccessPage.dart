@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/HomePages/home_body.dart';
+
 class SuccessPage extends StatefulWidget {
   const SuccessPage({super.key});
 
@@ -8,23 +10,36 @@ class SuccessPage extends StatefulWidget {
 
 class _SuccessPageState extends State<SuccessPage> {
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const HomeBody()));
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment:MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset("assets/entrySuccess.png"),
-           const Text("You're In",style: TextStyle(
-              fontFamily: 'Rowdies',
-              fontSize: 52,
-              color:  Color(0xFFFFE9801)
-            ),),
-           const Text("Get ready to create\n       culinary magic",style: TextStyle(
-              fontFamily: 'Rowdies',
-              fontSize: 32,
-              color: Color(0xFFB0AA86)
-            ),),
+            const Text(
+              "You're In",
+              style: TextStyle(
+                  fontFamily: 'Rowdies',
+                  fontSize: 52,
+                  color: Color(0xFFFFE9801)),
+            ),
+            const Text(
+              "Get ready to create\n       culinary magic",
+              style: TextStyle(
+                  fontFamily: 'Rowdies',
+                  fontSize: 32,
+                  color: Color(0xFFB0AA86)),
+            ),
           ],
         ),
       ),

@@ -3,7 +3,6 @@ import 'package:flutter_application/HomePages/home_body.dart';
 import 'package:flutter_application/profilepage/profilePage.dart';
 import 'package:flutter_application/FavoritePages/savePage.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -59,7 +58,6 @@ class _HomePageState extends State<HomePage> {
               label: ''),
         ],
       ),
-      
     );
   }
 }

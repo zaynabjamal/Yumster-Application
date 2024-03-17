@@ -29,6 +29,7 @@ class _SignInState extends State<SignIn> {
       setState(() {
         _success = true;
         _userEmail = user.email!;
+        _userName = _userNameController.text;
       });
     } else {
       setState(() {

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application/FavoritePages/othersPage.dart';
+import 'package:flutter_application/HomePages/home_body.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_application/RegisterPages/signInpage.dart';
 
@@ -128,7 +128,7 @@ class _LoginState extends State<Login> {
                     try {
                       _signin();
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Others()));
+                          MaterialPageRoute(builder: (context) => HomeBody()));
                     } catch (e) {
                       print("Sign-in error: $e");
                     }

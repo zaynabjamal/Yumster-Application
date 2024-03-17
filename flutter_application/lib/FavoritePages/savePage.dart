@@ -21,7 +21,8 @@ class _SavedPageState extends State<SavedPage> {
     setState(() {
       _selectedIndex = index;
     });
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => screens[index]));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => screens[index]));
   }
 
   List<Widget> screens = [
@@ -33,14 +34,13 @@ class _SavedPageState extends State<SavedPage> {
   Widget build(BuildContext context) {
     screens[_selectedIndex];
     return Scaffold(
-      
       body: Expanded(
         child: Consumer<bookmarkProvider>(
           builder: (context, provider, child) {
             return ListView.builder(
               itemCount: provider.Widget.length,
               itemBuilder: (context, index) {
-              return  Container(
+                return Container(
                   width: 100,
                   height: 130,
                   decoration: const BoxDecoration(
@@ -99,7 +99,7 @@ class _SavedPageState extends State<SavedPage> {
                   //               const Gap(15),
                   //               GestureDetector(
                   //                 onTap: () {
-                                   
+
                   //                 },
                   //                 child: Container(
                   //                   child: foodTypeData[index].bookmark ? const Icon(Icons.bookmark) : const Icon(Icons.bookmark_border),
@@ -113,7 +113,6 @@ class _SavedPageState extends State<SavedPage> {
                   //   ],
                   // ),
                 );
-                
               },
             );
           },
@@ -130,11 +129,21 @@ class _SavedPageState extends State<SavedPage> {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: _selectedIndex == 0 ? const Icon(Icons.bookmark) : const Icon(Icons.bookmark_border),
+            icon: _selectedIndex == 0
+                ? const Icon(Icons.bookmark)
+                : const Icon(Icons.bookmark_border),
             label: '',
           ),
-          BottomNavigationBarItem(icon: _selectedIndex == 1 ? const Icon(Icons.home) : const Icon(Icons.home_outlined), label: ''),
-          BottomNavigationBarItem(icon: _selectedIndex == 2 ? const Icon(Icons.person) : const Icon(Icons.person_outline_outlined), label: ''),
+          BottomNavigationBarItem(
+              icon: _selectedIndex == 1
+                  ? const Icon(Icons.home)
+                  : const Icon(Icons.home_outlined),
+              label: ''),
+          BottomNavigationBarItem(
+              icon: _selectedIndex == 2
+                  ? const Icon(Icons.person)
+                  : const Icon(Icons.person_outline_outlined),
+              label: ''),
         ],
       ),
     );

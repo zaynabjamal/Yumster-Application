@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Catagories/welcome.dart';
 import 'package:flutter_application/RegisterPages/loginPage.dart';
 import 'package:flutter_application/provider/Bookmark.dart';
 import 'package:provider/provider.dart';
