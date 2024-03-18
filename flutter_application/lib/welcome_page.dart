@@ -15,6 +15,7 @@ class _WelcomeState extends State<Welcome> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: const Color(0xffFCFCF8),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -39,7 +40,9 @@ class _WelcomeState extends State<Welcome> {
               ),
               Gap(MediaQuery.sizeOf(context).width * 0.14),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30,),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -78,7 +81,8 @@ class _WelcomeState extends State<Welcome> {
                       ),
                       child: const Text(
                         "Sign Up",
-                        style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 24),
+                        style:
+                            TextStyle(color: Color(0xFFFFFFFF), fontSize: 24),
                       ),
                     ),
                   ],

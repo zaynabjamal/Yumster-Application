@@ -46,6 +46,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: const Color(0xffFCFCF8),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: SizedBox(
@@ -99,7 +100,10 @@ class _SignInState extends State<SignIn> {
                   SizedBox(
                     height: MediaQuery.of(context).size.width * 0.09,
                   ),
-                  const CustomTextField(label: 'Confirm Password', hideText: true,),
+                  const CustomTextField(
+                    label: 'Confirm Password',
+                    hideText: true,
+                  ),
                   SizedBox(
                     height: MediaQuery.of(context).size.width * 0.15,
                   ),

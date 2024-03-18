@@ -58,6 +58,7 @@ class _LoginState extends State<Login> {
         return false;
       },
       child: Scaffold(
+        backgroundColor: const Color(0xffFCFCF8),
         body: SingleChildScrollView(
           child: Center(
             child: Column(
