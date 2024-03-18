@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: const Welcome(),
+        theme: ThemeData(fontFamily: 'Rowdies'),
         routes: {
           '/breakfast': (context) => const Breakfast(),
           '/lunch': (context) => const Lunch(),

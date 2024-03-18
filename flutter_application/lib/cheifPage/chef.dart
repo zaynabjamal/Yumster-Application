@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/cheifPage/foodrecipe.dart';
-
-void main() {
-  runApp(const Chefaccount());
-}
+import 'package:flutter_svg/svg.dart';
 
 class Chef {
   final String name;
@@ -31,63 +28,61 @@ class Chefaccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: FoodGridScreen(
-        chef: Chef(
-          name: 'Chef John',
-          photoAsset: 'assets/chef1.jpg',
-        ),
-        foods: [
-          Food(
-            name: 'Pasta Carbonara',
-            type: 'breakfast',
-            time: '30 mins',
-            imageAsset: 'assets/food2.jpg',
-          ),
-          Food(
-            name: 'Chicken Stir Fry',
-            type: 'lunch',
-            time: '25 mins',
-            imageAsset: 'assets/food1.jpg',
-          ),
-          Food(
-            name: 'Caesar Salad',
-            type: 'luanch',
-            time: '15 mins',
-            imageAsset: 'assets/food3.jpg',
-          ),
-          Food(
-            name: 'Chocolate Cake',
-            type: 'breakfast',
-            time: '40 mins',
-            imageAsset: 'assets/food4.jpg',
-          ),
-          Food(
-            name: 'Chocolate Cake',
-            type: 'lunch',
-            time: '40 mins',
-            imageAsset: 'assets/food1.jpg',
-          ),
-          Food(
-            name: 'Chocolate Cake',
-            type: 'lunch',
-            time: '40 mins',
-            imageAsset: 'assets/food3.jpg',
-          ),
-          Food(
-            name: 'Chocolate Cake',
-            type: 'lunch',
-            time: '40 mins',
-            imageAsset: 'assets/food2.jpg',
-          ),
-          Food(
-            name: 'Chocolate Cake',
-            type: 'lunch',
-            time: '40 mins',
-            imageAsset: 'assets/food4.jpg',
-          ),
-        ],
+    return FoodGridScreen(
+      chef: Chef(
+        name: 'Chef John',
+        photoAsset: 'assets/chef1.jpg',
       ),
+      foods: [
+        Food(
+          name: 'Pasta Carbonara',
+          type: 'breakfast',
+          time: '30 mins',
+          imageAsset: 'assets/food2.jpg',
+        ),
+        Food(
+          name: 'Chicken Stir Fry',
+          type: 'lunch',
+          time: '25 mins',
+          imageAsset: 'assets/food1.jpg',
+        ),
+        Food(
+          name: 'Caesar Salad',
+          type: 'luanch',
+          time: '15 mins',
+          imageAsset: 'assets/food3.jpg',
+        ),
+        Food(
+          name: 'Chocolate Cake',
+          type: 'breakfast',
+          time: '40 mins',
+          imageAsset: 'assets/food4.jpg',
+        ),
+        Food(
+          name: 'Chocolate Cake',
+          type: 'lunch',
+          time: '40 mins',
+          imageAsset: 'assets/food1.jpg',
+        ),
+        Food(
+          name: 'Chocolate Cake',
+          type: 'lunch',
+          time: '40 mins',
+          imageAsset: 'assets/food3.jpg',
+        ),
+        Food(
+          name: 'Chocolate Cake',
+          type: 'lunch',
+          time: '40 mins',
+          imageAsset: 'assets/food2.jpg',
+        ),
+        Food(
+          name: 'Chocolate Cake',
+          type: 'lunch',
+          time: '40 mins',
+          imageAsset: 'assets/food4.jpg',
+        ),
+      ],
     );
   }
 }
@@ -101,21 +96,14 @@ class FoodGridScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffFCFCF8),
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Color.fromRGBO(254, 152, 1, 1.0),
-          ),
-          onPressed: () {
-            // Use Navigator to navigate to the recipe screen
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => FoodRecipe(),
-              ),
-            );
-          },
-        ),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const FoodRecipe()));
+            },
+            icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
