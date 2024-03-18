@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
-import 'foodrecipe.dart';
+import 'package:flutter_application/cheifPage/foodrecipe.dart';
 
 void main() {
-  runApp(chefaccount());
+  runApp(const Chefaccount());
 }
 
 class Chef {
@@ -27,7 +26,9 @@ class Food {
   });
 }
 
-class chefaccount extends StatelessWidget {
+class Chefaccount extends StatelessWidget {
+  const Chefaccount({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -95,7 +96,7 @@ class FoodGridScreen extends StatelessWidget {
   final Chef chef;
   final List<Food> foods;
 
-  FoodGridScreen({required this.chef, required this.foods});
+  const FoodGridScreen({super.key, required this.chef, required this.foods});
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +124,7 @@ class FoodGridScreen extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
-                color: Color.fromRGBO(254, 152, 1, 1.0),
+                color: const Color.fromRGBO(254, 152, 1, 1.0),
                 width: 3.0,
               ),
             ),
@@ -167,12 +168,12 @@ class FoodGridScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                          const  Padding(
+                            const Padding(
                                 padding: EdgeInsets.only(top: 50, left: 15)),
                             Container(
                               width: 90,
                               height: 35,
-                              decoration:const BoxDecoration(
+                              decoration: const BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12.0)),
                                 color: Color.fromRGBO(105, 124, 55, 1.0),
@@ -202,7 +203,7 @@ class FoodGridScreen extends StatelessWidget {
                         Container(
                           height: 35,
                           decoration: BoxDecoration(
-                            borderRadius:const BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(15.0),
                               bottomRight: Radius.circular(15.0),
                             ),

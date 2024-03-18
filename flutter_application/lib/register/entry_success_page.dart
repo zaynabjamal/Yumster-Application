@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/HomePages/home_body.dart';
+import 'package:flutter_application/home/home_body.dart';
 
 class SuccessPage extends StatefulWidget {
   const SuccessPage({super.key});

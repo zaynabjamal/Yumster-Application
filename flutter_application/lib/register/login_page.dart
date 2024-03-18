@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application/HomePages/home_body.dart';
+import 'package:flutter_application/home/home_screen.dart';
 import 'package:gap/gap.dart';
-import 'package:flutter_application/RegisterPages/signInpage.dart';
+import 'package:flutter_application/register/sign_up_page.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -16,7 +16,9 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  // ignore: unused_field
   int _success = 1;
+  // ignore: unused_field
   String _userEmail = " ";
 
   void _signin() async {
@@ -48,6 +50,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: deprecated_member_use
     return WillPopScope(
       onWillPop: () async {
         Navigator.pop(context);
@@ -62,7 +65,7 @@ class _LoginState extends State<Login> {
                 const Text(
                   "Login here",
                   style: TextStyle(
-                    color: Color(0xfff697c37),
+                    color: Color(0xff697c37),
                     fontFamily: 'Rowdies',
                     fontSize: 32,
                   ),
@@ -120,15 +123,17 @@ class _LoginState extends State<Login> {
                 const Gap(50),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFFE9801),
-                      minimumSize: Size(357, 55),
+                      backgroundColor: const Color(0xFFFE9801),
+                      minimumSize: const Size(357, 55),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10))),
                   onPressed: () async {
                     try {
                       _signin();
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomeBody()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()));
                     } catch (e) {
                       print("Sign-in error: $e");
                     }
@@ -151,8 +156,10 @@ class _LoginState extends State<Login> {
                         fontFamily: 'Rowdies'),
                   ),
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SignIn()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignIn()));
                   },
                 )
               ],

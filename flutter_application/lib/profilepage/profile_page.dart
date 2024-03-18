@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Catagories/welcome.dart';
-import 'package:flutter_application/FavoritePages/savePage.dart';
-import 'package:flutter_application/HomePages/home_body.dart';
+import 'package:flutter_application/favorite/save_page.dart';
+import 'package:flutter_application/home/home_body.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:image_picker/image_picker.dart';
@@ -328,34 +328,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xffFFF5E5),
-        currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xffFE9801),
-        unselectedItemColor: const Color(0xffB0AA86),
-        selectedIconTheme: const IconThemeData(size: 45, fill: 0.0),
-        iconSize: 40,
-        onTap: _navigateBottomBar,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: _selectedIndex == 0
-                ? const Icon(Icons.bookmark)
-                : const Icon(Icons.bookmark_border),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-              icon: _selectedIndex == 1
-                  ? const Icon(Icons.home)
-                  : const Icon(Icons.home_outlined),
-              label: ''),
-          BottomNavigationBarItem(
-              icon: _selectedIndex == 2
-                  ? const Icon(Icons.person)
-                  : const Icon(Icons.person_outline_outlined),
-              label: ''),
-        ],
-      ),
+    
     );
   }
 }

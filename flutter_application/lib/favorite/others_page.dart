@@ -1,11 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_application/FavoritePages/savePage.dart';
 import 'package:flutter_application/data/food_type_data.dart';
-import 'package:flutter_application/model/food_type.dart';
-import 'package:flutter_application/provider/Bookmark.dart';
+import 'package:flutter_application/home/home_screen.dart';
+import 'package:flutter_application/modules/food_type.dart';
+import 'package:flutter_application/provider/bookmark.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
@@ -20,8 +17,7 @@ class Others extends StatefulWidget {
 class _OthersState extends State<Others> {
   @override
   Widget build(BuildContext context) {
-    bool _isBookmark = false;
-  final provider = Provider.of<bookmarkProvider>(context,listen: true); //contexte buildContext
+  final provider = Provider.of<BookmarkProvider>(context,listen: true); //contexte buildContext
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -29,7 +25,7 @@ class _OthersState extends State<Others> {
            Row(
             children: [
                 IconButton(onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder:(context) => SavedPage()));
+                  Navigator.push(context, MaterialPageRoute(builder:(context) => const HomePage()));
                 }, icon: SvgPicture.asset("assets/arrowBack.svg")),
               const Gap(150),
             const  Text(

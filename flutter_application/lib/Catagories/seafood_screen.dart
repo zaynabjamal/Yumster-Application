@@ -14,7 +14,7 @@ class _SeaState extends State<Sea> {
       appBar: AppBar(
         backgroundColor: const Color(0xffFE9801),
       ),
-      body: Center(
+      body:const Center(
         child: Text('HI'),
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:flutter_application/model/food_type.dart';
+import 'package:flutter_application/modules/food_type.dart';
 
 List<FoodTypeModel> foodTypeData = [
   FoodTypeModel(id:0, image: "assets/Burger.png", title: "Burger", time: "30", bookmark: false,),

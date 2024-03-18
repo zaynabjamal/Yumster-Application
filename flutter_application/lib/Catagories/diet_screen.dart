@@ -14,7 +14,7 @@ class _DietState extends State<Diet> {
       appBar: AppBar(
         backgroundColor: const Color(0xffFE9801),
       ),
-      body: Center(
+      body: const Center(
         child: Text('HI'),
       ),
     );

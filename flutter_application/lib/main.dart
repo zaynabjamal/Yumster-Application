@@ -1,13 +1,17 @@
-import 'dart:math';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application/Catagories/welcome.dart';
-import 'package:flutter_application/RegisterPages/loginPage.dart';
-import 'package:flutter_application/provider/Bookmark.dart';
+import 'package:flutter_application/provider/bookmark.dart';
+import 'package:flutter_application/welcome_page.dart';
+import 'package:flutter_application/favorite/others_page.dart';
+import 'package:flutter_application/catagories/breakfast_screen.dart';
+import 'package:flutter_application/catagories/diet_screen.dart';
+import 'package:flutter_application/catagories/lunch_screen.dart';
+import 'package:flutter_application/catagories/seafood_screen.dart';
+import 'package:flutter_application/catagories/vegan_screen.dart';
 import 'package:provider/provider.dart';
 
+// ignore: unused_element
 final FirebaseAuth _auth = FirebaseAuth.instance;
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,10 +34,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => bookmarkProvider(),
-      child: const MaterialApp(
+      create: (context) => BookmarkProvider(),
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Login(),
+        home: const Welcome(),
+        routes: {
+          '/breakfast': (context) => const Breakfast(),
+          '/lunch': (context) => const Lunch(),
+          '/diet': (context) => const Diet(),
+          '/vegan': (context) => const Vegan(),
+          '/sea': (context) => const Sea(),
+          '/others': (context) => const Others(),
+        },
       ),
     );
   }

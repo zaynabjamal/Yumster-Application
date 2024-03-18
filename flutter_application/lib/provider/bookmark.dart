@@ -1,26 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/model/food_type.dart';
+import 'package:flutter_application/modules/food_type.dart';
 
-class bookmarkProvider extends ChangeNotifier{
+class BookmarkProvider extends ChangeNotifier {
+  final List<FoodTypeModel> _widget = [];
+  List<FoodTypeModel> get widget => _widget;
 
-final List<FoodTypeModel> _widget=[];
-List<FoodTypeModel> get Widget => _widget;
+  void addItems(FoodTypeModel items) {
+    _widget.add(items);
+    notifyListeners();
+  }
 
-void addItems(FoodTypeModel items){
-  _widget.add(items);
-  notifyListeners();
-}
-
-void removeItem(FoodTypeModel items){
-  _widget.remove(items);
-  notifyListeners();
-}
-
-
-
-
-
-
-
-
+  void removeItem(FoodTypeModel items) {
+    _widget.remove(items);
+    notifyListeners();
+  }
 }
