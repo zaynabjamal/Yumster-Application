@@ -10,10 +10,10 @@ class SavedPage extends StatefulWidget {
 }
 
 class _SavedPageState extends State<SavedPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffFCFCF8),
       body: Expanded(
         child: Consumer<BookmarkProvider>(
           builder: (context, provider, child) {
@@ -21,7 +21,6 @@ class _SavedPageState extends State<SavedPage> {
               itemCount: provider.widget.length,
               itemBuilder: (context, index) {
                 return Container(
-                
                   decoration: const BoxDecoration(
                     color: Color(0xFFFFF4E5),
                     borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -97,7 +96,6 @@ class _SavedPageState extends State<SavedPage> {
           },
         ),
       ),
-      
     );
   }
 }

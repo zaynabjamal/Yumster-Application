@@ -78,6 +78,7 @@ class _SignInState extends State<SignIn> {
                   CustomTextField(
                     label: 'Username',
                     controller: _userNameController,
+                    hideText: false,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.width * 0.09,
@@ -85,6 +86,7 @@ class _SignInState extends State<SignIn> {
                   CustomTextField(
                     label: 'Email',
                     controller: _emailController,
+                    hideText: false,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.width * 0.09,
@@ -92,11 +94,12 @@ class _SignInState extends State<SignIn> {
                   CustomTextField(
                     label: 'Password',
                     controller: _passwordController,
+                    hideText: true,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.width * 0.09,
                   ),
-                  const CustomTextField(label: 'Confirm Password'),
+                  const CustomTextField(label: 'Confirm Password', hideText: true,),
                   SizedBox(
                     height: MediaQuery.of(context).size.width * 0.15,
                   ),
