@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/home/home_body.dart';
+import 'package:flutter_application/home/home_screen.dart';
 
 class SuccessPage extends StatefulWidget {
   const SuccessPage({super.key});
@@ -12,9 +12,9 @@ class _SuccessPageState extends State<SuccessPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const HomeBody()));
+          context, MaterialPageRoute(builder: (context) => const HomePage()));
     });
   }
 
@@ -31,10 +31,11 @@ class _SuccessPageState extends State<SuccessPage> {
               style: TextStyle(
                   fontFamily: 'Rowdies',
                   fontSize: 52,
-                  color: Color(0xFFFFE9801)),
+                  color: Color(0xFFFE9801)),
             ),
             const Text(
-              "Get ready to create\n       culinary magic",
+              "Get ready to recreate\nthe best Recipies! ",
+              textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: 'Rowdies',
                   fontSize: 32,

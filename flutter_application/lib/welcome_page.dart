@@ -58,7 +58,7 @@ class _WelcomeState extends State<Welcome> {
                           ),
                         ),
                         child: const Text(
-                          "Login",
+                          "Sign In",
                           style:
                               TextStyle(color: Color(0xFFFFFFFF), fontSize: 24),
                         )),

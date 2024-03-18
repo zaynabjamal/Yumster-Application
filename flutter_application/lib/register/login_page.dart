@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application/custom%20classes/text_field.dart';
 import 'package:flutter_application/home/home_screen.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_application/register/sign_up_page.dart';
@@ -79,48 +80,20 @@ class _LoginState extends State<Login> {
                       color: Color(0xFFB0AA86)),
                 ),
                 const Gap(50),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: TextField(
-                    controller: _emailController,
-                    decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color(0xFFFFF4E5),
-                        hintText: "Username / Email",
-                        hintStyle: const TextStyle(
-                          color: Color(0xFFB0AA86),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w300,
-                          fontFamily: 'Rowdies',
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(10),
-                        )),
-                  ),
+                CustomTextField(
+                  label: 'Username / Email',
+                  controller: _emailController,
                 ),
-                const Gap(30),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: TextField(
-                    controller: _passwordController,
-                    decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color(0xFFFFF4E5),
-                        hintText: "Password",
-                        hintStyle: const TextStyle(
-                          color: Color(0xFFB0AA86),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w300,
-                          fontFamily: 'Rowdies',
-                        ),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(10))),
-                    obscureText: true,
-                  ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width * 0.09,
                 ),
-                const Gap(50),
+                CustomTextField(
+                  label: 'Password',
+                  controller: _passwordController,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width * 0.15,
+                ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFFE9801),
@@ -139,14 +112,16 @@ class _LoginState extends State<Login> {
                     }
                   },
                   child: const Text(
-                    "Sign in",
+                    "Sign In",
                     style: TextStyle(
                         fontFamily: 'Rowdies',
                         color: Color(0xFFFFFFFF),
                         fontSize: 24),
                   ),
                 ),
-                const Gap(20),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width * 0.08,
+                ),
                 GestureDetector(
                   child: const Text(
                     "Create new account",

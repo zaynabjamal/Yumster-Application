@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/custom%20classes/text_field.dart';
-import 'package:flutter_application/home/home_screen.dart';
-//import 'package:flutter_application/register/entry_success_page.dart';   //i will create a dialog instead
+import 'package:flutter_application/register/entry_success_page.dart';
 import 'package:flutter_application/register/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -118,7 +117,7 @@ class _SignInState extends State<SignIn> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomePage()));
+                              builder: (context) => const SuccessPage()));
                     },
                     child: const Text(
                       "Sign Up",
