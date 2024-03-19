@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/custom%20classes/text_field.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_application/register/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
+final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -19,26 +22,84 @@ class _SignInState extends State<SignIn> {
   final TextEditingController _passwordController = TextEditingController();
   // ignore: unused_field
   final TextEditingController _userNameController = TextEditingController();
+  final TextEditingController _userConfirmPassword = TextEditingController();
   // ignore: unused_field
   late bool _success;
   // ignore: unused_field
   late String _userEmail;
   // ignore: unused_field
   late String _userName;
+  // register
   void _register() async {
-    final User? user = (await _auth.createUserWithEmailAndPassword(
-            email: _emailController.text, password: _passwordController.text))
-        .user;
+    if (_passwordController.text != _userConfirmPassword.text) {
+      showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+                title: Text("The password doesn't match"),
+              ));
+      return;
+    }
+    //try creating user
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: _emailController.text, password: _passwordController.text);
+      FirebaseFirestore.instance
+          .collection("usersInfo")
+          .doc(userCredential.user!.email!)
+          .set({
+        'Username': _userNameController.text,
+        'Email': _emailController.text,
+        'Password': _passwordController.text,
+        'ConfirmPassword': _userConfirmPassword.text
+      });
+    } on FirebaseAuthException catch (e) {
+      displayMessage(e.code);
+    }
+  }
 
-    if (user != null) {
-      setState(() {
-        _success = true;
-        _userEmail = user.email!;
-      });
-    } else {
-      setState(() {
-        _success = false;
-      });
+  void displayMessage(String message) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text(message),
+            ));
+  }
+  // void _register() async {
+  //   final User? user = (await _auth.createUserWithEmailAndPassword(
+  //           email: _emailController.text, password: _passwordController.text))
+  //       .user;
+
+  //   if (user != null) {
+  //     setState(() {
+  //       _success = true;
+  //       _userEmail = user.email!;
+  //     });
+  //     await fetchUserData();
+  //   } else {
+  //     setState(() {
+  //       _success = false;
+  //     });
+  //   }
+  // }
+
+  Future<void> fetchUserData() async {
+    final currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser != null) {
+      String email = _emailController.text;
+      final snapshot = await FirebaseFirestore.instance
+          .collection("usersInfo")
+          .where("Email", isEqualTo: email)
+          .get();
+      if (snapshot.docs.isNotEmpty) {
+        final userData = snapshot.docs.first.data();
+        final String username = userData["Username"];
+        final String email = userData["Email"];
+        setState(() {
+          _userName = username;
+          _userEmail = email;
+        });
+      }
     }
   }
 
@@ -46,7 +107,6 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xffFCFCF8),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: SizedBox(
@@ -79,7 +139,7 @@ class _SignInState extends State<SignIn> {
                   CustomTextField(
                     label: 'Username',
                     controller: _userNameController,
-                    hideText: false,
+                    hideText: true,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.width * 0.09,
@@ -87,7 +147,7 @@ class _SignInState extends State<SignIn> {
                   CustomTextField(
                     label: 'Email',
                     controller: _emailController,
-                    hideText: false,
+                    hideText: true,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.width * 0.09,
@@ -100,8 +160,9 @@ class _SignInState extends State<SignIn> {
                   SizedBox(
                     height: MediaQuery.of(context).size.width * 0.09,
                   ),
-                  const CustomTextField(
+                  CustomTextField(
                     label: 'Confirm Password',
+                    controller: _userConfirmPassword,
                     hideText: true,
                   ),
                   SizedBox(
@@ -115,12 +176,14 @@ class _SignInState extends State<SignIn> {
                             borderRadius: BorderRadius.circular(10))),
                     onPressed: () {
                       _register();
-                      CollectionReference collRef =
-                          FirebaseFirestore.instance.collection('users');
-                      collRef.add({
-                        'Username': _userNameController.text,
-                        'Email': _emailController.text
-                      });
+                      // CollectionReference collRef =
+                      //     FirebaseFirestore.instance.collection('usersInfo');
+                      // collRef.add({
+                      //   'Username': _userNameController.text,
+                      //   'Email': _emailController.text,
+                      //   'Password': _passwordController.text,
+                      //   'ConfirmPassword': _userConfirmPassword.text
+                      // });
                       Navigator.push(
                           context,
                           MaterialPageRoute(

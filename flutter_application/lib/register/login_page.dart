@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/custom%20classes/text_field.dart';
 import 'package:flutter_application/home/home_screen.dart';
+import 'package:flutter_application/profilepage/profile_page.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_application/register/sign_up_page.dart';
 
@@ -15,39 +17,77 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _emailOrUsernameController =
+      TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   // ignore: unused_field
-  int _success = 1;
+  final int _success = 1;
   // ignore: unused_field
-  String _userEmail = " ";
-
+  final String _userEmail = " ";
+// sing user in
   void _signin() async {
     try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      );
-
-      User? user = userCredential.user;
-
-      if (user != null) {
-        setState(() {
-          _success = 2;
-          _userEmail = user.email!;
-        });
-      } else {
-        setState(() {
-          _success = 3;
-        });
-      }
-    } catch (e) {
-      print("Error signing in: $e");
-      setState(() {
-        _success = 3;
-      });
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _emailOrUsernameController.text,
+          password: _passwordController.text);
+    } on FirebaseAuthException catch (e) {
+      displayMessage(e.code);
     }
   }
+
+  //display a dialog message
+  void displayMessage(String message) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text(message),
+            ));
+  }
+  // void _signin(BuildContext context) async {
+  //   try {
+  //     String identifier = _emailOrUsernameController.text;
+  //     String password = _passwordController.text;
+
+  //     bool isEmail = identifier.contains("@gmail.com");
+  //     UserCredential userCredential;
+
+  //     if (isEmail) {
+  //       userCredential = await _auth.signInWithEmailAndPassword(
+  //         email: identifier,
+  //         password: password,
+  //       );
+  //     } else {
+  //       userCredential = await _auth.signInWithEmailAndPassword(
+  //         email: identifier, // Use the username directly as the email
+  //         password: password,
+  //       );
+  //     }
+
+  //     User? user = userCredential.user;
+
+  //     if (user != null) {
+  //       Navigator.pushReplacement(
+  //         context,
+  //         MaterialPageRoute(
+  //           builder: (context) => ProfilePage(userEmailOrUsername: user.email!),
+  //         ),
+  //       );
+  //       setState(() {
+  //         _success = 2;
+  //         _userEmail = user.email!;
+  //       });
+  //     } else {
+  //       setState(() {
+  //         _success = 3;
+  //       });
+  //     }
+  //   } catch (e) {
+  //     print("Error signing in: $e");
+  //     setState(() {
+  //       _success = 3;
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +98,6 @@ class _LoginState extends State<Login> {
         return false;
       },
       child: Scaffold(
-        backgroundColor: const Color(0xffFCFCF8),
         body: SingleChildScrollView(
           child: Center(
             child: Column(
@@ -83,8 +122,8 @@ class _LoginState extends State<Login> {
                 const Gap(50),
                 CustomTextField(
                   label: 'Username / Email',
-                  controller: _emailController,
-                  hideText: false,
+                  controller: _emailOrUsernameController,
+                  hideText: true,
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width * 0.09,
