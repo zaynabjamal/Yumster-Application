@@ -30,18 +30,24 @@ class _ProfilePageState extends State<ProfilePage> {
     await showDialog(
         context: context,
         builder: (context) => AlertDialog(
+              backgroundColor: const Color(0xffFCFCF8),
+              surfaceTintColor: const Color(0xffFCFCF8),
               title: Text(
-                "Edit" + edit,
+                "Edit $edit",
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: Color(0xffFE9801),
                 ),
               ),
               content: TextField(
                 autofocus: true,
+                cursorColor: const Color(0xff697C37),
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: "Enter new $edit",
-                  hintStyle: const TextStyle(color: Colors.grey),
+                  hintStyle: const TextStyle(color: Color(0xffB0AA86)),
+                  focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xff697C37)),
+                  ),
                 ),
                 onChanged: (value) {
                   newValue = value;
@@ -51,14 +57,14 @@ class _ProfilePageState extends State<ProfilePage> {
                 TextButton(
                     onPressed: () => Navigator.pop(context),
                     child: const Text(
-                      "cancle",
-                      style: TextStyle(color: Colors.white),
+                      "Cancel",
+                      style: TextStyle(color: Color(0xff697C37)),
                     )),
                 TextButton(
                     onPressed: () => Navigator.of(context).pop(newValue),
                     child: const Text(
                       "Save",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Color(0xff697C37)),
                     ))
               ],
             ));
@@ -129,7 +135,6 @@ class _ProfilePageState extends State<ProfilePage> {
               final userData = snapshot.data!.data() as Map<String, dynamic>;
               return SingleChildScrollView(
                 child: Column(
-
                   children: [
                     const Gap(42),
                     Padding(
@@ -322,8 +327,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  const AboutUs()),
+                              builder: (context) => const AboutUs()),
                         );
                       },
                       child: Container(
@@ -364,8 +368,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => const Help()),
+                          MaterialPageRoute(builder: (context) => const Help()),
                         );
                       },
                       child: Container(
