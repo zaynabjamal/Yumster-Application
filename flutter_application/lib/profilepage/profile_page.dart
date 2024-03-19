@@ -134,14 +134,15 @@ class _ProfilePageState extends State<ProfilePage> {
             if (snapshot.hasData) {
               final userData = snapshot.data!.data() as Map<String, dynamic>;
               return Scaffold(
+                backgroundColor: const Color(0xffFCFCF8),
                 body: SingleChildScrollView(
                   child: Column(
                     children: [
-                      const Gap(42),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            vertical: MediaQuery.sizeOf(context).height * 0.01,
-                            horizontal: MediaQuery.sizeOf(context).width * 0.05),
+                            vertical: MediaQuery.sizeOf(context).height * 0.02,
+                            horizontal:
+                                MediaQuery.sizeOf(context).width * 0.05),
                         child: Row(
                           children: [
                             Stack(
@@ -150,7 +151,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                   onTap: _pickImageFromGallery,
                                   child: selectedImage != null
                                       ? ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Image.file(
                                             selectedImage!,
                                             fit: BoxFit.cover,
@@ -187,7 +189,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   fontFamily: 'Rowdies',
                                   fontSize: 24),
                             ),
-                            Gap(MediaQuery.sizeOf(context).width * 0.18),
+                            const Spacer(),
                             IconButton(
                               onPressed: () => editUserName("Username"),
                               icon: const Icon(
@@ -369,7 +371,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Help()),
+                            MaterialPageRoute(
+                                builder: (context) => const Help()),
                           );
                         },
                         child: Container(
