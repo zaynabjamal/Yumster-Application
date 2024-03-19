@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/cheifPage/foodrecipe.dart';
 import 'package:flutter_application/data/food_type_data.dart';
 import 'package:flutter_application/favorite/empty_save_page.dart';
 import 'package:flutter_application/provider/bookmark.dart';
@@ -57,80 +58,128 @@ class _SavedPageState extends State<SavedPage> {
                 if (provider.widget.isEmpty) {
                   return const EmptySave();
                 } else {
-                  return GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisExtent: 130,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 0,
-                    ),
-                    itemCount: provider.widget.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: GridTile(
-                          header: GridTileBar(
-                            leading: Container(
-                              width: 50,
-                              height: 12,
-                              decoration: const BoxDecoration(
-                                color: Color(0xFF697C37),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(4)),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 3),
-                                child: Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.access_time,
-                                      color: Color(0xFFFFF4E5),
-                                      size: 9,
-                                    ),
-                                    const Gap(5),
-                                    Text(
-                                      '${provider.widget[index].time}sec',
-                                      style: const TextStyle(
-                                        fontSize: 8,
-                                        color: Color(0xFFFFF4E5),
-                                      ),
-                                    ),
-                                  ],
+                  return GridView.count(
+                    crossAxisCount: 2,
+                    children: List.generate(
+                      provider.widget.length,
+                      (index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 8),
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4),
+                              border: Border.all(
+                                  color: Colors.black.withOpacity(0.2)),
+                              color: const Color(0xffFFF4E5),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  blurRadius: 1,
                                 ),
-                              ),
+                              ],
                             ),
-                          ),
-                          footer: GridTileBar(
-                            backgroundColor: const Color(0xFFFFF4E5),
-                            leading: Row(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Text(
-                                  foodTypeData[index].title,
-                                  style: const TextStyle(
-                                    color: Color(0xFF697C37),
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w300,
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const FoodRecipe()),
+                                    );
+                                  },
+                                  child: Stack(
+                                    children: [
+                                      SizedBox(
+                                        height: 140,
+                                        width: 200,
+                                        child: ClipRRect(
+                                          borderRadius: const BorderRadius.only(
+                                              topLeft: Radius.circular(4),
+                                              topRight: Radius.circular(4)),
+                                          child: Image.asset(
+                                            foodTypeData[index].image,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        top: 8,
+                                        left: 4,
+                                        child: Container(
+                                          width: 50,
+                                          height: 12,
+                                          decoration: const BoxDecoration(
+                                            color: Color(0xFF697C37),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(4)),
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 3),
+                                            child: Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.access_time,
+                                                  color: Color(0xFFFFF4E5),
+                                                  size: 9,
+                                                ),
+                                                const Gap(4),
+                                                Text(
+                                                  '${provider.widget[index].time}min',
+                                                  style: const TextStyle(
+                                                    fontSize: 8,
+                                                    color: Color(0xFFFFF4E5),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Container(
-                                    child: foodTypeData[index].bookmark
-                                        ? const Icon(Icons.bookmark, color: Color(0xffFE9801),)
-                                        : const Icon(Icons.bookmark_border,color: Color(0xffFE9801),),
+                                Padding(
+                                  padding: const EdgeInsets.all(6.0),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        foodTypeData[index].title,
+                                        style: const TextStyle(
+                                          color: Color(0xFF697C37),
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: Container(
+                                          child: foodTypeData[index].bookmark
+                                              ? const Icon(
+                                                  Icons.bookmark,
+                                                  color: Color(0xFFFE9801),
+                                                )
+                                              : const Icon(
+                                                  Icons.bookmark_border,
+                                                  color: Color(0xFFFE9801),
+                                                ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ),
-                          child: Image.asset(
-                            foodTypeData[index].image,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   );
                 }
               },
