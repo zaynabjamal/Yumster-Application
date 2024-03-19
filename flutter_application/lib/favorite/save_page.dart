@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/data/food_type_data.dart';
 import 'package:flutter_application/favorite/empty_save_page.dart';
 import 'package:flutter_application/provider/bookmark.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
 
 class SavedPage extends StatefulWidget {
@@ -46,86 +48,90 @@ class _SavedPageState extends State<SavedPage> {
               ),
             ],
           ),
-          SizedBox(height: MediaQuery.of(context).size.width * 0.2,),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.1,
+          ),
           Expanded(
             child: Consumer<BookmarkProvider>(
               builder: (context, provider, child) {
                 if (provider.widget.isEmpty) {
                   return const EmptySave();
                 } else {
-                  return ListView.builder(
+                  return GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisExtent: 130,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 0,
+                    ),
                     itemCount: provider.widget.length,
                     itemBuilder: (context, index) {
-                      return Container(
-                        decoration: const BoxDecoration(
-                          color: Color(0xFFFFF4E5),
-                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: GridTile(
+                          header: GridTileBar(
+                            leading: Container(
+                              width: 50,
+                              height: 12,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFF697C37),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(4)),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 3),
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.access_time,
+                                      color: Color(0xFFFFF4E5),
+                                      size: 9,
+                                    ),
+                                    const Gap(5),
+                                    Text(
+                                      '${provider.widget[index].time}sec',
+                                      style: const TextStyle(
+                                        fontSize: 8,
+                                        color: Color(0xFFFFF4E5),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          footer: GridTileBar(
+                            backgroundColor: const Color(0xFFFFF4E5),
+                            leading: Row(
+                              children: [
+                                Text(
+                                  foodTypeData[index].title,
+                                  style: const TextStyle(
+                                    color: Color(0xFF697C37),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                                Container(
+                                  child: foodTypeData[index].bookmark
+                                      ? const Icon(
+                                          Icons.bookmark,
+                                          color: Color(0xffFE9801),
+                                        )
+                                      : const Icon(
+                                          Icons.bookmark_border,
+                                          color: Color(0xffFE9801),
+                                        ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          child: Image.asset(
+                            foodTypeData[index].image,
+                            fit: BoxFit.fill,
+                          ),
                         ),
-                        child: Text(provider.widget[index].title),
-                        // child: Stack(
-                        //   children: [
-                        //     Text(provider.Widget[index].title),
-                        //     Column(
-                        //       children: [
-                        //         Padding(
-                        //           padding: const EdgeInsets.only(right: 95, top: 3),
-                        //           child: Container(
-                        //             width: 50,
-                        //             height: 12,
-                        //             decoration: const BoxDecoration(
-                        //               color: Color(0xFF697C37),
-                        //               borderRadius: BorderRadius.all(Radius.circular(4)),
-                        //             ),
-                        //             child: Padding(
-                        //               padding: const EdgeInsets.only(left: 6),
-                        //               child: Row(
-                        //                 children: [
-                        //                   const Icon(
-                        //                     Icons.access_time,
-                        //                     color: Color(0xFFFFF4E5),
-                        //                     size: 9,
-                        //                   ),
-                        //                   const Gap(5),
-                        //                   Text(
-                        //                     '${provider.Widget[index].time}sec',
-                        //                     style: const TextStyle(fontSize: 8, color: Color(0xFFFFF4E5)),
-                        //                   ),
-                        //                 ],
-                        //               ),
-                        //             ),
-                        //           ),
-                        //         ),
-                        //         const Gap(85),
-                        //         GridTileBar(
-                        //           leading: Row(
-                        //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //             children: [
-                        //               const Gap(5),
-                        //               Text(
-                        //                 foodTypeData[index].title,
-                        //                 style: const TextStyle(
-                        //                   color: Color(0xFF697C37),
-                        //                   fontFamily: 'Rowdies',
-                        //                   fontSize: 15,
-                        //                   fontWeight: FontWeight.w300,
-                        //                 ),
-                        //               ),
-                        //               const Gap(15),
-                        //               GestureDetector(
-                        //                 onTap: () {
-
-                        //                 },
-                        //                 child: Container(
-                        //                   child: foodTypeData[index].bookmark ? const Icon(Icons.bookmark) : const Icon(Icons.bookmark_border),
-                        //                 ),
-                        //               )
-                        //             ],
-                        //           ),
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ],
-                        // ),
                       );
                     },
                   );
@@ -138,3 +144,79 @@ class _SavedPageState extends State<SavedPage> {
     );
   }
 }
+
+                  // ListView.builder(
+                  //   itemCount: provider.widget.length,
+                  //   itemBuilder: (context, index) {
+                  //     return  Stack(
+                  //         children: [
+                  //           Column(
+                  //             children: [
+                  //               Padding(
+                  //                 padding:
+                  //                     const EdgeInsets.only(right: 95, top: 3),
+                  //                 child: Container(
+                  //                   width: 50,
+                  //                   height: 12,
+                  //                   decoration: const BoxDecoration(
+                  //                     color: Color(0xFF697C37),
+                  //                     borderRadius:
+                  //                         BorderRadius.all(Radius.circular(4)),
+                  //                   ),
+                  //                   child: Padding(
+                  //                     padding: const EdgeInsets.only(left: 6),
+                  //                     child: Row(
+                  //                       children: [
+                  //                         const Icon(
+                  //                           Icons.access_time,
+                  //                           color: Color(0xFFFFF4E5),
+                  //                           size: 9,
+                  //                         ),
+                  //                         const Gap(5),
+                  //                         Text(
+                  //                           '${provider.widget[index].time}sec',
+                  //                           style: const TextStyle(
+                  //                               fontSize: 8,
+                  //                               color: Color(0xFFFFF4E5)),
+                  //                         ),
+                  //                       ],
+                  //                     ),
+                  //                   ),
+                  //                 ),
+                  //               ),
+                  //               const Gap(85),
+                  //               GridTileBar(
+                  //                 leading: Row(
+                  //                   mainAxisAlignment:
+                  //                       MainAxisAlignment.spaceBetween,
+                  //                   children: [
+                  //                     const Gap(5),
+                  //                     Text(
+                  //                       foodTypeData[index].title,
+                  //                       style: const TextStyle(
+                  //                         color: Color(0xFF697C37),
+                  //                         fontFamily: 'Rowdies',
+                  //                         fontSize: 15,
+                  //                         fontWeight: FontWeight.w300,
+                  //                       ),
+                  //                     ),
+                  //                     const Gap(15),
+                  //                     GestureDetector(
+                  //                       onTap: () {},
+                  //                       child: Container(
+                  //                         child: foodTypeData[index].bookmark
+                  //                             ? const Icon(Icons.bookmark)
+                  //                             : const Icon(
+                  //                                 Icons.bookmark_border),
+                  //                       ),
+                  //                     )
+                  //                   ],
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ],
+                  //       )
+                  //     ;
+                  //   },
+                  // );
