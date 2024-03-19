@@ -41,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
               content: TextField(
                 autofocus: true,
                 cursorColor: const Color(0xff697C37),
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: Color(0xff697C37)),
                 decoration: InputDecoration(
                   hintText: "Enter new $edit",
                   hintStyle: const TextStyle(color: Color(0xffB0AA86)),
