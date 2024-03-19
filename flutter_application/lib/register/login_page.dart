@@ -123,7 +123,7 @@ class _LoginState extends State<Login> {
                 CustomTextField(
                   label: 'Username / Email',
                   controller: _emailOrUsernameController,
-                  hideText: true,
+                  hideText: false,
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width * 0.09,
