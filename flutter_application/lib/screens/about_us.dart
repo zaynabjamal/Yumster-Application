@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/custom%20classes/about_us_text.dart';
-import 'package:flutter_application/profilepage/profile_page.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
@@ -14,10 +13,7 @@ class AboutUs extends StatelessWidget {
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ProfilePage()));
+                 Navigator.pop(context);
               },
               icon: SvgPicture.asset("assets/arrowBack.svg")),
           centerTitle: true,

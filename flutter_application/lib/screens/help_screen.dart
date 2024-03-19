@@ -1,7 +1,6 @@
 //TODO Zaynab
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application/profilepage/profile_page.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Help extends StatelessWidget {
@@ -14,8 +13,7 @@ class Help extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
         centerTitle: true,
