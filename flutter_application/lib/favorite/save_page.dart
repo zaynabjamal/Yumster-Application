@@ -113,17 +113,14 @@ class _SavedPageState extends State<SavedPage> {
                                     fontWeight: FontWeight.w300,
                                   ),
                                 ),
-                                Container(
-                                  child: foodTypeData[index].bookmark
-                                      ? const Icon(
-                                          Icons.bookmark,
-                                          color: Color(0xffFE9801),
-                                        )
-                                      : const Icon(
-                                          Icons.bookmark_border,
-                                          color: Color(0xffFE9801),
-                                        ),
-                                ),
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Container(
+                                    child: foodTypeData[index].bookmark
+                                        ? const Icon(Icons.bookmark, color: Color(0xffFE9801),)
+                                        : const Icon(Icons.bookmark_border,color: Color(0xffFE9801),),
+                                  ),
+                                )
                               ],
                             ),
                           ),

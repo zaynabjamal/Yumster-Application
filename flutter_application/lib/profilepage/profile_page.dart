@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application/favorite/save_page.dart';
-import 'package:flutter_application/home/home_body.dart';
+import 'package:flutter_application/screens/about_us.dart';
+import 'package:flutter_application/screens/help_screen.dart';
 import 'package:flutter_application/welcome_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
@@ -20,7 +20,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  int _selectedIndex = 2;
   //user
   final currentUser = FirebaseAuth.instance.currentUser!;
   //all users
@@ -103,19 +102,6 @@ class _ProfilePageState extends State<ProfilePage> {
   //   }
   // }
 
-  void _navigateBottomBar(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => screens[index]));
-  }
-
-  List<Widget> screens = [
-    const SavedPage(),
-    const HomeBody(),
-    const ProfilePage(),
-  ];
   File? selectedImage;
 
   Future<void> _pickImageFromGallery() async {
@@ -129,7 +115,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    screens[_selectedIndex];
     return Scaffold(
       body: StreamBuilder<DocumentSnapshot>(
           stream: FirebaseFirestore.instance
@@ -305,56 +290,74 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                     const Gap(12),
-                    Container(
-                      width: 324,
-                      height: 52,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFFFF9F1),
-                        borderRadius: BorderRadius.all(Radius.circular(4)),
-                      ),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20),
-                            child: SvgPicture.asset("assets/aboutUs.svg"),
-                          ),
-                          const Gap(12),
-                          const Text(
-                            "About Us",
-                            style: TextStyle(
-                              fontFamily: 'Rowdies',
-                              fontSize: 16,
-                              color: Color(0xFF697C37),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const AboutUs()),
+                        );
+                      },
+                      child: Container(
+                        width: 324,
+                        height: 52,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFFFFF9F1),
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                        ),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SvgPicture.asset("assets/aboutUs.svg"),
                             ),
-                          )
-                        ],
+                            const Gap(12),
+                            const Text(
+                              "About Us",
+                              style: TextStyle(
+                                fontFamily: 'Rowdies',
+                                fontSize: 16,
+                                color: Color(0xFF697C37),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     const Gap(12),
-                    Container(
-                      width: 324,
-                      height: 52,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFFFF9F1),
-                        borderRadius: BorderRadius.all(Radius.circular(4)),
-                      ),
-                      child: const Row(
-                        children: [
-                          Gap(18),
-                          Icon(
-                            Icons.help_outline,
-                            color: Color(0xFFFE9801),
-                          ),
-                          Gap(12),
-                          Text(
-                            "Help",
-                            style: TextStyle(
-                              fontFamily: 'Rowdies',
-                              fontSize: 16,
-                              color: Color(0xFF697C37),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Help()),
+                        );
+                      },
+                      child: Container(
+                        width: 324,
+                        height: 52,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFFFFF9F1),
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                        ),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SvgPicture.asset("assets/aboutUs.svg"),
                             ),
-                          )
-                        ],
+                            const Gap(12),
+                            const Text(
+                              "Help",
+                              style: TextStyle(
+                                fontFamily: 'Rowdies',
+                                fontSize: 16,
+                                color: Color(0xFF697C37),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     const Gap(12),

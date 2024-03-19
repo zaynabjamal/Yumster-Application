@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/provider/bookmark.dart';
 import 'package:flutter_application/welcome_page.dart';
 import 'package:flutter_application/favorite/others_page.dart';
-import 'package:flutter_application/catagories/breakfast_screen.dart';
-import 'package:flutter_application/catagories/diet_screen.dart';
-import 'package:flutter_application/catagories/lunch_screen.dart';
-import 'package:flutter_application/catagories/seafood_screen.dart';
-import 'package:flutter_application/catagories/vegan_screen.dart';
+import 'package:flutter_application/screens/breakfast_screen.dart';
+import 'package:flutter_application/screens/diet_screen.dart';
+import 'package:flutter_application/screens/lunch_screen.dart';
+import 'package:flutter_application/screens/seafood_screen.dart';
+import 'package:flutter_application/screens/vegan_screen.dart';
 import 'package:provider/provider.dart';
+
 
 // ignore: unused_element
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         home: const Welcome(),
         theme: ThemeData(fontFamily: 'Rowdies'),
         routes: {
-          '/breakfast': (context) => const Breakfast(),
+          '/breakfast': (context) =>  const Breakfast(),
           '/lunch': (context) => const Lunch(),
           '/diet': (context) => const Diet(),
           '/vegan': (context) => const Vegan(),
