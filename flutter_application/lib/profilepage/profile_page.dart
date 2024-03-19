@@ -116,6 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffFCFCF8),
       body: StreamBuilder<DocumentSnapshot>(
           stream: FirebaseFirestore.instance
               .collection("usersInfo")
@@ -128,75 +129,87 @@ class _ProfilePageState extends State<ProfilePage> {
               final userData = snapshot.data!.data() as Map<String, dynamic>;
               return SingleChildScrollView(
                 child: Column(
+
                   children: [
                     const Gap(42),
-                    Row(
-                      children: [
-                        const Gap(15),
-                        Stack(
-                          children: [
-                            InkWell(
-                              onTap: _pickImageFromGallery,
-                              child: selectedImage != null
-                                  ? ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.file(
-                                        selectedImage!,
-                                        fit: BoxFit.cover,
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: MediaQuery.sizeOf(context).height * 0.01,
+                          horizontal: MediaQuery.sizeOf(context).width * 0.05),
+                      child: Row(
+                        children: [
+                          Stack(
+                            children: [
+                              InkWell(
+                                onTap: _pickImageFromGallery,
+                                child: selectedImage != null
+                                    ? ClipRRect(
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: Image.file(
+                                          selectedImage!,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      )
+                                    : const CircleAvatar(
+                                        radius: 32,
+                                        backgroundColor: Color(0xFFFE9801),
+                                        child: CircleAvatar(
+                                          radius: 30,
+                                          backgroundImage: AssetImage(
+                                              "assets/circleAvatar.jpg"),
+                                        ),
                                       ),
-                                    )
-                                  : const CircleAvatar(
-                                      radius: 32,
-                                      backgroundColor: Color(0xFFFE9801),
-                                      child: CircleAvatar(
-                                        radius: 30,
-                                        backgroundImage: AssetImage(
-                                            "assets/circleAvatar.jpg"),
-                                      ),
-                                    ),
-                            ),
-                            if (selectedImage == null)
-                              Positioned(
-                                bottom: -10,
-                                right: -10,
-                                child: IconButton(
-                                  onPressed: _pickImageFromGallery,
-                                  icon: const Icon(Icons.add_a_photo),
+                              ),
+                              if (selectedImage == null)
+                                Positioned(
+                                  bottom: -10,
+                                  right: -10,
+                                  child: IconButton(
+                                    onPressed: _pickImageFromGallery,
+                                    icon: const Icon(Icons.add_a_photo),
+                                  ),
                                 ),
-                              ),
-                          ],
-                        ),
-                        const Gap(5),
-                        Text(
-                          userData["Username"],
-                          style: const TextStyle(
-                              color: Color(
-                                0xFF697C37,
-                              ),
-                              fontFamily: 'Rowdies',
-                              fontSize: 24),
-                        ),
-                        const Gap(50),
-                        IconButton(
-                          onPressed: () => editUserName("Username"),
-                          icon: const Icon(
-                            Icons.edit,
-                            color: Color(0xFFFE9801),
+                            ],
                           ),
-                        )
-                      ],
+                          Gap(MediaQuery.sizeOf(context).width * 0.03),
+                          Text(
+                            userData["Username"],
+                            style: const TextStyle(
+                                color: Color(
+                                  0xFF697C37,
+                                ),
+                                fontFamily: 'Rowdies',
+                                fontSize: 24),
+                          ),
+                          Gap(MediaQuery.sizeOf(context).width * 0.18),
+                          IconButton(
+                            onPressed: () => editUserName("Username"),
+                            icon: const Icon(
+                              Icons.edit,
+                              color: Color(0xFFFE9801),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     const Divider(
-                      thickness: 1,
+                      thickness: 0,
                       color: Color(0xFFB0AA86),
                     ),
-                    const Gap(12),
+                    Gap(MediaQuery.sizeOf(context).width * 0.04),
                     Container(
-                      width: 324,
+                      width: 330,
                       height: 52,
                       decoration: const BoxDecoration(
                         color: Color(0xFFFFF9F1),
                         borderRadius: BorderRadius.all(Radius.circular(4)),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(0, 1),
+                              blurRadius: 1,
+                              spreadRadius: 0),
+                        ],
                       ),
                       child: Column(
                         children: [
@@ -234,11 +247,18 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     const Gap(12),
                     Container(
-                        width: 324,
+                        width: 330,
                         height: 52,
                         decoration: const BoxDecoration(
                           color: Color(0xFFFFF9F1),
                           borderRadius: BorderRadius.all(Radius.circular(4)),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey,
+                                offset: Offset(0, 1),
+                                blurRadius: 1,
+                                spreadRadius: 0),
+                          ],
                         ),
                         child: Row(
                           children: [
@@ -262,11 +282,18 @@ class _ProfilePageState extends State<ProfilePage> {
                         )),
                     const Gap(12),
                     Container(
-                      width: 324,
+                      width: 330,
                       height: 52,
                       decoration: const BoxDecoration(
                         color: Color(0xFFFFF9F1),
                         borderRadius: BorderRadius.all(Radius.circular(4)),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(0, 1),
+                              blurRadius: 1,
+                              spreadRadius: 0),
+                        ],
                       ),
                       child: Row(
                         children: [
@@ -300,11 +327,18 @@ class _ProfilePageState extends State<ProfilePage> {
                         );
                       },
                       child: Container(
-                        width: 324,
+                        width: 330,
                         height: 52,
                         decoration: const BoxDecoration(
                           color: Color(0xFFFFF9F1),
                           borderRadius: BorderRadius.all(Radius.circular(4)),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey,
+                                offset: Offset(0, 1),
+                                blurRadius: 1,
+                                spreadRadius: 0),
+                          ],
                         ),
                         child: Row(
                           children: [
@@ -335,11 +369,18 @@ class _ProfilePageState extends State<ProfilePage> {
                         );
                       },
                       child: Container(
-                        width: 324,
+                        width: 330,
                         height: 52,
                         decoration: const BoxDecoration(
                           color: Color(0xFFFFF9F1),
                           borderRadius: BorderRadius.all(Radius.circular(4)),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey,
+                                offset: Offset(0, 1),
+                                blurRadius: 1,
+                                spreadRadius: 0),
+                          ],
                         ),
                         child: Row(
                           children: [
@@ -362,11 +403,18 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     const Gap(12),
                     Container(
-                      width: 324,
+                      width: 330,
                       height: 52,
                       decoration: const BoxDecoration(
                         color: Color(0xFFFFF9F1),
                         borderRadius: BorderRadius.all(Radius.circular(4)),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(0, 1),
+                              blurRadius: 1,
+                              spreadRadius: 0),
+                        ],
                       ),
                       child: Row(
                         children: [
