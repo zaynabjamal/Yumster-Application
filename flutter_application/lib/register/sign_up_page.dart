@@ -63,23 +63,14 @@ class _SignInState extends State<SignIn> {
               title: Text(message),
             ));
   }
-  // void _register() async {
-  //   final User? user = (await _auth.createUserWithEmailAndPassword(
-  //           email: _emailController.text, password: _passwordController.text))
-  //       .user;
 
-  //   if (user != null) {
-  //     setState(() {
-  //       _success = true;
-  //       _userEmail = user.email!;
-  //     });
-  //     await fetchUserData();
-  //   } else {
-  //     setState(() {
-  //       _success = false;
-  //     });
-  //   }
-  // }
+  //function to fill text fields
+  bool _fillFields() {
+    return _emailController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty &&
+        _userConfirmPassword.text.isNotEmpty &&
+        _userNameController.text.isNotEmpty;
+  }
 
   Future<void> fetchUserData() async {
     final currentUser = FirebaseAuth.instance.currentUser;
@@ -173,19 +164,32 @@ class _SignInState extends State<SignIn> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
                     onPressed: () {
-                      _register();
-                      // CollectionReference collRef =
-                      //     FirebaseFirestore.instance.collection('usersInfo');
-                      // collRef.add({
-                      //   'Username': _userNameController.text,
-                      //   'Email': _emailController.text,
-                      //   'Password': _passwordController.text,
-                      //   'ConfirmPassword': _userConfirmPassword.text
-                      // });
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SuccessPage()));
+                      if (_fillFields()) {
+                        try {
+                          _register();
+
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SuccessPage()));
+                        } catch (e) {
+                          print("Sign in error $e");
+                        }
+                      } else {
+                        showDialog(
+                            context: context,
+                            builder: (context) => const AlertDialog(
+                                  backgroundColor: Color(0xffFCFCF8),
+                                  title: Text(
+                                    textAlign: TextAlign.center,
+                                    "Please fill all the fields",
+                                    style: TextStyle(
+                                        color: Color(0xffFE9801),
+                                        fontSize: 16,
+                                        fontFamily: "Rowdies"),
+                                  ),
+                                ));
+                      }
                     },
                     child: const Text(
                       "Sign Up",

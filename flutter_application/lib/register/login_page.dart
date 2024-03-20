@@ -41,51 +41,12 @@ class _LoginState extends State<Login> {
               title: Text(message),
             ));
   }
-  // void _signin(BuildContext context) async {
-  //   try {
-  //     String identifier = _emailOrUsernameController.text;
-  //     String password = _passwordController.text;
 
-  //     bool isEmail = identifier.contains("@gmail.com");
-  //     UserCredential userCredential;
-
-  //     if (isEmail) {
-  //       userCredential = await _auth.signInWithEmailAndPassword(
-  //         email: identifier,
-  //         password: password,
-  //       );
-  //     } else {
-  //       userCredential = await _auth.signInWithEmailAndPassword(
-  //         email: identifier, // Use the username directly as the email
-  //         password: password,
-  //       );
-  //     }
-
-  //     User? user = userCredential.user;
-
-  //     if (user != null) {
-  //       Navigator.pushReplacement(
-  //         context,
-  //         MaterialPageRoute(
-  //           builder: (context) => ProfilePage(userEmailOrUsername: user.email!),
-  //         ),
-  //       );
-  //       setState(() {
-  //         _success = 2;
-  //         _userEmail = user.email!;
-  //       });
-  //     } else {
-  //       setState(() {
-  //         _success = 3;
-  //       });
-  //     }
-  //   } catch (e) {
-  //     print("Error signing in: $e");
-  //     setState(() {
-  //       _success = 3;
-  //     });
-  //   }
-  // }
+  // function to fill the textfields
+  bool _fillFields() {
+    return _emailOrUsernameController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -141,14 +102,30 @@ class _LoginState extends State<Login> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10))),
                   onPressed: () async {
-                    try {
-                      _signin();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomePage()));
-                    } catch (e) {
-                      print("Sign-in error: $e");
+                    if (_fillFields()) {
+                      try {
+                        _signin();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()));
+                      } catch (e) {
+                        print("Sign-in error: $e");
+                      }
+                    } else {
+                      showDialog(
+                          context: context,
+                          builder: (context) => const AlertDialog(
+                                backgroundColor: Color(0xffFCFCF8),
+                                title: Text(
+                                  textAlign: TextAlign.center,
+                                  "Please fill all the fields",
+                                  style: TextStyle(
+                                      color: Color(0xffFE9801),
+                                      fontSize: 16,
+                                      fontFamily: "Rowdies"),
+                                ),
+                              ));
                     }
                   },
                   child: const Text(
