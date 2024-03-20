@@ -74,40 +74,6 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
-  @override
-  // void initState() {
-  //   super.initState();
-  //   fetchUserData();
-  // }
-
-  // Future<void> fetchUserData() async {
-  //   final currentUser = FirebaseAuth.instance.currentUser;
-  //   if (currentUser != null) {
-  //     String emailOrUsername =
-  //         widget.userEmailOrUsername ?? currentUser.email ?? "";
-
-  //     if (emailOrUsername.contains("@gmail.com")) {
-  //       setState(() {
-  //         _userEmail = emailOrUsername;
-  //       });
-  //     } else {
-  //       final snapshot = await FirebaseFirestore.instance
-  //           .collection("usersInfo")
-  //           .where("Username", isEqualTo: emailOrUsername)
-  //           .get();
-
-  //       if (snapshot.docs.isNotEmpty) {
-  //         final userData = snapshot.docs.first.data();
-  //         final String userEmail = userData["Email"];
-
-  //         setState(() {
-  //           _userEmail = userEmail;
-  //         });
-  //       }
-  //     }
-  //   }
-  // }
-
   File? selectedImage;
 
   Future<void> _pickImageFromGallery() async {

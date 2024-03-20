@@ -2,16 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/modules/food_type.dart';
 
 class BookmarkProvider extends ChangeNotifier {
-  final List<FoodTypeModel> _widget = [];
+  List<FoodTypeModel> _widget = [];
   List<FoodTypeModel> get widget => _widget;
-
   void addItems(FoodTypeModel items) {
-    _widget.add(items);
+    final isExit = _widget.contains(items);
+    if (isExit) {
+      _widget.remove(items);
+    } else {
+      _widget.add(items);
+    }
     notifyListeners();
   }
 
-  void removeItem(FoodTypeModel items) {
-    _widget.remove(items);
+  bool isExist(FoodTypeModel items) {
+    final isExist = _widget.contains(items);
+    return isExist;
+  }
+
+  void removeItems() {
+    _widget = [];
     notifyListeners();
   }
+  // void addItems(FoodTypeModel items) {
+  //   _widget.add(items);
+  //   notifyListeners();
+  // }
+
+  // void removeItem(FoodTypeModel items) {
+  //   _widget.remove(items);
+  //   notifyListeners();
+  // }
 }

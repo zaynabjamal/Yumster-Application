@@ -1,9 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/custom%20classes/text_field.dart';
 import 'package:flutter_application/home/home_screen.dart';
-import 'package:flutter_application/profilepage/profile_page.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_application/register/sign_up_page.dart';
 

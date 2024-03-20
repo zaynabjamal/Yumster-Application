@@ -16,6 +16,14 @@ class Others extends StatefulWidget {
 }
 
 class _OthersState extends State<Others> {
+  late List<FoodTypeModel> shuffledFoodTypeData;
+  @override
+  void initState() {
+    super.initState();
+    shuffledFoodTypeData = List.from(foodTypeData);
+    shuffledFoodTypeData.shuffle();
+  }
+
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<BookmarkProvider>(context,
@@ -45,7 +53,8 @@ class _OthersState extends State<Others> {
           children: List.generate(
             foodTypeData.length,
             (index) {
-              FoodTypeModel foodTypeModel = foodTypeData[index];
+              FoodTypeModel foodTypeModel = shuffledFoodTypeData[index];
+
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                 child: Container(
@@ -82,7 +91,7 @@ class _OthersState extends State<Others> {
                                     topLeft: Radius.circular(4),
                                     topRight: Radius.circular(4)),
                                 child: Image.asset(
-                                  foodTypeData[index].image,
+                                  shuffledFoodTypeData[index].image,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -110,7 +119,7 @@ class _OthersState extends State<Others> {
                                       ),
                                       const Gap(4),
                                       Text(
-                                        '${foodTypeData[index].time}min',
+                                        '${shuffledFoodTypeData[index].time}min',
                                         style: const TextStyle(
                                           fontSize: 8,
                                           color: Color(0xFFFFF4E5),
@@ -129,7 +138,7 @@ class _OthersState extends State<Others> {
                         child: Row(
                           children: [
                             Text(
-                              foodTypeData[index].title,
+                              shuffledFoodTypeData[index].title,
                               style: const TextStyle(
                                 color: Color(0xFF697C37),
                                 fontSize: 15,
@@ -140,18 +149,15 @@ class _OthersState extends State<Others> {
                             GestureDetector(
                               onTap: () {
                                 setState(() {
-                                  foodTypeData[index].bookmark =
-                                      !foodTypeData[index].bookmark;
-                                  if (!foodTypeData[index].bookmark) {
-                                    provider.removeItem(foodTypeModel);
-                                  }
+                                  foodTypeModel.toggleBookmarkRandomly();
                                   provider.addItems(foodTypeModel);
-                                  print("item added to provider!!");
-                                  print("${foodTypeData[index].id} this is id");
+
+                                  print(
+                                      "${shuffledFoodTypeData[index]} this is id");
                                 });
                               },
                               child: Container(
-                                child: foodTypeData[index].bookmark
+                                child: provider.isExist(foodTypeModel)
                                     ? const Icon(
                                         Icons.bookmark,
                                         color: Color(0xFFFE9801),
@@ -176,196 +182,3 @@ class _OthersState extends State<Others> {
     );
   }
 }
-        // Column(
-        //   children: [
-        //     Gap(MediaQuery.sizeOf(context).height * 0.045),
-        //     Expanded(
-        //       child: GridView.builder(
-        //         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        //           crossAxisCount: 2,
-        //           mainAxisExtent: 130,
-        //           mainAxisSpacing: 16,
-        //           crossAxisSpacing: 0,
-        //         ),
-        //         itemCount: 4,
-        //         itemBuilder: (context, index) {
-        //           FoodTypeModel foodTypeModel = foodTypeData[index];
-        //           return GestureDetector(
-        //             onTap: () {
-        //               Navigator.push(
-        //                 context,
-        //                 MaterialPageRoute(
-        //                     builder: (context) => const FoodRecipe()),
-        //               );
-        //             },
-        //             child: GridTile(
-        //               header: GridTileBar(
-        //                 leading: Container(
-        //                   width: 50,
-        //                   height: 12,
-        //                   decoration: const BoxDecoration(
-        //                     color: Color(0xFF697C37),
-        //                     borderRadius: BorderRadius.all(Radius.circular(4)),
-        //                   ),
-        //                   child: Padding(
-        //                     padding: const EdgeInsets.only(left: 3),
-        //                     child: Row(
-        //                       children: [
-        //                         const Icon(
-        //                           Icons.access_time,
-        //                           color: Color(0xFFFFF4E5),
-        //                           size: 9,
-        //                         ),
-        //                         const Spacer(),
-        //                         Text(
-        //                           '${foodTypeData[index].time}min',
-        //                           style: const TextStyle(
-        //                             fontSize: 8,
-        //                             color: Color(0xFFFFF4E5),
-        //                           ),
-        //                         ),
-        //                       ],
-        //                     ),
-        //                   ),
-        //                 ),
-        //               ),
-        //               footer: GridTileBar(
-        //                 backgroundColor: const Color(0xFFFFF4E5),
-        //                 leading: Row(
-        //                   children: [
-        //                     Text(
-        //                       foodTypeData[index].title,
-        //                       style: const TextStyle(
-        //                         color: Color(0xFF697C37),
-        //                         fontSize: 15,
-        //                         fontWeight: FontWeight.w300,
-        //                       ),
-        //                     ),
-        //                     GestureDetector(
-        //                       onTap: () {
-        //                         setState(() {
-        //                           foodTypeData[index].bookmark =
-        //                               !foodTypeData[index].bookmark;
-        //                           if (!foodTypeData[index].bookmark) {
-        //                             provider.removeItem(foodTypeModel);
-        //                           }
-        //                           provider.addItems(foodTypeModel);
-        //                           print("item added to provider!!");
-        //                           print("${foodTypeData[index].id} this is id");
-        //                         });
-        //                       },
-        //                       child: Container(
-        //                         child: foodTypeData[index].bookmark
-        //                             ? const Icon(
-        //                                 Icons.bookmark,
-        //                                 color: Color(0xFFFE9801),
-        //                               )
-        //                             : const Icon(
-        //                                 Icons.bookmark_border,
-        //                                 color: Color(0xFFFE9801),
-        //                               ),
-        //                       ),
-        //                     ),
-        //                   ],
-        //                 ),
-        //               ),
-        //               child: Image.asset(
-        //                 foodTypeData[index].image,
-        //                 fit: BoxFit.fill,
-        //               ),
-        //             ),
-        //           );
-        //         },
-        //       ),
-        //     )
-        //   ],
-        // ),
-
-                    // itemBuilder: (context,index)
-
-                    // {
-                    //  return GestureDetector(
-                    //   onTap: (){
-                    //     Navigator.push(context, MaterialPageRoute(builder: (context) => SavedPage()));
-                    //   },
-
-                    //    child: Container(
-                    //       width: 154,
-                    //       height: 130,
-                    //       decoration: const BoxDecoration(
-                    //         color: Color(0xFFFFF4E5),
-                    //         borderRadius: BorderRadius.all(Radius.circular(4)),
-                    //       ),
-                    //       child: Stack(
-                    //         children: [
-                    //           Image.asset(foodTypeData[index].image,),
-                    //           Column(
-                    //             children: [
-                    //                Padding(
-                    //     padding: const EdgeInsets.only(right: 95, top: 3),
-                    //     child: Container(
-                    //       width: 50,
-                    //       height: 12,
-                    //       decoration: const BoxDecoration(
-                    //         color: Color(0xFF697C37),
-                    //         borderRadius: BorderRadius.all(Radius.circular(4)),
-                    //       ),
-                    //       child: Padding(
-                    //         padding: const EdgeInsets.only(left: 6),
-                    //         child: Row(
-                    //           children: [
-                    //             const Icon(
-                    //               Icons.access_time,
-                    //               color: Color(0xFFFFF4E5),
-                    //               size: 9,
-                    //             ),
-                    //             const Gap(5),
-                    //             Text(
-                    //               '${foodTypeData[index].time}sec',
-                    //               style: const TextStyle(
-                    //                   fontSize: 8, color: Color(0xFFFFF4E5)),
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     ),
-                    //                ),
-                    //                const Gap(85),
-                    //                Row(
-                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //     children: [
-                    //       const Gap(5),
-                    //       Text(
-                    //        foodTypeData[index].title ,
-                    //         style: const TextStyle(
-                    //           color: Color(0xFF697C37),
-                    //           fontFamily: 'Rowdies',
-                    //           fontSize: 15,
-                    //           fontWeight: FontWeight.w300,
-                    //         ),
-                    //       ),
-                    //       const Gap(15),
-                    //       GestureDetector(
-                    //         onTap: (){
-                    //   setState(() {
-                    //   foodTypeData[index].bookmark = !foodTypeData[index].bookmark;
-                    //   provider.addItems(food_type);
-                    //   print("item added to provider!!");
-                    // print("${ foodTypeData[index].id} this is id");
-                    //   });
-                    // },
-                    //         child: Container(
-                    //           child: foodTypeData[index].bookmark
-                    // ? const Icon(Icons.bookmark)
-                    // : const Icon(Icons.bookmark_border),
-                    //         ),
-                    //       )
-                    //     ],
-                    //                ),
-                    //             ],
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     ),
-                    //  );
-                    // },),
