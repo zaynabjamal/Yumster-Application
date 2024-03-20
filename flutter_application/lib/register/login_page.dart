@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/custom%20classes/text_field.dart';
@@ -23,13 +25,24 @@ class _LoginState extends State<Login> {
   // ignore: unused_field
   final String _userEmail = " ";
 // sing user in
-  void _signin() async {
+  Future<void> _signin() async {
+    String email = _emailOrUsernameController.text.trim();
+    String password = _passwordController.text.trim();
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: _emailOrUsernameController.text,
-          password: _passwordController.text);
+      //check if the input is email
+      bool isEmail = email.contains("@");
+      if (isEmail) {
+        await _auth.signInWithEmailAndPassword(
+            email: email, password: password);
+      } else {
+        print("Signing with username: $email");
+      }
+
+      //if signin successful, then navigate to homepage
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const HomePage()));
     } on FirebaseAuthException catch (e) {
-      displayMessage(e.code);
+      displayMessage(e.message ?? "An error occured");
     }
   }
 
@@ -37,8 +50,15 @@ class _LoginState extends State<Login> {
   void displayMessage(String message) {
     showDialog(
         context: context,
-        builder: (context) => AlertDialog(
-              title: Text(message),
+        builder: (context) => const AlertDialog(
+              title: Text(
+                textAlign: TextAlign.center,
+                "The account is not exist!",
+                style: TextStyle(
+                    color: Color(0xffFE9801),
+                    fontSize: 16,
+                    fontFamily: "Rowdies"),
+              ),
             ));
   }
 
@@ -105,10 +125,6 @@ class _LoginState extends State<Login> {
                     if (_fillFields()) {
                       try {
                         _signin();
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomePage()));
                       } catch (e) {
                         print("Sign-in error: $e");
                       }

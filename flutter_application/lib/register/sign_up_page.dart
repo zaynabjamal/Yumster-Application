@@ -165,15 +165,49 @@ class _SignInState extends State<SignIn> {
                             borderRadius: BorderRadius.circular(10))),
                     onPressed: () {
                       if (_fillFields()) {
-                        try {
-                          _register();
+                        if (_passwordController.text.length < 7) {
+                          showDialog(
+                              context: context,
+                              builder: (context) => const AlertDialog(
+                                    backgroundColor: Color(0xffFCFCF8),
+                                    title: Text(
+                                      textAlign: TextAlign.center,
+                                      "Your password is too weak try to the password contains 7 characters",
+                                      style: TextStyle(
+                                          color: Color(0xffFE9801),
+                                          fontSize: 16,
+                                          fontFamily: "Rowdies"),
+                                    ),
+                                  ));
+                          return;
+                        }
 
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SuccessPage()));
-                        } catch (e) {
-                          print("Sign in error $e");
+                        if (_passwordController.text ==
+                            _userConfirmPassword.text) {
+                          try {
+                            _register();
+
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SuccessPage()));
+                          } catch (e) {
+                            print("Sign in error $e");
+                          }
+                        } else {
+                          showDialog(
+                              context: context,
+                              builder: (context) => const AlertDialog(
+                                    backgroundColor: Color(0xffFCFCF8),
+                                    title: Text(
+                                      textAlign: TextAlign.center,
+                                      "The password doesn't match",
+                                      style: TextStyle(
+                                          color: Color(0xffFE9801),
+                                          fontSize: 16,
+                                          fontFamily: "Rowdies"),
+                                    ),
+                                  ));
                         }
                       } else {
                         showDialog(
