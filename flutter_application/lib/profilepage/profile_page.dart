@@ -1,8 +1,11 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Upload/utils.dart';
+import 'package:flutter_application/resources/save_data.dart';
 import 'package:flutter_application/screens/about_us.dart';
 import 'package:flutter_application/screens/help_screen.dart';
 import 'package:flutter_application/welcome_page.dart';
@@ -20,6 +23,25 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  Uint8List? _image;
+  // upload image
+
+  void selectedImage() async {
+    Uint8List img = await pickImage(ImageSource.gallery);
+    setState(() {
+      _image = img;
+    });
+    saveProfile();
+  }
+
+  void saveProfile() async {
+    try {
+      String resp = await StoreData().saveImage(file: _image!);
+    } catch (error) {
+      print("Error uploading image: $error");
+    }
+  }
+
   //user
   final currentUser = FirebaseAuth.instance.currentUser!;
   //all users
@@ -74,17 +96,6 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
-  File? selectedImage;
-
-  Future<void> _pickImageFromGallery() async {
-    final returnedImage =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (returnedImage == null) return;
-    setState(() {
-      selectedImage = File(returnedImage.path);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,36 +124,28 @@ class _ProfilePageState extends State<ProfilePage> {
                           children: [
                             Stack(
                               children: [
-                                InkWell(
-                                  onTap: _pickImageFromGallery,
-                                  child: selectedImage != null
-                                      ? ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: Image.file(
-                                            selectedImage!,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        )
-                                      : const CircleAvatar(
-                                          radius: 32,
-                                          backgroundColor: Color(0xFFFE9801),
-                                          child: CircleAvatar(
-                                            radius: 30,
-                                            backgroundImage: AssetImage(
-                                                "assets/circleAvatar.jpg"),
-                                          ),
-                                        ),
-                                ),
-                                if (selectedImage == null)
-                                  Positioned(
-                                    bottom: -10,
-                                    right: -10,
-                                    child: IconButton(
-                                      onPressed: _pickImageFromGallery,
-                                      icon: const Icon(Icons.add_a_photo),
-                                    ),
+                                _image != null
+                                    ? CircleAvatar(
+                                        radius: 40,
+                                        backgroundImage: MemoryImage(_image!),
+                                      )
+                                    : const CircleAvatar(
+                                        radius: 40,
+                                        backgroundImage: AssetImage(
+                                            "assets/circleAvatar.jpg"),
+                                      ),
+                                Positioned(
+                                  bottom: -10,
+                                  left: 40,
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        onPressed: selectedImage,
+                                        icon: const Icon(Icons.add_a_photo),
+                                      ),
+                                    ],
                                   ),
+                                ),
                               ],
                             ),
                             Gap(MediaQuery.sizeOf(context).width * 0.03),
@@ -219,41 +222,6 @@ class _ProfilePageState extends State<ProfilePage> {
                           ],
                         ),
                       ),
-                      const Gap(12),
-                      Container(
-                          width: 330,
-                          height: 52,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFFFFF9F1),
-                            borderRadius: BorderRadius.all(Radius.circular(4)),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey,
-                                  offset: Offset(0, 1),
-                                  blurRadius: 1,
-                                  spreadRadius: 0),
-                            ],
-                          ),
-                          child: Row(
-                            children: [
-                              const Gap(6),
-                              IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.privacy_tip_outlined,
-                                  color: Color(0xFFFE9801),
-                                ),
-                              ),
-                              const Text(
-                                "Private & Policy",
-                                style: TextStyle(
-                                  fontFamily: 'Rowdies',
-                                  fontSize: 16,
-                                  color: Color(0xFF697C37),
-                                ),
-                              )
-                            ],
-                          )),
                       const Gap(12),
                       Container(
                         width: 330,
