@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/cheifPage/chef.dart';
+import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/favorite/others_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -26,17 +27,27 @@ class _FoodRecipeState extends State<FoodRecipe> {
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
-          // Food Image
           Container(
-            margin: EdgeInsets.all(15.0),
-            height: 250.0,
-            width: 150.0,
+            margin: EdgeInsets.symmetric(
+                vertical: MediaQuery.sizeOf(context).width * 0.03,
+                horizontal: MediaQuery.sizeOf(context).width * 0.04),
+            height: 262.0,
+            width: 327,
             decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
+                color: Colors.black,
+                gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.black87,
+                    Colors.black,
+                  ],
+                ),
                 image: const DecorationImage(
-                  image:
-                      AssetImage('assets/food1.jpg'), // Replace with your image
-                  fit: BoxFit.cover,
+                  image: AssetImage('assets/food1.jpg'),
+                  opacity: 0.5,
+                  fit: BoxFit.fill,
                 ),
                 boxShadow: [
                   BoxShadow(
@@ -73,8 +84,8 @@ class _FoodRecipeState extends State<FoodRecipe> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Icon(
-                                    Icons.timer,
-                                    size: 20.0,
+                                    Icons.timer_sharp,
+                                    size: 12,
                                     color: Colors.white,
                                   ),
                                   SizedBox(width: 4.0),
@@ -82,7 +93,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
                                     '30 mins',
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 20,
+                                      fontSize: 12,
                                     ),
                                   ),
                                 ],
@@ -94,10 +105,13 @@ class _FoodRecipeState extends State<FoodRecipe> {
                     ),
                   ],
                 ),
-                const Icon(
-                  Icons.bookmark,
-                  color: Colors.white,
-                  size: 40.0,
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    Icons.bookmark_border_outlined,
+                    color: Colors.white,
+                    size: 40.0,
+                  ),
                 ),
               ],
             ),
@@ -106,46 +120,50 @@ class _FoodRecipeState extends State<FoodRecipe> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(
+                height: 10,
+              ),
               Row(
                 children: [
                   const Padding(padding: EdgeInsets.all(10.0)),
                   // SVG Image
-                  Container(
-                    child: SvgPicture.asset(
-                      'assets/recip.svg',
-                      width: 50.0,
-                      height: 50.0,
-                    ),
+                  SvgPicture.asset(
+                    'assets/recip.svg',
+                    width: 40.0,
+                    height: 40.0,
                   ),
-                  Container(
-                    child: const Text(
-                      "Recipe",
-                      style: TextStyle(
-                        color: Color.fromRGBO(254, 152, 1, 1.0),
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  const Text(
+                    "Recipe",
+                    style: TextStyle(
+                      color: Color(0xffFE9801),
+                      fontSize: 24,
+                      fontWeight: FontWeight.w300,
                     ),
                   ),
                 ],
               ),
               Container(
-                padding: const EdgeInsets.all(25.0),
+                padding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.sizeOf(context).width * 0.03,
+                    horizontal: MediaQuery.sizeOf(context).width * 0.05),
                 color: Colors.white,
                 // Text Content
                 child: const Text(
                   'Recipe details go here. Lorem ipsum dolor sit amet, consectetur \n '
                   'adipiRecipe details go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt utRecipe details go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt utscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...',
                   style: TextStyle(
-                    fontSize: 16.0,
-                    color: Color.fromRGBO(176, 170, 134, 1.0),
-                    fontWeight: FontWeight.bold,
+                    fontSize: 14.0,
+                    color: Color(0xffB0AA86),
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 8.0),
+          const SizedBox(height: 0.0),
           // Chef Details
           GestureDetector(
             onTap: () {
@@ -158,159 +176,76 @@ class _FoodRecipeState extends State<FoodRecipe> {
             },
             child: Container(
               margin: const EdgeInsets.all(20.0),
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(9.0),
               width: 70,
-              height: 70,
-              decoration: BoxDecoration(
-                  color: const Color.fromRGBO(255, 244, 229, 1.0),
-                  borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: const Offset(0, 2),
-                    )
-                  ]),
+              height: 60,
+              decoration: const BoxDecoration(
+                color: Color(0xFFFFF4E5),
+                borderRadius: BorderRadius.all(Radius.circular(4)),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(0, 1),
+                      blurRadius: 1,
+                      spreadRadius: 0),
+                ],
+              ),
               child: Row(
                 children: [
                   Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: Color.fromRGBO(254, 152, 1, 1.0),
+                        color: const Color(0xffFE9801),
                         width: 1.0,
                       ),
                     ),
                     child: const CircleAvatar(
                       backgroundImage: AssetImage(
                           'assets/chef1.jpg'), // Replace with chef's image
-                      radius: 35.0,
+                      radius: 20.0,
                     ),
                   ),
-                  const SizedBox(width: 10.0),
+                  const SizedBox(width: 8),
                   const Text(
                     'Chef Name',
                     style: TextStyle(
-                        color: Color.fromRGBO(254, 152, 1, 1.0),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
+                        color: Color(0xffFE9801),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
                   ),
                 ],
               ),
             ),
           ),
           // Suggestions Section
-          Container(
-            margin: const EdgeInsets.all(20),
+
+          Padding(
+            padding: EdgeInsets.symmetric(
+                vertical: MediaQuery.sizeOf(context).width * 0.0,
+                horizontal: MediaQuery.sizeOf(context).width * 0.05),
             child: const Text(
               "Reccomend",
               style: TextStyle(
-                  fontSize: 28,
-                  color: Color.fromRGBO(105, 124, 55, 1.0),
-                  fontWeight: FontWeight.bold),
+                  fontSize: 24,
+                  color: Color(0xff697C37),
+                  fontWeight: FontWeight.w400),
             ),
           ),
+
           Container(
-            height: 180.0,
+            padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.sizeOf(context).width * 0.015,
+                vertical: MediaQuery.sizeOf(context).width * 0.002),
+            height: MediaQuery.sizeOf(context).width * 0.5,
+            width: MediaQuery.sizeOf(context).width,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                buildSuggestionCard('assets/food2.jpg', '15 mins', 'Pasta'),
-                buildSuggestionCard('assets/food3.jpg', '20 mins', 'Salad'),
-                buildSuggestionCard('assets/food4.jpg', '25 mins', 'Pizza'),
-                buildSuggestionCard('assets/food1.jpg', '18 mins', 'Sushi'),
-                buildSuggestionCard('assets/food1.jpg', '22 mins', 'Burger'),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildSuggestionCard(String imagePath, String time, String foodName) {
-    return Container(
-      width: 180.0,
-      margin: const EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
-        image: DecorationImage(
-          image: AssetImage(imagePath),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 70,
-                      height: 30,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                        color: Color.fromRGBO(105, 124, 55, 1.0),
-                      ),
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Icon(
-                            Icons.access_time,
-                            color: Colors.white,
-                            size: 10,
-                          ),
-                          const SizedBox(width: 5),
-                          Text(
-                            time,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: 35,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(15.0),
-                bottomRight: Radius.circular(15.0),
-              ),
-              color: const Color.fromRGBO(255, 244, 229, 1.0).withOpacity(1.0),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    foodName,
-                    style: const TextStyle(
-                      color: Color.fromRGBO(105, 124, 55, 1.0),
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const Icon(
-                  Icons.bookmark,
-                  color: Color.fromRGBO(254, 152, 1, 1.0),
-                  size: 20.0,
-                ),
+                RecommendCard(
+                    name: 'Pasta', time: '15 mins', image: 'assets/food2.jpg'),
+                RecommendCard(
+                    name: 'Salad', time: '20 mins', image: 'assets/food3.jpg'),
               ],
             ),
           ),
