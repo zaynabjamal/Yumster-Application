@@ -46,16 +46,20 @@ class _RecommendCardState extends State<RecommendCard> {
               },
               child: Stack(
                 children: [
-                  SizedBox(
-                    height: 140,
+                  Container(
+                    height: MediaQuery.sizeOf(context).height * 0.17,
                     width: 200,
-                    child: ClipRRect(
+                    decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(4),
                           topRight: Radius.circular(4)),
-                      child: Image.asset(
-                        widget.image,
-                        fit: BoxFit.cover,
+                      color: Colors.black,
+                      image: DecorationImage(
+                        image: AssetImage(
+                          widget.image,
+                        ),
+                        opacity: 0.75,
+                        fit: BoxFit.fill,
                       ),
                     ),
                   ),
