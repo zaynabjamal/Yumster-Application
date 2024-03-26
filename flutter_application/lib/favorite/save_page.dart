@@ -136,7 +136,7 @@ class _SavedPageState extends State<SavedPage> {
                                               ),
                                               const Gap(4),
                                               Text(
-                                                "${item.time}min",
+                                                item.time,
                                                 style: const TextStyle(
                                                   fontSize: 8,
                                                   color: Color(0xFFFFF4E5),

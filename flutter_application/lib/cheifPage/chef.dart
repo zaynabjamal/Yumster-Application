@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/cheifPage/foodrecipe.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
+import 'package:flutter_application/modules/food_type.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Chef {
@@ -23,8 +24,9 @@ class Food {
 }
 
 class Chefaccount extends StatelessWidget {
-  const Chefaccount({super.key});
-
+  const Chefaccount({super.key, required this.foodTypes});
+  final List<FoodTypeModel> foodTypes; 
+  
   @override
   Widget build(BuildContext context) {
     return FoodGridScreen(
@@ -35,42 +37,42 @@ class Chefaccount extends StatelessWidget {
       foods: [
         Food(
           name: 'Pasta Carbonara',
-          time: '30 mins',
+          time: '30min',
           imageAsset: 'assets/food2.jpg',
         ),
         Food(
           name: 'Chicken Stir Fry',
-          time: '25 mins',
+          time: '25min',
           imageAsset: 'assets/food1.jpg',
         ),
         Food(
           name: 'Caesar Salad',
-          time: '15 mins',
+          time: '15min',
           imageAsset: 'assets/food3.jpg',
         ),
         Food(
           name: 'Chocolate Cake',
-          time: '40 mins',
+          time: '40min',
           imageAsset: 'assets/food4.jpg',
         ),
         Food(
           name: 'Chocolate Cake',
-          time: '40 mins',
+          time: '4min',
           imageAsset: 'assets/food1.jpg',
         ),
         Food(
           name: 'Chocolate Cake',
-          time: '40 mins',
+          time: '40min',
           imageAsset: 'assets/food3.jpg',
         ),
         Food(
           name: 'Chocolate Cake',
-          time: '40 mins',
+          time: '40min',
           imageAsset: 'assets/food2.jpg',
         ),
         Food(
           name: 'Chocolate Cake',
-          time: '40 mins',
+          time: '40min',
           imageAsset: 'assets/food4.jpg',
         ),
       ],
@@ -132,9 +134,14 @@ class FoodGridScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return GridTile(
                   child:  RecommendCard(
-                        name: foods[index].name,
-                        time: foods[index].time,
-                        image: foods[index].imageAsset)
+                        foodType: FoodTypeModel(
+                  id: 1,
+                  image: foods[index].imageAsset,
+                  title: foods[index].name,
+                  time: foods[index].time,
+                  bookmark: false, // You can set the initial bookmark status
+                ),
+              ),
                 );
               },
             ),

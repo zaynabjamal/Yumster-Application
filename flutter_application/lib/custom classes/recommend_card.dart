@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/cheifPage/foodrecipe.dart';
+import 'package:flutter_application/modules/food_type.dart';
+import 'package:flutter_application/provider/bookmark.dart';
+import 'package:provider/provider.dart';
 import 'package:gap/gap.dart';
 
-// ignore: must_be_immutable
 class RecommendCard extends StatefulWidget {
-  String name;
-  String time;
-  String image;
-  RecommendCard(
-      {super.key, required this.name, required this.time, required this.image});
+  final FoodTypeModel foodType;
+  const RecommendCard({Key? key, required this.foodType}) : super(key: key);
 
   @override
   State<RecommendCard> createState() => _RecommendCardState();
@@ -20,8 +19,8 @@ class _RecommendCardState extends State<RecommendCard> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
       child: Container(
-        width: MediaQuery.sizeOf(context).width * 0.5,
-        height: MediaQuery.sizeOf(context).width * 0.5,
+        width: MediaQuery.of(context).size.width * 0.5,
+        height: MediaQuery.of(context).size.width * 0.5,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(4),
@@ -47,7 +46,7 @@ class _RecommendCardState extends State<RecommendCard> {
               child: Stack(
                 children: [
                   Container(
-                    height: MediaQuery.sizeOf(context).height * 0.17,
+                    height: MediaQuery.of(context).size.height * 0.17,
                     width: 200,
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
@@ -56,7 +55,7 @@ class _RecommendCardState extends State<RecommendCard> {
                       color: Colors.black,
                       image: DecorationImage(
                         image: AssetImage(
-                          widget.image,
+                          widget.foodType.image,
                         ),
                         opacity: 0.75,
                         fit: BoxFit.fill,
@@ -67,14 +66,14 @@ class _RecommendCardState extends State<RecommendCard> {
                     top: 8,
                     left: 4,
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 0.15,
+                      width: MediaQuery.of(context).size.width * 0.15,
                       height: 12,
                       decoration: const BoxDecoration(
                         color: Color(0xFF697C37),
                         borderRadius: BorderRadius.all(Radius.circular(4)),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 3),
+                        padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.01),
                         child: Row(
                           children: [
                             const Icon(
@@ -84,7 +83,7 @@ class _RecommendCardState extends State<RecommendCard> {
                             ),
                             const Gap(4),
                             Text(
-                              widget.time,
+                              widget.foodType.time,
                               style: const TextStyle(
                                 fontSize: 8,
                                 color: Color(0xFFFFF4E5),
@@ -103,7 +102,7 @@ class _RecommendCardState extends State<RecommendCard> {
               child: Row(
                 children: [
                   Text(
-                    widget.name,
+                    widget.foodType.title,
                     style: const TextStyle(
                       color: Color(0xFF697C37),
                       fontSize: 15,
@@ -112,10 +111,26 @@ class _RecommendCardState extends State<RecommendCard> {
                   ),
                   const Spacer(),
                   GestureDetector(
-                    onTap: () {},
-                    child: const Icon(
-                      Icons.bookmark_border,
-                      color: Color(0xFFFE9801),
+                    onTap: () {
+                      final provider = Provider.of<BookmarkProvider>(
+                        context,
+                        listen: false,
+                      );
+                      provider.addItems(widget.foodType);
+                    },
+                    child: Consumer<BookmarkProvider>(
+                      builder: (context, provider, _) {
+                        final isBookmarked = provider.isExist(widget.foodType);
+                        return isBookmarked
+                            ? const Icon(
+                                Icons.bookmark,
+                                color: Color(0xffFE9801),
+                              )
+                            : const Icon(
+                                Icons.bookmark_border,
+                                color: Color(0xffFE9801),
+                              );
+                      },
                     ),
                   ),
                 ],

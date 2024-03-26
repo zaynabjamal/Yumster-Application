@@ -119,7 +119,7 @@ class _OthersState extends State<Others> {
                                       ),
                                       const Gap(4),
                                       Text(
-                                        '${shuffledFoodTypeData[index].time}min',
+                                        shuffledFoodTypeData[index].time,
                                         style: const TextStyle(
                                           fontSize: 8,
                                           color: Color(0xFFFFF4E5),
