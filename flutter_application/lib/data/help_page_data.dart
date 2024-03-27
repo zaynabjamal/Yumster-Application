@@ -17,15 +17,15 @@ class HelpData extends StatelessWidget {
       child: RichText(
           text: TextSpan(children: [
         TextSpan(
-            text: number + ". ",
+            text: "$number. ",
             style: const TextStyle(
                 color: Color(0XFFFE9801), fontSize: 14, fontFamily: "Rowdies")),
         TextSpan(
-            text: title + ": ",
+            text: "$title: ",
             style: const TextStyle(
                 color: Color(0XFF697C37), fontSize: 14, fontFamily: "Rowdies")),
         TextSpan(
-            text: sentence + ". ",
+            text: "$sentence. ",
             style: const TextStyle(
                 color: Color(0XFFB0AA86), fontSize: 14, fontFamily: "Rowdies")),
       ])),

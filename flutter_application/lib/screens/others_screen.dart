@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/cheifPage/foodrecipe.dart';
+import 'package:flutter_application/foodDetails/foodrecipe.dart';
 import 'package:flutter_application/data/food_type_data.dart';
 import 'package:flutter_application/home/home_screen.dart';
 import 'package:flutter_application/modules/food_type.dart';

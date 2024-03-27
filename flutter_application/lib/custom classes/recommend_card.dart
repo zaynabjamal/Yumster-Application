@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/cheifPage/foodrecipe.dart';
+import 'package:flutter_application/foodDetails/foodrecipe.dart';
 import 'package:flutter_application/modules/food_type.dart';
 import 'package:flutter_application/provider/bookmark.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +7,7 @@ import 'package:gap/gap.dart';
 
 class RecommendCard extends StatefulWidget {
   final FoodTypeModel foodType;
-  const RecommendCard({Key? key, required this.foodType}) : super(key: key);
+  const RecommendCard({super.key, required this.foodType});
 
   @override
   State<RecommendCard> createState() => _RecommendCardState();

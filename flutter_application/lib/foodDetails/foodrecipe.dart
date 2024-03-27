@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/cheifPage/chef.dart';
+import 'package:flutter_application/chefs/chef.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
-import 'package:flutter_application/favorite/others_page.dart';
+import 'package:flutter_application/screens/others_screen.dart';
 import 'package:flutter_application/modules/food_type.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

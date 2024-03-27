@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/provider/bookmark.dart';
 import 'package:flutter_application/welcome_page.dart';
-import 'package:flutter_application/favorite/others_page.dart';
+import 'package:flutter_application/screens/others_screen.dart';
 import 'package:flutter_application/screens/breakfast_screen.dart';
 import 'package:flutter_application/screens/diet_screen.dart';
 import 'package:flutter_application/screens/lunch_screen.dart';
