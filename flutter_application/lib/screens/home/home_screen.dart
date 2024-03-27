@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/favorite/save_page.dart';
-import 'package:flutter_application/home/home_body.dart';
+import 'package:flutter_application/screens/home/home_body.dart';
 import 'package:flutter_application/profilePage/profile_page.dart';
 
 class HomePage extends StatefulWidget {
