@@ -1,4 +1,4 @@
-import 'package:flutter_application/modules/food_type.dart';
+import 'package:flutter_application/modules/others_module.dart';
 
 List<FoodTypeModel> foodTypeData = [
   FoodTypeModel(

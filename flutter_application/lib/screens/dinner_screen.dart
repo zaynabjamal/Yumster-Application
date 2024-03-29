@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/data/breakfast_food_data.dart';
+import 'package:flutter_application/data/dinner_food_data.dart';
 import 'package:flutter_application/foodDetails/foodrecipe.dart';
 import 'package:flutter_application/screens/home/home_screen.dart';
 import 'package:flutter_application/modules/others_module.dart';
@@ -8,19 +8,19 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
 
-class Breakfast extends StatefulWidget {
-  const Breakfast({super.key});
+class Dinner extends StatefulWidget {
+  const Dinner({super.key});
 
   @override
-  State<Breakfast> createState() => _OthersState();
+  State<Dinner> createState() => _OthersState();
 }
 
-class _OthersState extends State<Breakfast> {
+class _OthersState extends State<Dinner> {
   late List<FoodTypeModel> shuffledFoodTypeData;
   @override
   void initState() {
     super.initState();
-    shuffledFoodTypeData = List.from(breakFastData);
+    shuffledFoodTypeData = List.from(dinnerData);
     //shuffledFoodTypeData.shuffle();
   }
 
@@ -40,7 +40,7 @@ class _OthersState extends State<Breakfast> {
               icon: SvgPicture.asset("assets/arrowBack.svg")),
           centerTitle: true,
           title: const Text(
-            'BreakFast',
+            'Dinner',
             style: TextStyle(
               color: Color(0xffFE9801),
               fontSize: 32,

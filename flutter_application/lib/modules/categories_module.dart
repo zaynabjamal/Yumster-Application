@@ -24,8 +24,8 @@ class Category {
     items.add(
       Category(
           image: const AssetImage('assets/Rectangle 5.png'),
-          text: 'Diet',
-          route: '/diet'),
+          text: 'Dinner',
+          route: '/dinner'),
     );
     items.add(
       Category(

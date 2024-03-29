@@ -5,7 +5,7 @@ import 'package:flutter_application/provider/bookmark.dart';
 import 'package:flutter_application/welcome_page.dart';
 import 'package:flutter_application/screens/others_screen.dart';
 import 'package:flutter_application/screens/breakfast_screen.dart';
-import 'package:flutter_application/screens/diet_screen.dart';
+import 'package:flutter_application/screens/dinner_screen.dart';
 import 'package:flutter_application/screens/lunch_screen.dart';
 import 'package:flutter_application/screens/seafood_screen.dart';
 import 'package:flutter_application/screens/vegan_screen.dart';
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/breakfast': (context) => const Breakfast(),
           '/lunch': (context) => const Lunch(),
-          '/diet': (context) => const Diet(),
+          '/dinner': (context) => const Dinner(),
           '/vegan': (context) => const Vegan(),
           '/sea': (context) => const Sea(),
           '/others': (context) => const Others(),

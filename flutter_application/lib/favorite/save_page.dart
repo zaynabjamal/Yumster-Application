@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/foodDetails/foodrecipe.dart';
 import 'package:flutter_application/favorite/empty_save_page.dart';
-import 'package:flutter_application/modules/food_type.dart';
+import 'package:flutter_application/modules/others_module.dart';
 import 'package:flutter_application/provider/bookmark.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';

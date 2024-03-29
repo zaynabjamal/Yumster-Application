@@ -1,8 +1,4 @@
-//TODO Zaynab
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_application/data/help_page_data.dart';
 import 'package:flutter_svg/svg.dart';
 

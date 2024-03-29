@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/foodDetails/foodrecipe.dart';
-import 'package:flutter_application/data/food_type_data.dart';
+import 'package:flutter_application/data/others_food_data.dart';
 import 'package:flutter_application/screens/home/home_screen.dart';
-import 'package:flutter_application/modules/food_type.dart';
+import 'package:flutter_application/modules/others_module.dart';
 import 'package:flutter_application/provider/bookmark.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';

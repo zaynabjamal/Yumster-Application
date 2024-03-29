@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/foodDetails/foodrecipe.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
-import 'package:flutter_application/modules/food_type.dart';
+import 'package:flutter_application/modules/others_module.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Chef {
