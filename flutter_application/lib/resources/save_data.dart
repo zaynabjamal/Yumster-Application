@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+
 class StoreData {
   Future<String> uploadImageToStorage(String childName, Uint8List file) async {
     Reference ref = _firebaseStorage.ref().child(childName);
@@ -19,7 +20,7 @@ class StoreData {
   Future<String> saveImage({required Uint8List file}) async {
     String resp = "some error occured";
     try {
-      String imageUrl = await uploadImageToStorage("UsersProfile", file);
+      String imageUrl = await uploadImageToStorage("images", file);
       await _firestore.collection("usersInfo").add({"imageLink": imageUrl});
       resp = "Success";
     } catch (err) {

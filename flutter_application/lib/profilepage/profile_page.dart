@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -37,6 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
   void saveProfile() async {
     try {
       String resp = await StoreData().saveImage(file: _image!);
+      print(resp);
     } catch (error) {
       print("Error uploading image: $error");
     }

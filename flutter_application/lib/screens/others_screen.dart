@@ -21,7 +21,7 @@ class _OthersState extends State<Others> {
   void initState() {
     super.initState();
     shuffledFoodTypeData = List.from(foodTypeData);
-    shuffledFoodTypeData.shuffle();
+    //shuffledFoodTypeData.shuffle();
   }
 
   @override
@@ -51,7 +51,7 @@ class _OthersState extends State<Others> {
         body: GridView.count(
           crossAxisCount: 2,
           children: List.generate(
-            foodTypeData.length,
+            shuffledFoodTypeData.length,
             (index) {
               FoodTypeModel foodTypeModel = shuffledFoodTypeData[index];
 
