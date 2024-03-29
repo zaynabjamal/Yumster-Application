@@ -129,8 +129,28 @@ class _SignInState extends State<SignIn> {
         'Password': _passwordController.text,
         'ConfirmPassword': _userConfirmPassword.text,
       });
-    } on FirebaseAuthException catch (e) {
-      displayMessage(e.code);
+    }
+    //on FirebaseAuthException catch (e) {
+    on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+            backgroundColor: Color(0xffFCFCF8),
+            title: Text(
+              textAlign: TextAlign.center,
+              "This email is already in use, please use a different email",
+              style: TextStyle(
+                color: Color(0xffFE9801),
+                fontSize: 16,
+                fontFamily: "Rowdies",
+              ),
+            ),
+          ),
+        );
+      } else {
+        displayMessage(e.code);
+      }
     }
   }
 
