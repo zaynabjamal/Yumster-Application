@@ -367,7 +367,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             const Gap(12),
                             IconButton(
                               onPressed: () {
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => const Welcome()));
