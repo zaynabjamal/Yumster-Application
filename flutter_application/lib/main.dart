@@ -21,6 +21,7 @@ Future main() async {
       appId: "1:933352697122:web:f11c8361302f4a0fc2897b",
       messagingSenderId: "933352697122",
       projectId: "yumsterapp-c7dc5",
+      storageBucket: 'yumsterapp-c7dc5.appspot.com',
     ),
   );
   runApp(

@@ -21,22 +21,100 @@ class _SignInState extends State<SignIn> {
   // ignore: unused_field
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _userConfirmPassword = TextEditingController();
+
   // ignore: unused_field
   late bool _success;
   // ignore: unused_field
   late String _userEmail;
   // ignore: unused_field
   late String _userName;
+  //
+
   // register
   void _register() async {
+    //_userNameController.text.contains(' ')
+    // Check if the username contains spaces
+    if (_userNameController.text.contains(' ')) {
+      showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+                backgroundColor: Color(0xffFCFCF8),
+                title: Text(
+                  textAlign: TextAlign.center,
+                  "The username cant have space",
+                  style: TextStyle(
+                      color: Color(0xffFE9801),
+                      fontSize: 16,
+                      fontFamily: "Rowdies"),
+                ),
+              ));
+      return;
+    }
+    if (!_emailController.text.contains('@gmail.com')) {
+      showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+                backgroundColor: Color(0xffFCFCF8),
+                title: Text(
+                  textAlign: TextAlign.center,
+                  "Write correct email (contain @gmail.com)",
+                  style: TextStyle(
+                      color: Color(0xffFE9801),
+                      fontSize: 16,
+                      fontFamily: "Rowdies"),
+                ),
+              ));
+      return;
+    }
+    if (_passwordController.text.length < 7) {
+      showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+                backgroundColor: Color(0xffFCFCF8),
+                title: Text(
+                  textAlign: TextAlign.center,
+                  "Your password is too weak try to the password contains 7 characters",
+                  style: TextStyle(
+                      color: Color(0xffFE9801),
+                      fontSize: 16,
+                      fontFamily: "Rowdies"),
+                ),
+              ));
+      return;
+    }
     if (_passwordController.text != _userConfirmPassword.text) {
       showDialog(
           context: context,
           builder: (context) => const AlertDialog(
-                title: Text("The password doesn't match"),
+                backgroundColor: Color(0xffFCFCF8),
+                title: Text(
+                  textAlign: TextAlign.center,
+                  "The password doesn't match",
+                  style: TextStyle(
+                      color: Color(0xffFE9801),
+                      fontSize: 16,
+                      fontFamily: "Rowdies"),
+                ),
               ));
       return;
     }
+    if (!_fillFields()) {
+      showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+                backgroundColor: Color(0xffFCFCF8),
+                title: Text(
+                  textAlign: TextAlign.center,
+                  "Please fill all the fields",
+                  style: TextStyle(
+                      color: Color(0xffFE9801),
+                      fontSize: 16,
+                      fontFamily: "Rowdies"),
+                ),
+              ));
+      return;
+    }
+
     //try creating user
     try {
       UserCredential userCredential = await FirebaseAuth.instance
@@ -49,7 +127,7 @@ class _SignInState extends State<SignIn> {
         'Username': _userNameController.text,
         'Email': _emailController.text,
         'Password': _passwordController.text,
-        'ConfirmPassword': _userConfirmPassword.text
+        'ConfirmPassword': _userConfirmPassword.text,
       });
     } on FirebaseAuthException catch (e) {
       displayMessage(e.code);
@@ -163,68 +241,85 @@ class _SignInState extends State<SignIn> {
                         minimumSize: const Size(357, 55),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
-                    onPressed: () {
-                      if (_fillFields()) {
-                        if (_passwordController.text.length < 7) {
-                          showDialog(
-                              context: context,
-                              builder: (context) => const AlertDialog(
-                                    backgroundColor: Color(0xffFCFCF8),
-                                    title: Text(
-                                      textAlign: TextAlign.center,
-                                      "Your password is too weak try to the password contains 7 characters",
-                                      style: TextStyle(
-                                          color: Color(0xffFE9801),
-                                          fontSize: 16,
-                                          fontFamily: "Rowdies"),
-                                    ),
-                                  ));
-                          return;
-                        }
+                    onPressed: _register,
+                    // () {
+                    // if (_fillFields()) {
+                    //   if (!_userNameController.text.contains(' ')) {
+                    //     if (_passwordController.text.length < 7) {
+                    // showDialog(
+                    //     context: context,
+                    //     builder: (context) => const AlertDialog(
+                    //           backgroundColor: Color(0xffFCFCF8),
+                    //           title: Text(
+                    //             textAlign: TextAlign.center,
+                    //             "Your password is too weak try to the password contains 7 characters",
+                    //             style: TextStyle(
+                    //                 color: Color(0xffFE9801),
+                    //                 fontSize: 16,
+                    //                 fontFamily: "Rowdies"),
+                    //           ),
+                    //         ));
+                    //       return;
+                    //     }
+                    //   } else {
+                    //     showDialog(
+                    //         context: context,
+                    //         builder: (context) => const AlertDialog(
+                    //               backgroundColor: Color(0xffFCFCF8),
+                    //               title: Text(
+                    //                 textAlign: TextAlign.center,
+                    //                 "The username can't have space",
+                    //                 style: TextStyle(
+                    //                     color: Color(0xffFE9801),
+                    //                     fontSize: 16,
+                    //                     fontFamily: "Rowdies"),
+                    //               ),
+                    //             ));
+                    //   }
+                    //   if (_passwordController.text ==
+                    //       _userConfirmPassword.text) {
+                    //     try {
+                    //       _register();
 
-                        if (_passwordController.text ==
-                            _userConfirmPassword.text) {
-                          try {
-                            _register();
+                    //       Navigator.push(
+                    //           context,
+                    //           MaterialPageRoute(
+                    //               builder: (context) => const SuccessPage()));
+                    //     } catch (e) {
+                    //       print("Sign in error $e");
+                    //     }
+                    //   } else {
+                    //     showDialog(
+                    //         context: context,
+                    //         builder: (context) => const AlertDialog(
+                    //               backgroundColor: Color(0xffFCFCF8),
+                    //               title: Text(
+                    //                 textAlign: TextAlign.center,
+                    //                 "The password doesn't match",
+                    //                 style: TextStyle(
+                    //                     color: Color(0xffFE9801),
+                    //                     fontSize: 16,
+                    //                     fontFamily: "Rowdies"),
+                    //               ),
+                    //             ));
+                    //   }
+                    // } else {
+                    //   showDialog(
+                    //       context: context,
+                    //       builder: (context) => const AlertDialog(
+                    //             backgroundColor: Color(0xffFCFCF8),
+                    //             title: Text(
+                    //               textAlign: TextAlign.center,
+                    //               "Please fill all the fields",
+                    //               style: TextStyle(
+                    //                   color: Color(0xffFE9801),
+                    //                   fontSize: 16,
+                    //                   fontFamily: "Rowdies"),
+                    //             ),
+                    //           ));
+                    // }
+                    //},
 
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SuccessPage()));
-                          } catch (e) {
-                            print("Sign in error $e");
-                          }
-                        } else {
-                          showDialog(
-                              context: context,
-                              builder: (context) => const AlertDialog(
-                                    backgroundColor: Color(0xffFCFCF8),
-                                    title: Text(
-                                      textAlign: TextAlign.center,
-                                      "The password doesn't match",
-                                      style: TextStyle(
-                                          color: Color(0xffFE9801),
-                                          fontSize: 16,
-                                          fontFamily: "Rowdies"),
-                                    ),
-                                  ));
-                        }
-                      } else {
-                        showDialog(
-                            context: context,
-                            builder: (context) => const AlertDialog(
-                                  backgroundColor: Color(0xffFCFCF8),
-                                  title: Text(
-                                    textAlign: TextAlign.center,
-                                    "Please fill all the fields",
-                                    style: TextStyle(
-                                        color: Color(0xffFE9801),
-                                        fontSize: 16,
-                                        fontFamily: "Rowdies"),
-                                  ),
-                                ));
-                      }
-                    },
                     child: const Text(
                       "Sign Up",
                       style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 24),

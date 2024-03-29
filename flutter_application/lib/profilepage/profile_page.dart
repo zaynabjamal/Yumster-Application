@@ -29,14 +29,19 @@ class _ProfilePageState extends State<ProfilePage> {
     Uint8List img = await pickImage(ImageSource.gallery);
     setState(() {
       _image = img;
+      saveProfile();
     });
     saveProfile();
   }
 
   void saveProfile() async {
     try {
-      String resp = await StoreData().saveImage(file: _image!);
-      print(resp);
+      if (_image != null) {
+        String resp = await StoreData().saveImage(file: _image!);
+        print(resp);
+      } else {
+        print("No image selected");
+      }
     } catch (error) {
       print("Error uploading image: $error");
     }
