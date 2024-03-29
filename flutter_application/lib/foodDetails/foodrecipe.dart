@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/chefs/chef.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/screens/others_screen.dart';
-import 'package:flutter_application/modules/others_module.dart';
+import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class FoodRecipe extends StatefulWidget {
@@ -248,6 +248,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
                   image: 'assets/food2.jpg',
                   title: 'Pasta',
                   time: '15min',
+                  foodDetail: FoodRecipe(),
                   bookmark: false, 
                 ),
               ),
@@ -257,6 +258,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
                   image: 'assets/food3.jpg',
                   title: 'Salad',
                   time: '20min',
+                  foodDetail: FoodRecipe(),
                   bookmark: false,
                 ),
               ),

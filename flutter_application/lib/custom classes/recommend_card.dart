@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/foodDetails/foodrecipe.dart';
-import 'package:flutter_application/modules/others_module.dart';
+import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_application/provider/bookmark.dart';
 import 'package:provider/provider.dart';
 import 'package:gap/gap.dart';

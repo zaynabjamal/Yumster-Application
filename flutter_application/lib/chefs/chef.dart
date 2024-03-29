@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/foodDetails/foodrecipe.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
-import 'package:flutter_application/modules/others_module.dart';
+import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Chef {
@@ -15,11 +15,13 @@ class Food {
   final String name;
   final String time;
   final String imageAsset;
+  final Widget detail;
 
   Food({
     required this.name,
     required this.time,
     required this.imageAsset,
+    required this.detail,
   });
 }
 
@@ -39,41 +41,49 @@ class Chefaccount extends StatelessWidget {
           name: 'Pasta Carbonara',
           time: '30min',
           imageAsset: 'assets/food2.jpg',
+          detail: const FoodRecipe()
         ),
         Food(
           name: 'Chicken Stir Fry',
           time: '25min',
           imageAsset: 'assets/food1.jpg',
+          detail: const FoodRecipe()
         ),
         Food(
           name: 'Caesar Salad',
           time: '15min',
           imageAsset: 'assets/food3.jpg',
+          detail: const FoodRecipe()
         ),
         Food(
           name: 'Chocolate Cake',
           time: '40min',
           imageAsset: 'assets/food4.jpg',
+          detail: const FoodRecipe()
         ),
         Food(
           name: 'Chocolate Cake',
           time: '4min',
           imageAsset: 'assets/food1.jpg',
+          detail: const FoodRecipe()
         ),
         Food(
           name: 'Chocolate Cake',
           time: '40min',
           imageAsset: 'assets/food3.jpg',
+          detail: const FoodRecipe()
         ),
         Food(
           name: 'Chocolate Cake',
           time: '40min',
           imageAsset: 'assets/food2.jpg',
+          detail: const FoodRecipe()
         ),
         Food(
           name: 'Chocolate Cake',
           time: '40min',
           imageAsset: 'assets/food4.jpg',
+          detail: const FoodRecipe()
         ),
       ],
     );
@@ -139,6 +149,7 @@ class FoodGridScreen extends StatelessWidget {
                   image: foods[index].imageAsset,
                   title: foods[index].name,
                   time: foods[index].time,
+                  foodDetail: foods[index].detail,
                   bookmark: false, // You can set the initial bookmark status
                 ),
               ),

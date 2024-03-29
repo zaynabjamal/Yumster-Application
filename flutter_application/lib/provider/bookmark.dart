@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/modules/others_module.dart';
+import 'package:flutter_application/modules/food_data_module.dart';
 
 class BookmarkProvider extends ChangeNotifier {
   List<FoodTypeModel> _widget = [];

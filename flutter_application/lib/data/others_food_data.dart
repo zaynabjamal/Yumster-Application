@@ -1,4 +1,5 @@
-import 'package:flutter_application/modules/others_module.dart';
+import 'package:flutter_application/foodDetails/foodrecipe.dart';
+import 'package:flutter_application/modules/food_data_module.dart';
 
 List<FoodTypeModel> foodTypeData = [
   FoodTypeModel(
@@ -6,6 +7,7 @@ List<FoodTypeModel> foodTypeData = [
     image: "assets/Burger.png",
     title: "Burger",
     time: "30min",
+    foodDetail: FoodRecipe(),
     bookmark: false,
   ),
   FoodTypeModel(
@@ -13,6 +15,7 @@ List<FoodTypeModel> foodTypeData = [
     image: "assets/fruitToast.png",
     title: "Fruit Toast",
     time: "30min",
+    foodDetail: FoodRecipe(),
     bookmark: false,
   ),
   FoodTypeModel(
@@ -20,6 +23,7 @@ List<FoodTypeModel> foodTypeData = [
     image: "assets/seafood.png",
     title: "Sea Food",
     time: "20min",
+    foodDetail: FoodRecipe(),
     bookmark: false,
   ),
   FoodTypeModel(
@@ -27,6 +31,7 @@ List<FoodTypeModel> foodTypeData = [
     image: "assets/spicyPrawns.png",
     title: "Spicy Prawns",
     time: "30min",
+    foodDetail: FoodRecipe(),
     bookmark: false,
   ),
 

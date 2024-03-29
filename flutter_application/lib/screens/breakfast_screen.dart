@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/data/breakfast_food_data.dart';
 import 'package:flutter_application/foodDetails/foodrecipe.dart';
 import 'package:flutter_application/screens/home/home_screen.dart';
-import 'package:flutter_application/modules/others_module.dart';
+import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_application/provider/bookmark.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
@@ -54,6 +54,7 @@ class _OthersState extends State<Breakfast> {
             shuffledFoodTypeData.length,
             (index) {
               FoodTypeModel foodTypeModel = shuffledFoodTypeData[index];
+              Widget food = shuffledFoodTypeData[index].foodDetail;
 
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
@@ -78,7 +79,7 @@ class _OthersState extends State<Breakfast> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const FoodRecipe()),
+                                builder: (context) => food),
                           );
                         },
                         child: Stack(
