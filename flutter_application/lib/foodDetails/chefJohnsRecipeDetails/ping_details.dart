@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/chefs/chef_john.dart';
 import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,12 +20,7 @@ class _FoodRecipeState extends State<Ping> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ChefJohnAcc(
-                            foodTypes: [],
-                          )));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),

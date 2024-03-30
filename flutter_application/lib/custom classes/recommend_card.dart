@@ -57,7 +57,7 @@ class _RecommendCardState extends State<RecommendCard> {
                           widget.foodType.image,
                         ),
                         opacity: 0.75,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/chefs/chef_john.dart';
 import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
-import 'package:flutter_application/foodDetails/foodrecipe.dart';
+import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/chicken_curry_detail.dart';
+import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/queso_dip_detauks.dart';
 import 'package:flutter_application/screens/breakfast_screen.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -267,20 +268,20 @@ class _FoodRecipeState extends State<ShakShuka> {
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,
-                  image: 'assets/food2.jpg',
-                  title: 'Pasta',
-                  time: '15min',
-                  foodDetail: FoodRecipe(),
+                  image: 'assets/chefJohnRecipe1.webp',
+                  title: 'Queso Dip',
+                  time: '20min',
+                  foodDetail: const QuesoDip(),
                   bookmark: false,
                 ),
               ),
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 1,
-                  image: 'assets/food3.jpg',
-                  title: 'Salad',
-                  time: '20min',
-                  foodDetail: FoodRecipe(),
+                  image: 'assets/chefJohnRecipe2.webp',
+                  title: 'Chicken Curry',
+                  time: '40min',
+                  foodDetail: const ChickenCurry(),
                   bookmark: false,
                 ),
               ),
