@@ -100,7 +100,7 @@ class _LoginState extends State<Login> {
                 ),
                 const Gap(50),
                 CustomTextField(
-                  label: 'Email',
+                  label: 'Email/Username',
                   controller: _emailOrUsernameController,
                   hideText: false,
                 ),
