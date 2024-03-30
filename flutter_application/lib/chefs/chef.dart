@@ -32,17 +32,18 @@ class Chefaccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FoodGridScreen(
-      chef: Chef(
+      chef: Chef( //change
         name: 'Chef John',
         photoAsset: 'assets/chef1.jpg',
       ),
       foods: [
-        Food(
+        Food( // change
           name: 'Pasta Carbonara',
           time: '30min',
           imageAsset: 'assets/food2.jpg',
           detail: const FoodRecipe()
         ),
+        //change all
         Food(
           name: 'Chicken Stir Fry',
           time: '25min',

@@ -23,7 +23,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
         leading: IconButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Others()));
+                  MaterialPageRoute(builder: (context) => const Others())); // change
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -46,7 +46,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
                 ],
               ),
               image: const DecorationImage(
-                image: AssetImage('assets/food1.jpg'),
+                image: AssetImage('assets/food1.jpg'), // change
                 opacity: 0.5,
                 fit: BoxFit.fill,
               ),
@@ -70,7 +70,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
                     child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        Text( // change
                           'Food Name',
                           style: TextStyle(
                             fontSize: 24.0,
@@ -90,7 +90,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
                                   color: Colors.white,
                                 ),
                                 SizedBox(width: 4.0),
-                                Text(
+                                Text( //change
                                   '30 mins',
                                   style: TextStyle(
                                     color: Colors.white,
@@ -127,7 +127,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // SVG Image
+                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -151,8 +151,8 @@ class _FoodRecipeState extends State<FoodRecipe> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: Colors.white,
-              // Text Content
-              child: const Text(
+              // change
+              child: const Text( 
                 'Recipe details go here. Lorem ipsum dolor sit amet, consectetur \n '
                 'adipiRecipe details go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt utRecipe details go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt utscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...',
                 style: TextStyle(
@@ -209,7 +209,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
                 ),
                 const SizedBox(width: 8),
                 const Text(
-                  'Chef Name',
+                  'Chef Name', //change
                   style: TextStyle(
                       color: Color(0xffFE9801),
                       fontSize: 16,
@@ -242,6 +242,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
+              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,
