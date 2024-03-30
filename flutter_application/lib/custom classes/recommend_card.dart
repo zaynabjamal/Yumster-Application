@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/foodDetails/foodrecipe.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_application/provider/bookmark.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +39,7 @@ class _RecommendCardState extends State<RecommendCard> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const FoodRecipe()),
+                  MaterialPageRoute(builder: (context) => widget.foodType.foodDetail),
                 );
               },
               child: Stack(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/chefs/chef.dart';
+import 'package:flutter_application/chefs/chef_john.dart';
+import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/foodrecipe.dart';
 import 'package:flutter_application/screens/breakfast_screen.dart';
@@ -23,10 +24,8 @@ class _FoodRecipeState extends State<ShakShuka> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const Breakfast())); 
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Breakfast()));
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -154,14 +153,18 @@ class _FoodRecipeState extends State<ShakShuka> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
-              // change
-              child: const Text(
-                '2 tbsp. olive oil \n1 yellow onion, finely chopped \n1 clove garlic, finely chopped \n1 tsp. ground cumin\nKosher salt and pepper\n1 lb. tomatoes, halved if large\n8 large eggs\n1/4 c. baby spinach, finely chopped\nToasted baguette, for serving',
-                style: TextStyle(
-                  fontSize: 14.0,
-                  color: Color(0xffB0AA86),
-                  fontWeight: FontWeight.w300,
-                ),
+              child: const Column(
+                children: [
+                  DotList(text: '2 tbsp. olive oil '),
+                  DotList(text: '1 yellow onion, finely chopped '),
+                  DotList(text: '1 clove garlic, finely chopped  '),
+                  DotList(text: '1 tsp. ground cumin '),
+                  DotList(text: 'Kosher salt and pepper '),
+                  DotList(text: '1 lb. tomatoes, halved if large'),
+                  DotList(text: '8 large eggs'),
+                  DotList(text: '1/4 c. baby spinach, finely chopped'),
+                  DotList(text: 'Toasted baguette, for serving'),
+                ],
               ),
             ),
             Container(
@@ -170,8 +173,7 @@ class _FoodRecipeState extends State<ShakShuka> {
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
               // change
-              child: const Text(
-                'Shakshuka is a tomato-y egg dish thats served with bread for dipping Shakshuka originated in North Africa and is enjoyed throughout most Middle Eastern countries as an easy,healthy breakfast dish, but truly, it s delicious any time of day (breakfast-for-dinner lovers, we see you!).',
+              child: const Text('Step1 Heat oven to 400°F. Heat oil in large oven-safe skillet on medium. Add onion and sauté until golden brown and tender, 8 minutes. Stir in garlic, cumin and ½ teaspoon each salt and pepper and cook 1 minute. Stir in tomatoes, transfer to oven and roast 10 minutes. Step2 Remove pan from oven, stir, then make 8 small wells in vegetable mixture and carefully crack 1 egg into each. Bake eggs to desired doneness, 7 to 8 minutes for slightly runny yolks. Sprinkle with spinach and, if desired, serve with toast.',
                 style: TextStyle(
                   fontSize: 14.0,
                   color: Color(0xffB0AA86),
@@ -188,7 +190,7 @@ class _FoodRecipeState extends State<ShakShuka> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const Chefaccount(
+                builder: (context) => const ChefJohnAcc(
                   foodTypes: [],
                 ),
               ),
@@ -222,13 +224,13 @@ class _FoodRecipeState extends State<ShakShuka> {
                   ),
                   child: const CircleAvatar(
                     backgroundImage: AssetImage(
-                        'assets/chef1.jpg'), // Replace with chef's image
+                        'assets/chefJohn.jpeg'),
                     radius: 20.0,
                   ),
                 ),
                 const SizedBox(width: 8),
                 const Text(
-                  'Chef Name', //change
+                  'Chef John', 
                   style: TextStyle(
                       color: Color(0xffFE9801),
                       fontSize: 16,
