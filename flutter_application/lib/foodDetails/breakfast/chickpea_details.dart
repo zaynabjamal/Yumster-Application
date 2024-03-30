@@ -156,15 +156,17 @@ class _FoodRecipeState extends State<ChickPea> {
               color: const Color(0xffFCFCF8),
               child: const Column(
                 children: [
-                  DotList(text: '2 tbsp. olive oil '),
-                  DotList(text: '1 yellow onion, finely chopped '),
-                  DotList(text: '1 clove garlic, finely chopped  '),
-                  DotList(text: '1 tsp. ground cumin '),
-                  DotList(text: 'Kosher salt and pepper '),
-                  DotList(text: '1 lb. tomatoes, halved if large'),
-                  DotList(text: '8 large eggs'),
-                  DotList(text: '1/4 c. baby spinach, finely chopped'),
-                  DotList(text: 'Toasted baguette, for serving'),
+                  DotList(text: '½ pound(s), russet potato'),
+                  DotList(text: '3 spray(s) Cooking spray'),
+                  DotList(text: '¾ cup(s), rinsed Canned chickpeas'),
+                  DotList(text: '⅓ cup(s), chopped Uncooked carrot(s)'),
+                  DotList(text: '1 item(s), pepper(s)'),
+                  DotList(text: '1 medium Uncooked onion(s)'),
+                  DotList(text: '¾ cup(s) Vegetable broth'),
+                  DotList(text: '2 tsp Garlic powder'),
+                  DotList(text: '2 tsp Onion powder'),
+                  DotList(text: '½ tsp Cayenne pepper'),
+                  DotList(text: '1 tsp Table salt'),
                 ],
               ),
             ),
@@ -175,7 +177,7 @@ class _FoodRecipeState extends State<ChickPea> {
               color: const Color(0xffFCFCF8),
               // change
               child: const Text(
-                'Step1 Heat oven to 400°F. Heat oil in large oven-safe skillet on medium. Add onion and sauté until golden brown and tender, 8 minutes. Stir in garlic, cumin and ½ teaspoon each salt and pepper and cook 1 minute. Stir in tomatoes, transfer to oven and roast 10 minutes. Step2 Remove pan from oven, stir, then make 8 small wells in vegetable mixture and carefully crack 1 egg into each. Bake eggs to desired doneness, 7 to 8 minutes for slightly runny yolks. Sprinkle with spinach and, if desired, serve with toast.',
+                'Step 1 Place the potatoes in a medium saucepan and add enough water to cover. Bring to a boil. Reduce to medium, cover and simmer for 10 minutes, until tender. Drain and mash the potatoes; set aside. Step2 Coat the bottom of a large saucepan with cooking spray and heat over medium. Sauté the onions, bell peppers, and carrots until almost tender, about 5 to 6 minutes, stirring occasionally. Step3 In a medium bowl, mash the chickpeas. Add the chickpeas and vegetable broth to the saucepan with vegetables. Cook for 10 minutes on medium heat. Step4 Remove the chickpeas from the heat, and add the mashed potatoes, onion powder, garlic, cayenne, and allspice. Stir to combine. Let cool to room temperature. Step5 Preheat the oven to 450 F. Line a large baking sheet with parchment. Step6 In a small bowl, combine the egg with 1 tbsp water. Place 3 tbsp of filling in the center of 1 dough disk. Brush edges of dough with egg wash. Fold over and press with a fork to seal. Repeat with remaining filling and dough disks. Brush any remaining egg wash on top of patties. Bake until golden brown, about 20 minutes. Let cool, then serve.',
                 style: TextStyle(
                   fontSize: 14.0,
                   color: Color(0xffB0AA86),

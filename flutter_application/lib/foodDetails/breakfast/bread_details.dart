@@ -156,15 +156,16 @@ class _FoodRecipeState extends State<Bread> {
               color: const Color(0xffFCFCF8),
               child: const Column(
                 children: [
-                  DotList(text: '2 tbsp. olive oil '),
-                  DotList(text: '1 yellow onion, finely chopped '),
-                  DotList(text: '1 clove garlic, finely chopped  '),
-                  DotList(text: '1 tsp. ground cumin '),
-                  DotList(text: 'Kosher salt and pepper '),
-                  DotList(text: '1 lb. tomatoes, halved if large'),
-                  DotList(text: '8 large eggs'),
-                  DotList(text: '1/4 c. baby spinach, finely chopped'),
-                  DotList(text: 'Toasted baguette, for serving'),
+                  DotList(text: 'Deselect All '),
+                  DotList(text: '5 extra-large whole eggs '),
+                  DotList(text: '2 extra-large egg yolks'),
+                  DotList(text: '2 1/2 cups half-and-half'),
+                  DotList(text: '1/3 cup honey'),
+                  DotList(text: '1 1/2 teaspoons pure vanilla extract'),
+                  DotList(text: '2 teaspoons orange zest (2 oranges)'),
+                  DotList(text: 'Brioche loaf'),
+                  DotList(text: '1/2 cup golden raisins'),
+                  DotList(text: 'Maple syrup, to serve'),
                 ],
               ),
             ),
@@ -175,7 +176,7 @@ class _FoodRecipeState extends State<Bread> {
               color: const Color(0xffFCFCF8),
               // change
               child: const Text(
-                'Step1 Heat oven to 400°F. Heat oil in large oven-safe skillet on medium. Add onion and sauté until golden brown and tender, 8 minutes. Stir in garlic, cumin and ½ teaspoon each salt and pepper and cook 1 minute. Stir in tomatoes, transfer to oven and roast 10 minutes. Step2 Remove pan from oven, stir, then make 8 small wells in vegetable mixture and carefully crack 1 egg into each. Bake eggs to desired doneness, 7 to 8 minutes for slightly runny yolks. Sprinkle with spinach and, if desired, serve with toast.',
+                'Preheat the oven to 350 degrees F In a medium bowl, whisk together the whole eggs, egg yolks, half-and-half, honey, vanilla, orange zest, and salt. Set aside. Slice the brioche loaf into 6 (1-inch) thick pieces. Lay half brioche slices flat in a 9 by 14 by 2-inch oval baking dish. Spread the raisins on top of the brioche slices, and place the remaining slices on top. Make sure that the raisins are between the layers of brioche or they will burn while baking. Pour the egg mixture over the bread and allow to soak for 15 minutes, pressing down gently. Bake for 55 to 60 minutes or until the pudding puffs up and the custard is set. Remove from the oven and cool slightly before serving.',
                 style: TextStyle(
                   fontSize: 14.0,
                   color: Color(0xffB0AA86),

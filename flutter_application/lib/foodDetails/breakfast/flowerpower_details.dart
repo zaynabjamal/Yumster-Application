@@ -152,19 +152,15 @@ class _FoodRecipeState extends State<FlowerPower> {
             Container(
               padding: EdgeInsets.symmetric(
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
-                  horizontal: MediaQuery.sizeOf(context).width * 0.05),
+                  horizontal: MediaQuery.sizeOf(context).width * 0.04),
               color: const Color(0xffFCFCF8),
               child: const Column(
                 children: [
-                  DotList(text: '2 tbsp. olive oil '),
-                  DotList(text: '1 yellow onion, finely chopped '),
-                  DotList(text: '1 clove garlic, finely chopped  '),
-                  DotList(text: '1 tsp. ground cumin '),
-                  DotList(text: 'Kosher salt and pepper '),
-                  DotList(text: '1 lb. tomatoes, halved if large'),
-                  DotList(text: '8 large eggs'),
-                  DotList(text: '1/4 c. baby spinach, finely chopped'),
-                  DotList(text: 'Toasted baguette, for serving'),
+                  DotList(text: '1 large bell pepper (or 4 in different colors)'),
+                  DotList(text: '1 tbsp. vegetable oil'),
+                  DotList(text: '4 large eggs '),
+                  DotList(text: 'Chopped parsley, for garnish'),
+
                 ],
               ),
             ),
@@ -175,7 +171,7 @@ class _FoodRecipeState extends State<FlowerPower> {
               color: const Color(0xffFCFCF8),
               // change
               child: const Text(
-                'Step1 Heat oven to 400°F. Heat oil in large oven-safe skillet on medium. Add onion and sauté until golden brown and tender, 8 minutes. Stir in garlic, cumin and ½ teaspoon each salt and pepper and cook 1 minute. Stir in tomatoes, transfer to oven and roast 10 minutes. Step2 Remove pan from oven, stir, then make 8 small wells in vegetable mixture and carefully crack 1 egg into each. Bake eggs to desired doneness, 7 to 8 minutes for slightly runny yolks. Sprinkle with spinach and, if desired, serve with toast.',
+                'Step1 Slice bell pepper (or 4 in different colors) horizontally to make four 1/2-inch-thick rings and remove inner white flesh and seeds. Step2 In 12-inch nonstick skillet, heat vegetable oil on medium. Cook peppers 2 minutes. Turn peppers over; crack 1 egg into center of each ring. Cook, covered, until eggs have reached desired doneness. Season with 1/4 teaspoon each salt and pepper. Step3 To serve, garnish with chopped parsley',
                 style: TextStyle(
                   fontSize: 14.0,
                   color: Color(0xffB0AA86),
