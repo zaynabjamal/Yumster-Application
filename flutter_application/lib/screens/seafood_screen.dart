@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/data/sea_food_data.dart';
-import 'package:flutter_application/foodDetails/foodrecipe.dart';
 import 'package:flutter_application/screens/home/home_screen.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_application/provider/bookmark.dart';
