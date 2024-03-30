@@ -129,6 +129,9 @@ class _SignInState extends State<SignIn> {
         'Password': _passwordController.text,
         'ConfirmPassword': _userConfirmPassword.text,
       });
+      //navigate to success page
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const SuccessPage()));
     }
     //on FirebaseAuthException catch (e) {
     on FirebaseAuthException catch (e) {
