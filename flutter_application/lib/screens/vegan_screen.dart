@@ -77,8 +77,7 @@ class _OthersState extends State<Vegan> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => food),
+                            MaterialPageRoute(builder: (context) => food),
                           );
                         },
                         child: Stack(

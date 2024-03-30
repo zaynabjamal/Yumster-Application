@@ -11,10 +11,10 @@ class Dinner extends StatefulWidget {
   const Dinner({super.key});
 
   @override
-  State<Dinner> createState() => _OthersState();
+  State<Dinner> createState() => _DinnerState();
 }
 
-class _OthersState extends State<Dinner> {
+class _DinnerState extends State<Dinner> {
   late List<FoodTypeModel> shuffledFoodTypeData;
   @override
   void initState() {
@@ -77,8 +77,7 @@ class _OthersState extends State<Dinner> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => food),
+                            MaterialPageRoute(builder: (context) => food),
                           );
                         },
                         child: Stack(
@@ -141,7 +140,7 @@ class _OthersState extends State<Dinner> {
                               shuffledFoodTypeData[index].title,
                               style: const TextStyle(
                                 color: Color(0xFF697C37),
-                                fontSize: 15,
+                                fontSize: 8,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),

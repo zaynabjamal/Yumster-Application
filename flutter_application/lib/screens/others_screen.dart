@@ -53,7 +53,7 @@ class _OthersState extends State<Others> {
             shuffledFoodTypeData.length,
             (index) {
               FoodTypeModel foodTypeModel = shuffledFoodTypeData[index];
-              Widget food= shuffledFoodTypeData[index].foodDetail;
+              Widget food = shuffledFoodTypeData[index].foodDetail;
 
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
@@ -75,11 +75,8 @@ class _OthersState extends State<Others> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => food )
-                          );
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => food));
                         },
                         child: Stack(
                           children: [
@@ -182,5 +179,3 @@ class _OthersState extends State<Others> {
     );
   }
 }
-
-
