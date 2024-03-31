@@ -140,7 +140,7 @@ class _DinnerState extends State<Dinner> {
                               shuffledFoodTypeData[index].title,
                               style: const TextStyle(
                                 color: Color(0xFF697C37),
-                                fontSize: 8,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),

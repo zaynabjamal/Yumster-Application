@@ -5,17 +5,17 @@ import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/reccommendcards/crispystripedrecommend.dart';
 import 'package:flutter_application/foodDetails/reccommendcards/rice_reccommend.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/dinner_screen.dart';
+import 'package:flutter_application/screens/vegan_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
-class RicePorridge extends StatefulWidget {
-  const RicePorridge({super.key});
+class DutchPancake extends StatefulWidget {
+  const DutchPancake({super.key});
 
   @override
-  State<RicePorridge> createState() => _RicePorridgeState();
+  State<DutchPancake> createState() => _DutchPancakeState();
 }
 
-class _RicePorridgeState extends State<RicePorridge> {
+class _DutchPancakeState extends State<DutchPancake> {
   late final List<FoodTypeModel> foodtype;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class _RicePorridgeState extends State<RicePorridge> {
         leading: IconButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Dinner()));
+                  MaterialPageRoute(builder: (context) => const Vegan()));
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -48,7 +48,7 @@ class _RicePorridgeState extends State<RicePorridge> {
                 ],
               ),
               image: const DecorationImage(
-                image: AssetImage('assets/VeganCongeeRecipe.jpg'),
+                image: AssetImage('assets/DutchBabyPancake.jpg'),
                 opacity: 0.5,
                 fit: BoxFit.cover,
               ),
@@ -73,7 +73,7 @@ class _RicePorridgeState extends State<RicePorridge> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Rice Porridge',
+                          "Dutch Baby Pancake",
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
@@ -93,7 +93,7 @@ class _RicePorridgeState extends State<RicePorridge> {
                                 ),
                                 SizedBox(width: 4.0),
                                 Text(
-                                  '40 mins',
+                                  '30 mins',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 12,
@@ -155,17 +155,28 @@ class _RicePorridgeState extends State<RicePorridge> {
               color: const Color(0xffFCFCF8),
               child: const Column(
                 children: [
-                  DotList(text: '1 cup uncooked long-grain white rice '),
-                  DotList(text: '3 tablespoons sesame oil, divided'),
-                  DotList(text: '6 cups sliced fresh shiitake mushrooms '),
-                  DotList(text: '2 1/4 teaspoons kosher salt, divided'),
-                  DotList(text: '1 tablespoon grated peeled fresh ginger '),
-                  DotList(text: '3 medium garlic cloves, grated'),
-                  DotList(text: '5 cups water, plus more as needed'),
-                  DotList(text: '4 cups mushroom broth '),
-                  DotList(text: '1 (6-inch) fresh lemongrass stalk'),
-                  DotList(text: '1 tablespoon tamari'),
+                  DotList(text: 'Eggs'),
+                  DotList(text: 'All-purpose flour'),
+                  DotList(text: 'Whole milk'),
+                  DotList(text: 'Vanilla'),
+                  DotList(text: 'Sea salt'),
+                  DotList(text: 'Salted butter'),
                 ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                  vertical: MediaQuery.sizeOf(context).width * 0.03,
+                  horizontal: MediaQuery.sizeOf(context).width * 0.05),
+              color: Colors.white,
+              // change
+              child: const Text(
+                "Extremely simple ingredients yield a showy, puffed-up, popover-like, oven-baked Dutch baby pancake that’s buttery, delicate, and delicious.",
+                style: TextStyle(
+                  fontSize: 14.0,
+                  color: Color(0xffB0AA86),
+                  fontWeight: FontWeight.w300,
+                ),
               ),
             ),
             Container(

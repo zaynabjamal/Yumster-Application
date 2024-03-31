@@ -1,37 +1,40 @@
-import 'package:flutter_application/foodDetails/foodrecipe.dart';
+import 'package:flutter_application/foodDetails/vegererian/broccoli_cheddar_soup.dart';
+import 'package:flutter_application/foodDetails/vegererian/dutch_baby_pancake.dart';
+import 'package:flutter_application/foodDetails/vegererian/homemade_fried_rice.dart';
+import 'package:flutter_application/foodDetails/vegererian/pesto_spaghetti.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 
 List<FoodTypeModel> vegeData = [
   FoodTypeModel(
     id: 0,
-    image: "assets/Burger.png",
-    title: "Burger",
+    image: "assets/PestoSpaghetti.jpg",
+    title: "Pesto Spaghetti",
     time: "30min",
-    foodDetail: const FoodRecipe(),
+    foodDetail: const PestoSpaghetti(),
     bookmark: false,
   ),
   FoodTypeModel(
     id: 1,
-    image: "assets/fruitToast.png",
-    title: "Fruit Toast",
+    image: "assets/BroccoliandCheddarSoup.jpg",
+    title: "Broccoli Soup",
     time: "30min",
-    foodDetail: const FoodRecipe(),
+    foodDetail: const BroccoliSoup(),
     bookmark: false,
   ),
   FoodTypeModel(
     id: 2,
-    image: "assets/seafood.png",
-    title: "Sea Food",
-    time: "20min",
-    foodDetail: const FoodRecipe(),
+    image: "assets/DutchBabyPancake.jpg",
+    title: "Dutch Pancake",
+    time: "30min",
+    foodDetail: const DutchPancake(),
     bookmark: false,
   ),
   FoodTypeModel(
     id: 3,
-    image: "assets/spicyPrawns.png",
-    title: "Spicy Prawns",
+    image: "assets/HomemadeFriedRice.jpg",
+    title: "Fried Rice",
     time: "30min",
-    foodDetail: const FoodRecipe(),
+    foodDetail: const HomeMadeRice(),
     bookmark: false,
   ),
 ];

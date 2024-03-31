@@ -11,10 +11,10 @@ class Vegan extends StatefulWidget {
   const Vegan({super.key});
 
   @override
-  State<Vegan> createState() => _OthersState();
+  State<Vegan> createState() => _VeganState();
 }
 
-class _OthersState extends State<Vegan> {
+class _VeganState extends State<Vegan> {
   late List<FoodTypeModel> shuffledFoodTypeData;
   @override
   void initState() {
