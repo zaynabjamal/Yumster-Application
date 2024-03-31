@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Upload/utils.dart';
+import 'package:flutter_application/data/contact_us.dart';
 import 'package:flutter_application/resources/save_data.dart';
 import 'package:flutter_application/screens/about_us.dart';
 import 'package:flutter_application/screens/help_screen.dart';
@@ -242,25 +243,48 @@ class _ProfilePageState extends State<ProfilePage> {
                                 spreadRadius: 0),
                           ],
                         ),
-                        child: Row(
-                          children: [
-                            const Gap(6),
-                            IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.phone_outlined,
-                                color: Color(0xFFFE9801),
-                              ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ContactUs()),
+                            );
+                          },
+                          child: Container(
+                            width: 330,
+                            height: 52,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFFFFF9F1),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(4)),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey,
+                                    offset: Offset(0, 1),
+                                    blurRadius: 1,
+                                    spreadRadius: 0),
+                              ],
                             ),
-                            const Text(
-                              "Contact Us",
-                              style: TextStyle(
-                                fontFamily: 'Rowdies',
-                                fontSize: 16,
-                                color: Color(0xFF697C37),
-                              ),
-                            )
-                          ],
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child:
+                                      SvgPicture.asset("assets/contactus.svg"),
+                                ),
+                                const Gap(12),
+                                const Text(
+                                  "Contact Us",
+                                  style: TextStyle(
+                                    fontFamily: 'Rowdies',
+                                    fontSize: 16,
+                                    color: Color(0xFF697C37),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                       const Gap(12),
