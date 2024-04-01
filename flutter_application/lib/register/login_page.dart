@@ -24,19 +24,19 @@ class _LoginState extends State<Login> {
   final int _success = 1;
   // ignore: unused_field
   final String _userEmail = " ";
+
+  // ----------------- REGULAR EXPRESSION FOR EMAIL
+  RegExp regex = RegExp(
+      r'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$');
+
 // sing user in
   Future<void> _signin() async {
     String email = _emailOrUsernameController.text.trim();
     String password = _passwordController.text.trim();
     try {
       //check if the input is email
-      bool isEmail = email.contains("@");
-      if (isEmail) {
-        await _auth.signInWithEmailAndPassword(
-            email: email, password: password);
-      } else {
-        print("Signing with username: $email");
-      }
+      // bool isEmail = email.contains("@");
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
 
       //if signin successful, then navigate to homepage
       Navigator.pushReplacement(
@@ -64,12 +64,16 @@ class _LoginState extends State<Login> {
 
   // function to fill the textfields
   bool _fillFields() {
-    return _emailOrUsernameController.text.isNotEmpty &&
+    return regex.hasMatch(_emailOrUsernameController.text) &&
         _passwordController.text.isNotEmpty;
   }
 
   @override
   Widget build(BuildContext context) {
+    // FOR REUSING PUROSE
+    // I used it in dialog pop up message
+    bool isEmail = regex.hasMatch(_emailOrUsernameController.text);
+
     // ignore: deprecated_member_use
     return WillPopScope(
       onWillPop: () async {
@@ -130,18 +134,21 @@ class _LoginState extends State<Login> {
                       }
                     } else {
                       showDialog(
-                          context: context,
-                          builder: (context) => const AlertDialog(
-                                backgroundColor: Color(0xffFCFCF8),
-                                title: Text(
-                                  textAlign: TextAlign.center,
-                                  "Please fill all the fields",
-                                  style: TextStyle(
-                                      color: Color(0xffFE9801),
-                                      fontSize: 16,
-                                      fontFamily: "Rowdies"),
-                                ),
-                              ));
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          backgroundColor: const Color(0xffFCFCF8),
+                          title: Text(
+                            textAlign: TextAlign.center,
+                            isEmail
+                                ? "Please fill all the fields"
+                                : "Email not in a correct format",
+                            style: const TextStyle(
+                                color: Color(0xffFE9801),
+                                fontSize: 16,
+                                fontFamily: "Rowdies"),
+                          ),
+                        ),
+                      );
                     }
                   },
                   child: const Text(
@@ -165,9 +172,11 @@ class _LoginState extends State<Login> {
                   ),
                   onTap: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignIn()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignIn(),
+                      ),
+                    );
                   },
                 )
               ],

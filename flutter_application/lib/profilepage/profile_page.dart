@@ -25,8 +25,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   Uint8List? _image;
   // upload image
- 
-
 
   // Taking id as a paramater for updating
   void selectedImage(userId) async {
@@ -36,14 +34,14 @@ class _ProfilePageState extends State<ProfilePage> {
 
       // THIS IS EXTRA AND USELESS ↙️
       // saveProfile();
-
     });
 
     // Passing image to uploading provider [StoreData]
     // Also Passing user id for updating exactly logged in user record ↘️
     try {
       if (_image != null) {
-        String resp = await StoreData().saveImage(file: _image!, userID: userId);
+        String resp =
+            await StoreData().saveImage(file: _image!, userID: userId);
         print(resp);
       } else {
         print("No image selected");
