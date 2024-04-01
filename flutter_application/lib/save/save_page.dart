@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/foodDetails/foodrecipe.dart';
-import 'package:flutter_application/favorite/empty_save_page.dart';
+import 'package:flutter_application/save/empty_save_page.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_application/provider/bookmark.dart';
 import 'package:flutter_svg/svg.dart';
@@ -95,7 +94,7 @@ class _SavedPageState extends State<SavedPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const FoodRecipe()),
+                                          bookmarkedItems[index].foodDetail),
                                   );
                                 },
                                 child: Stack(

@@ -106,18 +106,9 @@ class _RicePorridgeState extends State<RicePorridge> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: Colors.white,
-                  size: 40.0,
-                ),
-              ),
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -127,7 +118,6 @@ class _RicePorridgeState extends State<RicePorridge> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -175,7 +165,6 @@ class _RicePorridgeState extends State<RicePorridge> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -230,13 +219,12 @@ class _RicePorridgeState extends State<RicePorridge> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
               horizontal: MediaQuery.sizeOf(context).width * 0.05),
           child: const Text(
-            "Reccomend",
+            "Recommend",
             style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff697C37),
@@ -253,7 +241,6 @@ class _RicePorridgeState extends State<RicePorridge> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

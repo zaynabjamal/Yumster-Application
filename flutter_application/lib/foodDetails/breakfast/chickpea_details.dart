@@ -4,7 +4,6 @@ import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/chicken_curry_detail.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/queso_dip_detauks.dart';
-import 'package:flutter_application/screens/breakfast_screen.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -25,8 +24,7 @@ class _FoodRecipeState extends State<ChickPea> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Breakfast()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -109,14 +107,6 @@ class _FoodRecipeState extends State<ChickPea> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: Colors.white,
-                  size: 40.0,
-                ),
-              ),
             ],
           ),
         ),
@@ -130,7 +120,6 @@ class _FoodRecipeState extends State<ChickPea> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -175,7 +164,6 @@ class _FoodRecipeState extends State<ChickPea> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
-              // change
               child: const Text(
                 'Step 1 Place the potatoes in a medium saucepan and add enough water to cover. Bring to a boil. Reduce to medium, cover and simmer for 10 minutes, until tender. Drain and mash the potatoes; set aside. Step2 Coat the bottom of a large saucepan with cooking spray and heat over medium. Sauté the onions, bell peppers, and carrots until almost tender, about 5 to 6 minutes, stirring occasionally. Step3 In a medium bowl, mash the chickpeas. Add the chickpeas and vegetable broth to the saucepan with vegetables. Cook for 10 minutes on medium heat. Step4 Remove the chickpeas from the heat, and add the mashed potatoes, onion powder, garlic, cayenne, and allspice. Stir to combine. Let cool to room temperature. Step5 Preheat the oven to 450 F. Line a large baking sheet with parchment. Step6 In a small bowl, combine the egg with 1 tbsp water. Place 3 tbsp of filling in the center of 1 dough disk. Brush edges of dough with egg wash. Fold over and press with a fork to seal. Repeat with remaining filling and dough disks. Brush any remaining egg wash on top of patties. Bake until golden brown, about 20 minutes. Let cool, then serve.',
                 style: TextStyle(
@@ -188,7 +176,6 @@ class _FoodRecipeState extends State<ChickPea> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -243,13 +230,12 @@ class _FoodRecipeState extends State<ChickPea> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
               horizontal: MediaQuery.sizeOf(context).width * 0.05),
           child: const Text(
-            "Reccomend",
+            "Recommend",
             style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff697C37),
@@ -266,7 +252,6 @@ class _FoodRecipeState extends State<ChickPea> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

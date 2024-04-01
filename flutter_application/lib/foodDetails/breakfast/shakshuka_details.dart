@@ -47,7 +47,7 @@ class _FoodRecipeState extends State<ShakShuka> {
                 ],
               ),
               image: const DecorationImage(
-                image: AssetImage('assets/Shakshuka1.webp'), // change
+                image: AssetImage('assets/Shakshuka1.webp'),
                 opacity: 0.5,
                 fit: BoxFit.fill,
               ),
@@ -107,18 +107,9 @@ class _FoodRecipeState extends State<ShakShuka> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: Colors.white,
-                  size: 40.0,
-                ),
-              ),
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -128,7 +119,6 @@ class _FoodRecipeState extends State<ShakShuka> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -171,7 +161,6 @@ class _FoodRecipeState extends State<ShakShuka> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
-              // change
               child: const Text('Step1 Heat oven to 400°F. Heat oil in large oven-safe skillet on medium. Add onion and sauté until golden brown and tender, 8 minutes. Stir in garlic, cumin and ½ teaspoon each salt and pepper and cook 1 minute. Stir in tomatoes, transfer to oven and roast 10 minutes. Step2 Remove pan from oven, stir, then make 8 small wells in vegetable mixture and carefully crack 1 egg into each. Bake eggs to desired doneness, 7 to 8 minutes for slightly runny yolks. Sprinkle with spinach and, if desired, serve with toast.',
                 style: TextStyle(
                   fontSize: 14.0,
@@ -183,7 +172,6 @@ class _FoodRecipeState extends State<ShakShuka> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -239,13 +227,12 @@ class _FoodRecipeState extends State<ShakShuka> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
               horizontal: MediaQuery.sizeOf(context).width * 0.05),
           child: const Text(
-            "Reccomend",
+            "Recommend",
             style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff697C37),
@@ -262,7 +249,6 @@ class _FoodRecipeState extends State<ShakShuka> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

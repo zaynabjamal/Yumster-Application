@@ -105,18 +105,9 @@ class _FoodRecipeState extends State<SweetPotato> {
                       ),
                     ],
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.bookmark_border_outlined,
-                      color: Colors.white,
-                      size: 40.0,
-                    ),
-                  ),
                 ],
               ),
             ),
-            // Recipe Details
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -126,7 +117,6 @@ class _FoodRecipeState extends State<SweetPotato> {
                 Row(
                   children: [
                     const Padding(padding: EdgeInsets.all(10.0)),
-                    // change
                     SvgPicture.asset(
                       'assets/recip.svg',
                       width: 40.0,
@@ -168,7 +158,6 @@ class _FoodRecipeState extends State<SweetPotato> {
                       vertical: MediaQuery.sizeOf(context).width * 0.03,
                       horizontal: MediaQuery.sizeOf(context).width * 0.05),
                   color: const Color(0xffFCFCF8),
-                  // change
                   child: const Text(
                     'Heat oven to 375°. Mix potatoes, butter, brown sugar, honey, allspice, salt, and pepper on an aluminum foil-lined baking sheet; spread into an even layer. Top with a sheet of parchment paper and cover with aluminum foil; bake until potatoes are very tender, 35–40 minutes. Let cool slightly and transfer to a food processor; add mascarpone cheese and purée until smooth. Spread mixture into a 9" x 13" baking dish; top with marshmallows. Heat oven broiler; broil casserole until marshmallows are browned in spots, 2–3 minutes.',
                     style: TextStyle(

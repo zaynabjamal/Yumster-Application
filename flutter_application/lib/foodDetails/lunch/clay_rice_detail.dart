@@ -5,7 +5,6 @@ import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/chicken_curry_detail.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/queso_dip_detauks.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/lunch_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ClayRice extends StatefulWidget {
@@ -25,8 +24,7 @@ class _FoodRecipeState extends State<ClayRice> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Lunch()));
+             Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -109,18 +107,9 @@ class _FoodRecipeState extends State<ClayRice> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: Colors.white,
-                  size: 40.0,
-                ),
-              ),
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -130,7 +119,6 @@ class _FoodRecipeState extends State<ClayRice> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -175,7 +163,6 @@ class _FoodRecipeState extends State<ClayRice> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
-              // change
               child: const Text(
                 'In a bowl, cover the rice with water and let soak until the grains turn white, about 1 hour. Drain the rice. In another bowl, toss the mushrooms and scallions with 1 tablespoon of the soy sauce and season with salt and pepper; let marinate for 10 minutes. In a small, enameled cast-iron casserole, clay pot or medium saucepan, cook the bacon over moderate heat until the fat is rendered and the bacon is crisp, about 5 minutes. Add the garlic and ginger and cook, stirring, until fragrant, about 1 minute. Add the soaked rice and stir to coat with the fat. Add the ginkgo nuts, marinated mushrooms and scallions, the water and the remaining 1 teaspoon of soy sauce. Bring to a boil over moderately high heat. Drizzle the oil around the edge of the pot so it runs down the insides. Cover the pot and cook the rice over low heat until tender and the liquid has been absorbed, 10 minutes. Raise the heat to high and cook the rice, covered, until sizzling and a crust forms on the bottom, about 5 minutes. Remove the pot from the heat and let stand, covered, for 5 minutes. Fluff the rice with a fork and serve.',
                 style: TextStyle(
@@ -188,7 +175,6 @@ class _FoodRecipeState extends State<ClayRice> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -243,13 +229,12 @@ class _FoodRecipeState extends State<ClayRice> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
               horizontal: MediaQuery.sizeOf(context).width * 0.05),
           child: const Text(
-            "Reccomend",
+            "Recommend",
             style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff697C37),
@@ -266,7 +251,6 @@ class _FoodRecipeState extends State<ClayRice> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

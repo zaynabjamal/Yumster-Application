@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/chefs/chef.dart';
+import 'package:flutter_application/chefs/chef_thomas.dart';
+import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
-import 'package:flutter_application/screens/others_screen.dart';
+import 'package:flutter_application/foodDetails/dinner/crispy_striped.dart';
+import 'package:flutter_application/foodDetails/dinner/rice_porridge.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
-class FoodRecipe extends StatefulWidget {
-  const FoodRecipe({super.key});
+class HomeMadeRice extends StatefulWidget {
+  const HomeMadeRice({super.key});
 
   @override
-  State<FoodRecipe> createState() => _FoodRecipeState();
+  State<HomeMadeRice> createState() => _HomeMadeRiceState();
 }
 
-class _FoodRecipeState extends State<FoodRecipe> {
+class _HomeMadeRiceState extends State<HomeMadeRice> {
   late final List<FoodTypeModel> foodtype;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +23,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const Others())); // change
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -48,9 +46,9 @@ class _FoodRecipeState extends State<FoodRecipe> {
                 ],
               ),
               image: const DecorationImage(
-                image: AssetImage('assets/food1.jpg'), // change
+                image: AssetImage("assets/HomemadeFriedRice.jpg"),
                 opacity: 0.5,
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
               ),
               boxShadow: [
                 BoxShadow(
@@ -73,8 +71,7 @@ class _FoodRecipeState extends State<FoodRecipe> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          // change
-                          'Food Name',
+                          "Homemade Fried Rice",
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
@@ -94,7 +91,6 @@ class _FoodRecipeState extends State<FoodRecipe> {
                                 ),
                                 SizedBox(width: 4.0),
                                 Text(
-                                  //change
                                   '30 mins',
                                   style: TextStyle(
                                     color: Colors.white,
@@ -110,18 +106,9 @@ class _FoodRecipeState extends State<FoodRecipe> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: Colors.white,
-                  size: 40.0,
-                ),
-              ),
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -131,7 +118,6 @@ class _FoodRecipeState extends State<FoodRecipe> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -154,11 +140,30 @@ class _FoodRecipeState extends State<FoodRecipe> {
               padding: EdgeInsets.symmetric(
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
+              color: const Color(0xffFCFCF8),
+              child: const Column(
+                children: [
+                  DotList(text: 'Eggs'),
+                  DotList(text: 'Toasted sesame oil'),
+                  DotList(text: 'Vegetable oil'),
+                  DotList(text: 'Coconut aminos'),
+                  DotList(text: 'Soy sauce'),
+                  DotList(text: 'Salt'),
+                  DotList(text: 'Carrots'),
+                  DotList(text: 'Onion'),
+                  DotList(text: 'Garlic'),
+                  DotList(text: 'Peas'),
+                  DotList(text: 'Green onions'),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                  vertical: MediaQuery.sizeOf(context).width * 0.03,
+                  horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: Colors.white,
-              // change
               child: const Text(
-                'Recipe details go here. Lorem ipsum dolor sit amet, consectetur \n '
-                'adipiRecipe details go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt utRecipe details go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt utscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...',
+                "This homemade fried rice recipe is a lot easier than you think. Say hello to the very best way to use up leftover rice.",
                 style: TextStyle(
                   fontSize: 14.0,
                   color: Color(0xffB0AA86),
@@ -166,16 +171,21 @@ class _FoodRecipeState extends State<FoodRecipe> {
                 ),
               ),
             ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                  vertical: MediaQuery.sizeOf(context).width * 0.03,
+                  horizontal: MediaQuery.sizeOf(context).width * 0.05),
+              color: Colors.white,
+            ),
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const Chefaccount(
+                builder: (context) => const ChefThomasAcc(
                   foodTypes: [],
                 ),
               ),
@@ -208,14 +218,13 @@ class _FoodRecipeState extends State<FoodRecipe> {
                     ),
                   ),
                   child: const CircleAvatar(
-                    backgroundImage: AssetImage(
-                        'assets/chef1.jpg'), // Replace with chef's image
+                    backgroundImage: AssetImage('assets/thomas.jpeg'),
                     radius: 20.0,
                   ),
                 ),
                 const SizedBox(width: 8),
                 const Text(
-                  'Chef Name', //change
+                  'Chef Thomas',
                   style: TextStyle(
                       color: Color(0xffFE9801),
                       fontSize: 16,
@@ -225,13 +234,12 @@ class _FoodRecipeState extends State<FoodRecipe> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
               horizontal: MediaQuery.sizeOf(context).width * 0.05),
           child: const Text(
-            "Reccomend",
+            "Recommend",
             style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff697C37),
@@ -248,24 +256,23 @@ class _FoodRecipeState extends State<FoodRecipe> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,
-                  image: 'assets/food2.jpg',
-                  title: 'Pasta',
-                  time: '15min',
-                  foodDetail: const FoodRecipe(),
+                  image: "assets/crispystripedbasswithcitrussoba.jpg",
+                  title: "Crispy Striped",
+                  time: "30min",
+                  foodDetail: const CrispyStriped(),
                   bookmark: false,
                 ),
               ),
               RecommendCard(
                 foodType: FoodTypeModel(
-                  id: 1,
-                  image: 'assets/food3.jpg',
-                  title: 'Salad',
-                  time: '20min',
-                  foodDetail: const FoodRecipe(),
+                  id: 3,
+                  image: "assets/VeganCongeeRecipe.jpg",
+                  title: "Rice Porridge",
+                  time: "40min",
+                  foodDetail: const RicePorridge(),
                   bookmark: false,
                 ),
               ),

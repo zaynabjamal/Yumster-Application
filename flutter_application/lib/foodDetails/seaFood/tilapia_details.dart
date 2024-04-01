@@ -5,7 +5,6 @@ import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/chicken_curry_detail.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/queso_dip_detauks.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/seafood_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Tilapia extends StatefulWidget {
@@ -25,8 +24,7 @@ class _FoodRecipeState extends State<Tilapia> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Sea()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -109,18 +107,9 @@ class _FoodRecipeState extends State<Tilapia> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: Colors.white,
-                  size: 40.0,
-                ),
-              ),
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -129,8 +118,6 @@ class _FoodRecipeState extends State<Tilapia> {
             ),
             Row(
               children: [
-                const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -174,7 +161,6 @@ class _FoodRecipeState extends State<Tilapia> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
-              // change
               child: const Text(
                 'Preheat oven to 375°. In a large nonstick skillet, cook spinach in 4 teaspoons oil until wilted; drain. Meanwhile, place tilapia in a greased 13x9-in. baking dish. Drizzle with lemon juice and remaining 2 teaspoons oil. Sprinkle with seasoning blend. In a small bowl, combine the egg, ricotta cheese and spinach; spoon over fillets. Sprinkle with Parmesan cheese. Bake until fish just begins to flake easily with a fork, 15-20 minutes. If desired, serve with lemon wedges and additional Parmesan cheese.',
                 style: TextStyle(
@@ -187,7 +173,6 @@ class _FoodRecipeState extends State<Tilapia> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -242,13 +227,12 @@ class _FoodRecipeState extends State<Tilapia> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
               horizontal: MediaQuery.sizeOf(context).width * 0.05),
           child: const Text(
-            "Reccomend",
+            "Recommend",
             style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff697C37),
@@ -265,7 +249,6 @@ class _FoodRecipeState extends State<Tilapia> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

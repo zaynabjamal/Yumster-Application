@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/chefs/chef_john.dart';
+import 'package:flutter_application/chefs/chef_thomas.dart';
 import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/dinner/crispy_striped.dart';
@@ -7,14 +7,14 @@ import 'package:flutter_application/foodDetails/dinner/rice_porridge.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_svg/svg.dart';
 
-class DutchPancake extends StatefulWidget {
-  const DutchPancake({super.key});
+class BroccoliSoup extends StatefulWidget {
+  const BroccoliSoup({super.key});
 
   @override
-  State<DutchPancake> createState() => _DutchPancakeState();
+  State<BroccoliSoup> createState() => _BroccoliSoupState();
 }
 
-class _DutchPancakeState extends State<DutchPancake> {
+class _BroccoliSoupState extends State<BroccoliSoup> {
   late final List<FoodTypeModel> foodtype;
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class _DutchPancakeState extends State<DutchPancake> {
                 ],
               ),
               image: const DecorationImage(
-                image: AssetImage('assets/DutchBabyPancake.jpg'),
+                image: AssetImage('assets/BroccoliandCheddarSoup.jpg'),
                 opacity: 0.5,
                 fit: BoxFit.cover,
               ),
@@ -71,7 +71,7 @@ class _DutchPancakeState extends State<DutchPancake> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Dutch Baby Pancake",
+                          "Broccoli Cheddar Soup",
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
@@ -106,18 +106,9 @@ class _DutchPancakeState extends State<DutchPancake> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: Colors.white,
-                  size: 40.0,
-                ),
-              ),
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -127,7 +118,6 @@ class _DutchPancakeState extends State<DutchPancake> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -153,12 +143,21 @@ class _DutchPancakeState extends State<DutchPancake> {
               color: const Color(0xffFCFCF8),
               child: const Column(
                 children: [
-                  DotList(text: 'Eggs'),
+                  DotList(text: 'Salted butter '),
+                  DotList(text: 'Onion'),
+                  DotList(text: 'Carrot'),
                   DotList(text: 'All-purpose flour'),
-                  DotList(text: 'Whole milk'),
-                  DotList(text: 'Vanilla'),
+                  DotList(text: 'Garlic'),
+                  DotList(text: 'All-purpose flour'),
                   DotList(text: 'Sea salt'),
-                  DotList(text: 'Salted butter'),
+                  DotList(text: 'Mustard powder'),
+                  DotList(text: 'Nutmeg'),
+                  DotList(text: 'Whole milk or half-and-half'),
+                  DotList(text: 'Stock '),
+                  DotList(text: 'Broccoli'),
+                  DotList(text: 'Parmesan'),
+                  DotList(text: 'Extra-sharp cheddar cheese '),
+                  DotList(text: 'Black pepper'),
                 ],
               ),
             ),
@@ -169,7 +168,7 @@ class _DutchPancakeState extends State<DutchPancake> {
               color: Colors.white,
               // change
               child: const Text(
-                "Extremely simple ingredients yield a showy, puffed-up, popover-like, oven-baked Dutch baby pancake that’s buttery, delicate, and delicious.",
+                "A few easy tricks and tips make this wildly rich, cozy broccoli cheddar soup recipe feel like easy magic.",
                 style: TextStyle(
                   fontSize: 14.0,
                   color: Color(0xffB0AA86),
@@ -186,13 +185,12 @@ class _DutchPancakeState extends State<DutchPancake> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ChefJohnAcc(
+                builder: (context) => const ChefThomasAcc(
                   foodTypes: [],
                 ),
               ),
@@ -225,13 +223,13 @@ class _DutchPancakeState extends State<DutchPancake> {
                     ),
                   ),
                   child: const CircleAvatar(
-                    backgroundImage: AssetImage('assets/chefJohn.jpeg'),
+                    backgroundImage: AssetImage('assets/thomas.jpeg'),
                     radius: 20.0,
                   ),
                 ),
                 const SizedBox(width: 8),
                 const Text(
-                  'Chef John',
+                  'Chef Thomas',
                   style: TextStyle(
                       color: Color(0xffFE9801),
                       fontSize: 16,
@@ -241,13 +239,12 @@ class _DutchPancakeState extends State<DutchPancake> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
               horizontal: MediaQuery.sizeOf(context).width * 0.05),
           child: const Text(
-            "Reccomend",
+            "Recommend",
             style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff697C37),
@@ -264,7 +261,6 @@ class _DutchPancakeState extends State<DutchPancake> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,
@@ -277,7 +273,7 @@ class _DutchPancakeState extends State<DutchPancake> {
               ),
               RecommendCard(
                 foodType: FoodTypeModel(
-                   id: 3,
+                  id: 3,
                   image: "assets/VeganCongeeRecipe.jpg",
                   title: "Rice Porridge",
                   time: "40min",

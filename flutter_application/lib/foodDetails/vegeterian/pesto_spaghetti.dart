@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/chefs/chef_thomas.dart';
+import 'package:flutter_application/chefs/chef_john.dart';
 import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
-import 'package:flutter_application/foodDetails/reccommendcards/crispystripedrecommend.dart';
-import 'package:flutter_application/foodDetails/reccommendcards/rice_reccommend.dart';
+import 'package:flutter_application/foodDetails/dinner/crispy_striped.dart';
+import 'package:flutter_application/foodDetails/dinner/rice_porridge.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/vegan_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
-class HomeMadeRice extends StatefulWidget {
-  const HomeMadeRice({super.key});
+class PestoSpaghetti extends StatefulWidget {
+  const PestoSpaghetti({super.key});
 
   @override
-  State<HomeMadeRice> createState() => _HomeMadeRiceState();
+  State<PestoSpaghetti> createState() => _PestoSpaghettiState();
 }
 
-class _HomeMadeRiceState extends State<HomeMadeRice> {
+class _PestoSpaghettiState extends State<PestoSpaghetti> {
   late final List<FoodTypeModel> foodtype;
   @override
   Widget build(BuildContext context) {
@@ -24,8 +23,7 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Vegan()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -48,7 +46,7 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
                 ],
               ),
               image: const DecorationImage(
-                image: AssetImage("assets/HomemadeFriedRice.jpg"),
+                image: AssetImage('assets/PestoSpaghetti.jpg'),
                 opacity: 0.5,
                 fit: BoxFit.cover,
               ),
@@ -73,7 +71,7 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Homemade Fried Rice",
+                          "Pesto Spaghetti",
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
@@ -108,18 +106,9 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: Colors.white,
-                  size: 40.0,
-                ),
-              ),
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -129,7 +118,6 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -155,17 +143,12 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
               color: const Color(0xffFCFCF8),
               child: const Column(
                 children: [
-                  DotList(text: 'Eggs'),
-                  DotList(text: 'Toasted sesame oil'),
-                  DotList(text: 'Vegetable oil'),
-                  DotList(text: 'Coconut aminos'),
-                  DotList(text: 'Soy sauce'),
-                  DotList(text: 'Salt'),
-                  DotList(text: 'Carrots'),
-                  DotList(text: 'Onion'),
-                  DotList(text: 'Garlic'),
-                  DotList(text: 'Peas'),
-                  DotList(text: 'Green onions'),
+                  DotList(text: 'Basil pesto, store-bought or homemade'),
+                  DotList(text: 'Spaghettir'),
+                  DotList(text: 'Arugula'),
+                  DotList(text: 'parmesan cheese'),
+                  DotList(text: 'fresh basil leaves'),
+                  DotList(text: 'Cherry tomatoes'),
                 ],
               ),
             ),
@@ -174,9 +157,8 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: Colors.white,
-              // change
               child: const Text(
-                "This homemade fried rice recipe is a lot easier than you think. Say hello to the very best way to use up leftover rice.",
+                "This pesto spaghetti is the easiest fresh green thing you’ve cooked in a while. Add cherry tomatoes, and fresh arugula and you’re basically eating a salad.",
                 style: TextStyle(
                   fontSize: 14.0,
                   color: Color(0xffB0AA86),
@@ -193,13 +175,12 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ChefThomasAcc(
+                builder: (context) => const ChefJohnAcc(
                   foodTypes: [],
                 ),
               ),
@@ -232,13 +213,13 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
                     ),
                   ),
                   child: const CircleAvatar(
-                    backgroundImage: AssetImage('assets/thomas.jpeg'),
+                    backgroundImage: AssetImage('assets/chefJohn.jpeg'),
                     radius: 20.0,
                   ),
                 ),
                 const SizedBox(width: 8),
                 const Text(
-                  'Chef Thomas',
+                  'Chef John',
                   style: TextStyle(
                       color: Color(0xffFE9801),
                       fontSize: 16,
@@ -248,13 +229,12 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
               horizontal: MediaQuery.sizeOf(context).width * 0.05),
           child: const Text(
-            "Reccomend",
+            "Recommend",
             style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff697C37),
@@ -271,14 +251,13 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,
                   image: "assets/crispystripedbasswithcitrussoba.jpg",
                   title: "Crispy Striped",
                   time: "30min",
-                  foodDetail: const CrispyReccommend(),
+                  foodDetail: const CrispyStriped(),
                   bookmark: false,
                 ),
               ),
@@ -288,7 +267,7 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
                   image: "assets/VeganCongeeRecipe.jpg",
                   title: "Rice Porridge",
                   time: "40min",
-                  foodDetail: const RiceReccomend(),
+                  foodDetail: const RicePorridge(),
                   bookmark: false,
                 ),
               ),

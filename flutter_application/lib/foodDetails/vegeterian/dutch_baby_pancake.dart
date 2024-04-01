@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/chefs/chef_john.dart';
 import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
-import 'package:flutter_application/foodDetails/reccommendcards/crispystripedrecommend.dart';
-import 'package:flutter_application/foodDetails/reccommendcards/rice_reccommend.dart';
+import 'package:flutter_application/foodDetails/dinner/crispy_striped.dart';
+import 'package:flutter_application/foodDetails/dinner/rice_porridge.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/vegan_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
-class PestoSpaghetti extends StatefulWidget {
-  const PestoSpaghetti({super.key});
+class DutchPancake extends StatefulWidget {
+  const DutchPancake({super.key});
 
   @override
-  State<PestoSpaghetti> createState() => _PestoSpaghettiState();
+  State<DutchPancake> createState() => _DutchPancakeState();
 }
 
-class _PestoSpaghettiState extends State<PestoSpaghetti> {
+class _DutchPancakeState extends State<DutchPancake> {
   late final List<FoodTypeModel> foodtype;
   @override
   Widget build(BuildContext context) {
@@ -24,8 +23,7 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Vegan()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -48,7 +46,7 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
                 ],
               ),
               image: const DecorationImage(
-                image: AssetImage('assets/PestoSpaghetti.jpg'),
+                image: AssetImage('assets/DutchBabyPancake.jpg'),
                 opacity: 0.5,
                 fit: BoxFit.cover,
               ),
@@ -73,7 +71,7 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Pesto Spaghetti",
+                          "Dutch Baby Pancake",
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
@@ -108,18 +106,9 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: Colors.white,
-                  size: 40.0,
-                ),
-              ),
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -129,7 +118,6 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -155,12 +143,12 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
               color: const Color(0xffFCFCF8),
               child: const Column(
                 children: [
-                  DotList(text: 'Basil pesto, store-bought or homemade'),
-                  DotList(text: 'Spaghettir'),
-                  DotList(text: 'Arugula'),
-                  DotList(text: 'parmesan cheese'),
-                  DotList(text: 'fresh basil leaves'),
-                  DotList(text: 'Cherry tomatoes'),
+                  DotList(text: 'Eggs'),
+                  DotList(text: 'All-purpose flour'),
+                  DotList(text: 'Whole milk'),
+                  DotList(text: 'Vanilla'),
+                  DotList(text: 'Sea salt'),
+                  DotList(text: 'Salted butter'),
                 ],
               ),
             ),
@@ -169,9 +157,8 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: Colors.white,
-              // change
               child: const Text(
-                "This pesto spaghetti is the easiest fresh green thing you’ve cooked in a while. Add cherry tomatoes, and fresh arugula and you’re basically eating a salad.",
+                "Extremely simple ingredients yield a showy, puffed-up, popover-like, oven-baked Dutch baby pancake that’s buttery, delicate, and delicious.",
                 style: TextStyle(
                   fontSize: 14.0,
                   color: Color(0xffB0AA86),
@@ -188,7 +175,6 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -243,13 +229,12 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
               horizontal: MediaQuery.sizeOf(context).width * 0.05),
           child: const Text(
-            "Reccomend",
+            "Recommend",
             style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff697C37),
@@ -266,24 +251,23 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,
                   image: "assets/crispystripedbasswithcitrussoba.jpg",
                   title: "Crispy Striped",
                   time: "30min",
-                  foodDetail: const CrispyReccommend(),
+                  foodDetail: const CrispyStriped(),
                   bookmark: false,
                 ),
               ),
               RecommendCard(
                 foodType: FoodTypeModel(
-                  id: 3,
+                   id: 3,
                   image: "assets/VeganCongeeRecipe.jpg",
                   title: "Rice Porridge",
                   time: "40min",
-                  foodDetail: const RiceReccomend(),
+                  foodDetail: const RicePorridge(),
                   bookmark: false,
                 ),
               ),

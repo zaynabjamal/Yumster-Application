@@ -107,18 +107,9 @@ class _FoodRecipeState extends State<ThaiRice> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: Colors.white,
-                  size: 40.0,
-                ),
-              ),
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -128,7 +119,6 @@ class _FoodRecipeState extends State<ThaiRice> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -170,7 +160,6 @@ class _FoodRecipeState extends State<ThaiRice> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
-              // change
               child: const Text(
                 'Remove innards from chicken and discard. Pat chicken dry. With kitchen shears, trim off wings at the joint, leaving drumette on carcass. Trim off chicken tail, and snip off as much fat from cavity as you can. Place wings, tail, and trimmed fat in a small bowl; cover and refrigerate until ready to use. Place remaining chicken in a large (7-quart) saucepan or pot. Add scallions, sliced ginger,  cilantro stems, and 1 tablespoon of the salt. Cover chicken with the water and bring to a boil over medium-high. Once boiling, reduce heat to medium-low and simmer until chicken is cooked through, or an instant read thermometer registers 160°F when inserted in thickest portion of chicken, about 1 hour to 1 hour 15 minutes, skimming and discarding foam as it rises to the top during cooking. Remove chicken from broth and place on a rimmed baking sheet or plate; let cool while preparing rice. Strain solids from the broth and discard; leave broth in saucepan. Cover to keep broth warm. Place rice in a large bowl and cover with cold water. Agitate with your hand to release starch from rice. Drain and repeat until water is no longer cloudy, about 4 to 5 times. Strain rice and set aside. Heat 1 tablespoon of the oil in a wok or large skillet over medium heat. Add reserved chicken wings, tail, fat, and 1 teaspoon of the remaining salt and cook, stirring often, until fat has rendered and chicken wings and tail are golden brown and crispy, about 8 minutes. Once fat has rendered, reduce heat to low and add 4 teaspoons of the garlic and 1 tablespoon finely chopped ginger. Cook, stirring constantly, until fragrant and translucent, about 1 minute. Add rinsed rice and cook, stirring constantly, to coat all rice in rendered fat, about 1 minute. Remove from heat. Transfer rice mixture to an 8-cup rice cooker or a programmable pressure multicooker (such as an Instant Pot). Add 3 1/2 cups of the reserved broth and remaining 1 teaspoon salt;  cook rice according to manufacturer’s instructions (about 25 minutes for a rice cooker). When done cooking, remove and discard wings and tail, leaving remaining trimmed crispy chicken fat in the rice',
                 style: TextStyle(
@@ -183,7 +172,6 @@ class _FoodRecipeState extends State<ThaiRice> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -238,13 +226,12 @@ class _FoodRecipeState extends State<ThaiRice> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
               horizontal: MediaQuery.sizeOf(context).width * 0.05),
           child: const Text(
-            "Reccomend",
+            "Recommend",
             style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff697C37),
@@ -261,7 +248,6 @@ class _FoodRecipeState extends State<ThaiRice> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,
