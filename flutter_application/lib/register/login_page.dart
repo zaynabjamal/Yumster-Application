@@ -50,11 +50,11 @@ class _LoginState extends State<Login> {
   void displayMessage(String message) {
     showDialog(
         context: context,
-        builder: (context) => const AlertDialog(
+        builder: (context) => AlertDialog(
               title: Text(
                 textAlign: TextAlign.center,
-                "The account is not exist!",
-                style: TextStyle(
+                message.toString(),
+                style: const TextStyle(
                     color: Color(0xffFE9801),
                     fontSize: 16,
                     fontFamily: "Rowdies"),

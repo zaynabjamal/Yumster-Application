@@ -197,6 +197,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: SizedBox(
@@ -204,7 +205,7 @@ class _SignInState extends State<SignIn> {
             child: Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * 0.02,
-                vertical: MediaQuery.of(context).size.width * 0.15,
+                // vertical: MediaQuery.of(context).size.width * 0.15,
               ),
               child: Column(
                 children: [

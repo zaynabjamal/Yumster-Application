@@ -25,20 +25,25 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   Uint8List? _image;
   // upload image
+ 
 
-  void selectedImage() async {
+
+  // Taking id as a paramater for updating
+  void selectedImage(userId) async {
     Uint8List img = await pickImage(ImageSource.gallery);
     setState(() {
       _image = img;
-      saveProfile();
-    });
-    saveProfile();
-  }
 
-  void saveProfile() async {
+      // THIS IS EXTRA AND USELESS ↙️
+      // saveProfile();
+
+    });
+
+    // Passing image to uploading provider [StoreData]
+    // Also Passing user id for updating exactly logged in user record ↘️
     try {
       if (_image != null) {
-        String resp = await StoreData().saveImage(file: _image!);
+        String resp = await StoreData().saveImage(file: _image!, userID: userId);
         print(resp);
       } else {
         print("No image selected");
@@ -47,6 +52,8 @@ class _ProfilePageState extends State<ProfilePage> {
       print("Error uploading image: $error");
     }
   }
+
+  // void saveProfile() async {}
 
   //user
   final currentUser = FirebaseAuth.instance.currentUser!;
@@ -97,7 +104,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ));
     //update in firestore
-    if (newValue.trim().length > 0) {
+    if (newValue.trim().isNotEmpty) {
       await usersCollection.doc(currentUser.email).update({edit: newValue});
     }
   }
@@ -116,6 +123,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
             if (snapshot.hasData) {
               final userData = snapshot.data!.data() as Map<String, dynamic>;
+
+              // print();
               return Scaffold(
                 backgroundColor: const Color(0xffFCFCF8),
                 body: SingleChildScrollView(
@@ -135,10 +144,16 @@ class _ProfilePageState extends State<ProfilePage> {
                                         radius: 40,
                                         backgroundImage: MemoryImage(_image!),
                                       )
-                                    : const CircleAvatar(
+                                    : CircleAvatar(
                                         radius: 40,
-                                        backgroundImage: AssetImage(
-                                            "assets/circleAvatar.jpg"),
+                                        backgroundImage: userData[
+                                                    'imageLink'] !=
+                                                null
+                                            ? NetworkImage(
+                                                userData['imageLink'])
+                                            : const AssetImage(
+                                                    "assets/circleAvatar.jpg")
+                                                as ImageProvider,
                                       ),
                                 Positioned(
                                   bottom: -10,
@@ -146,7 +161,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                   child: Row(
                                     children: [
                                       IconButton(
-                                        onPressed: selectedImage,
+                                        onPressed: () =>
+                                            selectedImage(snapshot.data?.id),
                                         icon: const Icon(Icons.add_a_photo),
                                       ),
                                     ],
