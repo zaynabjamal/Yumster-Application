@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/chefs/chef_john.dart';
+import 'package:flutter_application/chefs/chef_thomas.dart';
 import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/chicken_curry_detail.dart';
@@ -194,7 +194,7 @@ class _FoodRecipeState extends State<ClayRice> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ChefJohnAcc(
+                builder: (context) => const ChefThomasAcc(
                   foodTypes: [],
                 ),
               ),
@@ -227,13 +227,13 @@ class _FoodRecipeState extends State<ClayRice> {
                     ),
                   ),
                   child: const CircleAvatar(
-                    backgroundImage: AssetImage('assets/chefJohn.jpeg'),
+                    backgroundImage: AssetImage('assets/thomas.jpeg'),
                     radius: 20.0,
                   ),
                 ),
                 const SizedBox(width: 8),
                 const Text(
-                  'Chef John',
+                  'Chef Thomas',
                   style: TextStyle(
                       color: Color(0xffFE9801),
                       fontSize: 16,

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/chefs/chef_john.dart';
+import 'package:flutter_application/chefs/chef_thomas.dart';
 import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/chicken_curry_detail.dart';
-import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/queso_dip_detauks.dart';
-import 'package:flutter_application/screens/breakfast_screen.dart';
+import 'package:flutter_application/foodDetails/dinner/chicken_pasta.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -25,8 +24,7 @@ class _FoodRecipeState extends State<FlowerPower> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Breakfast()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -188,7 +186,7 @@ class _FoodRecipeState extends State<FlowerPower> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ChefJohnAcc(
+                builder: (context) => const ChefThomasAcc(
                   foodTypes: [],
                 ),
               ),
@@ -221,13 +219,13 @@ class _FoodRecipeState extends State<FlowerPower> {
                     ),
                   ),
                   child: const CircleAvatar(
-                    backgroundImage: AssetImage('assets/chefJohn.jpeg'),
+                    backgroundImage: AssetImage('assets/thomas.jpeg'),
                     radius: 20.0,
                   ),
                 ),
                 const SizedBox(width: 8),
                 const Text(
-                  'Chef John',
+                  'Chef Thomas',
                   style: TextStyle(
                       color: Color(0xffFE9801),
                       fontSize: 16,
@@ -264,10 +262,10 @@ class _FoodRecipeState extends State<FlowerPower> {
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,
-                  image: 'assets/chefJohnRecipe1.webp',
-                  title: 'Queso Dip',
+                  image: 'assets/CreamyLemonChickenPasta.jpg',
+                  title: 'ChickenPasta',
                   time: '20min',
-                  foodDetail: const QuesoDip(),
+                  foodDetail: const ChickenPasta(),
                   bookmark: false,
                 ),
               ),

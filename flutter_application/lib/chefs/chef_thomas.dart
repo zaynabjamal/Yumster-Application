@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/ping_details.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
-import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/sweet_potato_details.dart';
+import 'package:flutter_application/foodDetails/chefThomasRecipeDetails/dumpling_details.dart';
+import 'package:flutter_application/foodDetails/chefThomasRecipeDetails/sweet_potato_details.dart';
 import 'package:flutter_application/foodDetails/chefThomasRecipeDetails/ciabatta_details.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_svg/svg.dart';
@@ -51,10 +51,10 @@ class ChefThomasAcc extends StatelessWidget {
             imageAsset: 'assets/thomasrecipe3.webp',
             detail: const SweetPotato()),
         Food(
-            name: 'Ping Gai',
+            name: 'Dumplings',
             time: '45min',
-            imageAsset: 'assets/ chefJohnrecipy3.webp',
-            detail: const Ping()),
+            imageAsset: 'assets/thomas4recipe.webp',
+            detail: const Dumpling()),
       ],
     );
   }

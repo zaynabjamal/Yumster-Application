@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/chefs/chef_john.dart';
+import 'package:flutter_application/chefs/chef_thomas.dart';
 import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
-import 'package:flutter_application/foodDetails/reccommendcards/crispystripedrecommend.dart';
+import 'package:flutter_application/foodDetails/dinner/chicken_pasta.dart';
 import 'package:flutter_application/foodDetails/reccommendcards/rice_reccommend.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/dinner_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CrispyStriped extends StatefulWidget {
@@ -24,8 +23,7 @@ class _CrispyStripedState extends State<CrispyStriped> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Dinner()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -191,7 +189,7 @@ class _CrispyStripedState extends State<CrispyStriped> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ChefJohnAcc(
+                builder: (context) => const ChefThomasAcc(
                   foodTypes: [],
                 ),
               ),
@@ -224,13 +222,13 @@ class _CrispyStripedState extends State<CrispyStriped> {
                     ),
                   ),
                   child: const CircleAvatar(
-                    backgroundImage: AssetImage('assets/chefJohn.jpeg'),
+                    backgroundImage: AssetImage('assets/thomas.jpeg'),
                     radius: 20.0,
                   ),
                 ),
                 const SizedBox(width: 8),
                 const Text(
-                  'Chef John',
+                  'Chef Thomas',
                   style: TextStyle(
                       color: Color(0xffFE9801),
                       fontSize: 16,
@@ -267,10 +265,10 @@ class _CrispyStripedState extends State<CrispyStriped> {
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,
-                  image: "assets/crispystripedbasswithcitrussoba.jpg",
-                  title: "Crispy Striped",
-                  time: "30min",
-                  foodDetail: const CrispyReccommend(),
+                  image: 'assets/CreamyLemonChickenPasta.jpg',
+                  title: 'ChickenPasta',
+                  time: '20min',
+                  foodDetail: const ChickenPasta(),
                   bookmark: false,
                 ),
               ),

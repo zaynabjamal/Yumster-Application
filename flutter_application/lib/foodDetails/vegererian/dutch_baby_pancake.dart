@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/chefs/chef_john.dart';
 import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
-import 'package:flutter_application/foodDetails/reccommendcards/crispystripedrecommend.dart';
-import 'package:flutter_application/foodDetails/reccommendcards/rice_reccommend.dart';
+import 'package:flutter_application/foodDetails/dinner/crispy_striped.dart';
+import 'package:flutter_application/foodDetails/dinner/rice_porridge.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/vegan_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DutchPancake extends StatefulWidget {
@@ -24,8 +23,7 @@ class _DutchPancakeState extends State<DutchPancake> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Vegan()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -273,17 +271,17 @@ class _DutchPancakeState extends State<DutchPancake> {
                   image: "assets/crispystripedbasswithcitrussoba.jpg",
                   title: "Crispy Striped",
                   time: "30min",
-                  foodDetail: const CrispyReccommend(),
+                  foodDetail: const CrispyStriped(),
                   bookmark: false,
                 ),
               ),
               RecommendCard(
                 foodType: FoodTypeModel(
-                  id: 3,
+                   id: 3,
                   image: "assets/VeganCongeeRecipe.jpg",
                   title: "Rice Porridge",
                   time: "40min",
-                  foodDetail: const RiceReccomend(),
+                  foodDetail: const RicePorridge(),
                   bookmark: false,
                 ),
               ),
