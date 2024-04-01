@@ -5,7 +5,6 @@ import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/dinner/crispy_striped.dart';
 import 'package:flutter_application/foodDetails/dinner/rice_porridge.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/vegan_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
 class BroccoliSoup extends StatefulWidget {
@@ -24,8 +23,7 @@ class _BroccoliSoupState extends State<BroccoliSoup> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Vegan()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),

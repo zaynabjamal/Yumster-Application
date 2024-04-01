@@ -5,7 +5,6 @@ import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/chicken_curry_detail.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/queso_dip_detauks.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/lunch_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Dolma extends StatefulWidget {
@@ -25,8 +24,7 @@ class _FoodRecipeState extends State<Dolma> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Lunch()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -120,7 +118,6 @@ class _FoodRecipeState extends State<Dolma> {
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -130,7 +127,6 @@ class _FoodRecipeState extends State<Dolma> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -176,7 +172,6 @@ class _FoodRecipeState extends State<Dolma> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
-              // change
               child: const Text(
                 '1 Heat oil in a medium saucepan over medium heat. Add onions and sauté until tender, about 5 minutes. Stir in rice, then add enough hot water to cover. Cover and simmer until rice is halfway cooked, about 10 minutes. Step2 1 Remove from the heat and stir in tomato paste, currants, pine nuts, cinnamon, mint, dill, allspice, and cumin. Let mixture cool, about 15 minutes.   2 Prepare a large pot by placing an inverted plate on the bottom; this will protect the dolmas from direct heat during steaming.   3 Cut off and discard any grape leaf stems. Place about 1 teaspoon cooled rice mixture into the center of a leaf. Fold in the sides, then roll into a cigar shape. Place into the prepared pot. Repeat to make remaining dolmas.   4 Pour in just enough warm water to reach the bottom of the first layer of dolmas. Cover and simmer over low heat for 30 to 45 minutes, or until rice is totally cooked. Check the water level often and add more as necessary.',
                 style: TextStyle(
@@ -189,7 +184,6 @@ class _FoodRecipeState extends State<Dolma> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -244,7 +238,6 @@ class _FoodRecipeState extends State<Dolma> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
@@ -267,7 +260,6 @@ class _FoodRecipeState extends State<Dolma> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

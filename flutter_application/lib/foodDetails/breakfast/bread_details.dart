@@ -4,7 +4,6 @@ import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/chicken_curry_detail.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/queso_dip_detauks.dart';
-import 'package:flutter_application/screens/breakfast_screen.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -25,8 +24,7 @@ class _FoodRecipeState extends State<Bread> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Breakfast()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -120,7 +118,6 @@ class _FoodRecipeState extends State<Bread> {
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -130,7 +127,6 @@ class _FoodRecipeState extends State<Bread> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -187,7 +183,6 @@ class _FoodRecipeState extends State<Bread> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -242,7 +237,6 @@ class _FoodRecipeState extends State<Bread> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
@@ -265,7 +259,6 @@ class _FoodRecipeState extends State<Bread> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

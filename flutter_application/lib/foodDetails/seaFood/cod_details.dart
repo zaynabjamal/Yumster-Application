@@ -5,7 +5,6 @@ import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/chicken_curry_detail.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/queso_dip_detauks.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/seafood_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Cod extends StatefulWidget {
@@ -25,8 +24,7 @@ class _FoodRecipeState extends State<Cod> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Sea()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -120,7 +118,6 @@ class _FoodRecipeState extends State<Cod> {
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -130,7 +127,6 @@ class _FoodRecipeState extends State<Cod> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -172,7 +168,6 @@ class _FoodRecipeState extends State<Cod> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
-              // change
               child: const Text(
                 'Pat cod dry with paper towels; sprinkle with salt and pepper. In a large nonstick skillet, heat 2 tablespoons oil over medium-high heat. Brown fillets lightly on both sides; remove from pan. In same skillet, heat remaining 1 tablespoon oil over medium heat. Add onion; cook and stir until softened, 4-5 minutes. Stir in wine; cook until onion is lightly browned, stirring occasionally, 3-4 minutes longer. Return cod to pan. Reduce heat to low; cook, covered, until fish just begins to flake easily with a fork, 2-3 minutes. Remove cod from pan. Stir cilantro and pine nuts into onion; serve with fish.',
                 style: TextStyle(
@@ -185,7 +180,6 @@ class _FoodRecipeState extends State<Cod> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -240,7 +234,6 @@ class _FoodRecipeState extends State<Cod> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
@@ -263,7 +256,6 @@ class _FoodRecipeState extends State<Cod> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

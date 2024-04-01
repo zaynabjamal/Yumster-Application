@@ -5,7 +5,6 @@ import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/dinner/crispy_striped.dart';
 import 'package:flutter_application/foodDetails/dinner/rice_porridge.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/vegan_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HomeMadeRice extends StatefulWidget {
@@ -24,8 +23,7 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Vegan()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -119,7 +117,6 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -129,7 +126,6 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -174,7 +170,6 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: Colors.white,
-              // change
               child: const Text(
                 "This homemade fried rice recipe is a lot easier than you think. Say hello to the very best way to use up leftover rice.",
                 style: TextStyle(
@@ -193,7 +188,6 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -248,7 +242,6 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
@@ -271,7 +264,6 @@ class _HomeMadeRiceState extends State<HomeMadeRice> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

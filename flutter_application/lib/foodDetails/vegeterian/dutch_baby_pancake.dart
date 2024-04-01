@@ -117,7 +117,6 @@ class _DutchPancakeState extends State<DutchPancake> {
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -127,7 +126,6 @@ class _DutchPancakeState extends State<DutchPancake> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -167,7 +165,6 @@ class _DutchPancakeState extends State<DutchPancake> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: Colors.white,
-              // change
               child: const Text(
                 "Extremely simple ingredients yield a showy, puffed-up, popover-like, oven-baked Dutch baby pancake that’s buttery, delicate, and delicious.",
                 style: TextStyle(
@@ -186,7 +183,6 @@ class _DutchPancakeState extends State<DutchPancake> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -241,7 +237,6 @@ class _DutchPancakeState extends State<DutchPancake> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
@@ -264,7 +259,6 @@ class _DutchPancakeState extends State<DutchPancake> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

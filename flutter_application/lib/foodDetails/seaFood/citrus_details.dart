@@ -5,7 +5,6 @@ import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/chicken_curry_detail.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/queso_dip_detauks.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/seafood_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Citrus extends StatefulWidget {
@@ -25,8 +24,7 @@ class _FoodRecipeState extends State<Citrus> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Sea()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -120,7 +118,6 @@ class _FoodRecipeState extends State<Citrus> {
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -130,7 +127,6 @@ class _FoodRecipeState extends State<Citrus> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -175,7 +171,6 @@ class _FoodRecipeState extends State<Citrus> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
-              // change
               child: const Text(
                 'In a large saucepan, place a steamer basket over 1 in. water. Place cod in basket. Bring water to a boil. Reduce heat to maintain a low boil; steam, covered, until fish just begins to flake easily with a fork, 8-10 minutes. Meanwhile, in a small saucepan, whisk cornstarch, coconut milk and orange juice until smooth. Add chili sauce, ginger and soy sauce. Cook and stir over medium heat until thickened, 1-2 minutes. Stir in oranges, green onion, almonds and sesame oil; heat through. Serve with cod; sprinkle with cilantro.',
                 style: TextStyle(
@@ -188,7 +183,6 @@ class _FoodRecipeState extends State<Citrus> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -243,7 +237,6 @@ class _FoodRecipeState extends State<Citrus> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
@@ -266,7 +259,6 @@ class _FoodRecipeState extends State<Citrus> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

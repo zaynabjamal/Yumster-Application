@@ -116,7 +116,6 @@ class _FoodRecipeState extends State<Dumpling> {
                 ],
               ),
             ),
-            // Recipe Details
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -126,7 +125,6 @@ class _FoodRecipeState extends State<Dumpling> {
                 Row(
                   children: [
                     const Padding(padding: EdgeInsets.all(10.0)),
-                    // change
                     SvgPicture.asset(
                       'assets/recip.svg',
                       width: 40.0,
@@ -170,7 +168,6 @@ class _FoodRecipeState extends State<Dumpling> {
                       vertical: MediaQuery.sizeOf(context).width * 0.03,
                       horizontal: MediaQuery.sizeOf(context).width * 0.05),
                   color: const Color(0xffFCFCF8),
-                  // change
                   child: const Text(
                     'STEP 1 Make the broth: Place the fish heads, tails, and bones in a bowl of cold water and soak for 10 minutes. Drain and discard water. STEP 2 To a large pot over high heat, add the fish scraps, 2 garlic cloves, the bay leaves, and 4 quarts of cold water, and bring to a boil. Meanwhile, to a comal or skillet over high heat, add the halved onion, cut-side-down, and cook until browned, 6 minutes. Add to the pot, then turn the heat to low and simmer, skimming occasionally, until the fish bones are soft and the meat has separated from the heads and tails, about 1 hour.',
                     style: TextStyle(

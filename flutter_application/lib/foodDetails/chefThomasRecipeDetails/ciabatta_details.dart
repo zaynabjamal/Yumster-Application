@@ -116,7 +116,6 @@ class _FoodRecipeState extends State<Ciabata> {
                 ],
               ),
             ),
-            // Recipe Details
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -126,7 +125,6 @@ class _FoodRecipeState extends State<Ciabata> {
                 Row(
                   children: [
                     const Padding(padding: EdgeInsets.all(10.0)),
-                    // change
                     SvgPicture.asset(
                       'assets/recip.svg',
                       width: 40.0,
@@ -169,7 +167,6 @@ class _FoodRecipeState extends State<Ciabata> {
                       vertical: MediaQuery.sizeOf(context).width * 0.03,
                       horizontal: MediaQuery.sizeOf(context).width * 0.05),
                   color: const Color(0xffFCFCF8),
-                  // change
                   child: const Text(
                     'Heat oven to 375°. Melt 1 tbsp. butter in a 12" skillet over medium-high. Cook sausage, stirring and breaking up meat into medium pieces, until browned, 8–10 minutes. Transfer sausage to a large bowl; set aside. Add remaining butter to skillet; cook carrot, onion, and celery until soft, 5–7 minutes, and transfer to bowl with sausage. Add stock, oil, parsley, rosemary, sage, bread, salt, and pepper to bowl; toss to combine. Spread evenly in a 9" x 13" baking dish. Bake until golden brown and bread is slightly crisp on top, 30–35 minutes. Garnish with more parsley, if you like.',
                     style: TextStyle(

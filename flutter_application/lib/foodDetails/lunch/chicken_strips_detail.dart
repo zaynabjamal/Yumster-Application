@@ -5,7 +5,6 @@ import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/chicken_curry_detail.dart';
 import 'package:flutter_application/foodDetails/chefJohnsRecipeDetails/queso_dip_detauks.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/lunch_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ChickenStrips extends StatefulWidget {
@@ -25,8 +24,7 @@ class _FoodRecipeState extends State<ChickenStrips> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Lunch()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -120,7 +118,6 @@ class _FoodRecipeState extends State<ChickenStrips> {
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -130,7 +127,6 @@ class _FoodRecipeState extends State<ChickenStrips> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -171,7 +167,6 @@ class _FoodRecipeState extends State<ChickenStrips> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
-              // change
               child: const Text(
                 'Step1 Cook chicken: Heat air fryer to 370°F. In shallow bowl, mix panko, oil, and 1/2 teaspoon each salt and pepper. Transfer to piece of foil, fold up sides to create shallow dish, and air-fry, stirring twice through, until crumbs are evenly golden brown, 5 to 7 minutes. Return to shallow bowl to cool slightly. Heat air fryer to 400°F. Step2 Place flour in second shallow bowl and beat eggs in third shallow bowl. Season chicken with 1/8 teaspoon each salt and pepper. Working with 1 strip at a time, coat in flour, then egg, then in toasted panko, pressing gently to help adhere. Transfer to baking sheet. Step3 Working in 3 batches, add coated chicken in single layer, leaving space around each strip. Air-fry, flipping after 6 minutes, until golden brown and crisp, 9 to 10 minutes total. Step4 Meanwhile, make sauce: In small bowl, stir mayonnaise, barbecue sauce, mustard, honey, lemon juice, and vinegar. Serve with chicken strips',
                 style: TextStyle(
@@ -184,7 +179,6 @@ class _FoodRecipeState extends State<ChickenStrips> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -239,7 +233,6 @@ class _FoodRecipeState extends State<ChickenStrips> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
@@ -262,7 +255,6 @@ class _FoodRecipeState extends State<ChickenStrips> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

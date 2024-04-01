@@ -118,7 +118,6 @@ class _FoodRecipeState extends State<FlowerPower> {
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -128,7 +127,6 @@ class _FoodRecipeState extends State<FlowerPower> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -167,7 +165,6 @@ class _FoodRecipeState extends State<FlowerPower> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: const Color(0xffFCFCF8),
-              // change
               child: const Text(
                 'Step1 Slice bell pepper (or 4 in different colors) horizontally to make four 1/2-inch-thick rings and remove inner white flesh and seeds. Step2 In 12-inch nonstick skillet, heat vegetable oil on medium. Cook peppers 2 minutes. Turn peppers over; crack 1 egg into center of each ring. Cook, covered, until eggs have reached desired doneness. Season with 1/4 teaspoon each salt and pepper. Step3 To serve, garnish with chopped parsley',
                 style: TextStyle(
@@ -180,7 +177,6 @@ class _FoodRecipeState extends State<FlowerPower> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -235,7 +231,6 @@ class _FoodRecipeState extends State<FlowerPower> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
@@ -258,7 +253,6 @@ class _FoodRecipeState extends State<FlowerPower> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,

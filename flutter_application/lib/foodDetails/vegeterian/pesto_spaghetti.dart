@@ -5,7 +5,6 @@ import 'package:flutter_application/custom%20classes/recommend_card.dart';
 import 'package:flutter_application/foodDetails/dinner/crispy_striped.dart';
 import 'package:flutter_application/foodDetails/dinner/rice_porridge.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
-import 'package:flutter_application/screens/vegan_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
 class PestoSpaghetti extends StatefulWidget {
@@ -24,8 +23,7 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Vegan()));
+              Navigator.pop(context);
             },
             icon: SvgPicture.asset("assets/arrowBack.svg")),
       ),
@@ -119,7 +117,6 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
             ],
           ),
         ),
-        // Recipe Details
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -129,7 +126,6 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
             Row(
               children: [
                 const Padding(padding: EdgeInsets.all(10.0)),
-                // change
                 SvgPicture.asset(
                   'assets/recip.svg',
                   width: 40.0,
@@ -169,7 +165,6 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
                   vertical: MediaQuery.sizeOf(context).width * 0.03,
                   horizontal: MediaQuery.sizeOf(context).width * 0.05),
               color: Colors.white,
-              // change
               child: const Text(
                 "This pesto spaghetti is the easiest fresh green thing you’ve cooked in a while. Add cherry tomatoes, and fresh arugula and you’re basically eating a salad.",
                 style: TextStyle(
@@ -188,7 +183,6 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
           ],
         ),
         const SizedBox(height: 0.0),
-        // Chef Details
         GestureDetector(
           onTap: () {
             Navigator.push(
@@ -243,7 +237,6 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
             ),
           ),
         ),
-        // Suggestions Section
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).width * 0.0,
@@ -266,7 +259,6 @@ class _PestoSpaghettiState extends State<PestoSpaghetti> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              //have to change it here for each food recipe
               RecommendCard(
                 foodType: FoodTypeModel(
                   id: 0,
