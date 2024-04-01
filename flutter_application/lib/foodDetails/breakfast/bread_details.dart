@@ -19,6 +19,7 @@ class _FoodRecipeState extends State<Bread> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: const Color(0xffFCFCF8),
       appBar: AppBar(
@@ -106,14 +107,6 @@ class _FoodRecipeState extends State<Bread> {
                     ),
                   ),
                 ],
-              ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.bookmark_border_outlined,
-                  color: Colors.white,
-                  size: 40.0,
-                ),
               ),
             ],
           ),

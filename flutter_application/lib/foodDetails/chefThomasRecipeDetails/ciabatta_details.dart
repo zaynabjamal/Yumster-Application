@@ -105,14 +105,6 @@ class _FoodRecipeState extends State<Ciabata> {
                       ),
                     ],
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.bookmark_border_outlined,
-                      color: Colors.white,
-                      size: 40.0,
-                    ),
-                  ),
                 ],
               ),
             ),
