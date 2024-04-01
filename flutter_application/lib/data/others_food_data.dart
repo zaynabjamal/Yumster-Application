@@ -1,7 +1,7 @@
 import 'package:flutter_application/foodDetails/breakfast/flowerpower_details.dart';
 import 'package:flutter_application/foodDetails/dinner/pasta_puttanesca.dart';
 import 'package:flutter_application/foodDetails/lunch/chicken_thai_details.dart';
-import 'package:flutter_application/foodDetails/vegererian/dutch_baby_pancake.dart';
+import 'package:flutter_application/foodDetails/vegeterian/dutch_baby_pancake.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 
 List<FoodTypeModel> foodTypeData = [

@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/chefs/chef_thomas.dart';
 import 'package:flutter_application/custom%20classes/dot_list.dart';
 import 'package:flutter_application/custom%20classes/recommend_card.dart';
-import 'package:flutter_application/foodDetails/reccommendcards/crispystripedrecommend.dart';
-import 'package:flutter_application/foodDetails/reccommendcards/rice_reccommend.dart';
+import 'package:flutter_application/foodDetails/dinner/crispy_striped.dart';
+import 'package:flutter_application/foodDetails/dinner/rice_porridge.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 import 'package:flutter_application/screens/vegan_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
-class BroccoliSoup extends StatefulWidget {
-  const BroccoliSoup({super.key});
+class HomeMadeRice extends StatefulWidget {
+  const HomeMadeRice({super.key});
 
   @override
-  State<BroccoliSoup> createState() => _BroccoliSoupState();
+  State<HomeMadeRice> createState() => _HomeMadeRiceState();
 }
 
-class _BroccoliSoupState extends State<BroccoliSoup> {
+class _HomeMadeRiceState extends State<HomeMadeRice> {
   late final List<FoodTypeModel> foodtype;
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class _BroccoliSoupState extends State<BroccoliSoup> {
                 ],
               ),
               image: const DecorationImage(
-                image: AssetImage('assets/BroccoliandCheddarSoup.jpg'),
+                image: AssetImage("assets/HomemadeFriedRice.jpg"),
                 opacity: 0.5,
                 fit: BoxFit.cover,
               ),
@@ -73,7 +73,7 @@ class _BroccoliSoupState extends State<BroccoliSoup> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Broccoli Cheddar Soup",
+                          "Homemade Fried Rice",
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
@@ -155,21 +155,17 @@ class _BroccoliSoupState extends State<BroccoliSoup> {
               color: const Color(0xffFCFCF8),
               child: const Column(
                 children: [
-                  DotList(text: 'Salted butter '),
+                  DotList(text: 'Eggs'),
+                  DotList(text: 'Toasted sesame oil'),
+                  DotList(text: 'Vegetable oil'),
+                  DotList(text: 'Coconut aminos'),
+                  DotList(text: 'Soy sauce'),
+                  DotList(text: 'Salt'),
+                  DotList(text: 'Carrots'),
                   DotList(text: 'Onion'),
-                  DotList(text: 'Carrot'),
-                  DotList(text: 'All-purpose flour'),
                   DotList(text: 'Garlic'),
-                  DotList(text: 'All-purpose flour'),
-                  DotList(text: 'Sea salt'),
-                  DotList(text: 'Mustard powder'),
-                  DotList(text: 'Nutmeg'),
-                  DotList(text: 'Whole milk or half-and-half'),
-                  DotList(text: 'Stock '),
-                  DotList(text: 'Broccoli'),
-                  DotList(text: 'Parmesan'),
-                  DotList(text: 'Extra-sharp cheddar cheese '),
-                  DotList(text: 'Black pepper'),
+                  DotList(text: 'Peas'),
+                  DotList(text: 'Green onions'),
                 ],
               ),
             ),
@@ -180,7 +176,7 @@ class _BroccoliSoupState extends State<BroccoliSoup> {
               color: Colors.white,
               // change
               child: const Text(
-                "A few easy tricks and tips make this wildly rich, cozy broccoli cheddar soup recipe feel like easy magic.",
+                "This homemade fried rice recipe is a lot easier than you think. Say hello to the very best way to use up leftover rice.",
                 style: TextStyle(
                   fontSize: 14.0,
                   color: Color(0xffB0AA86),
@@ -258,7 +254,7 @@ class _BroccoliSoupState extends State<BroccoliSoup> {
               vertical: MediaQuery.sizeOf(context).width * 0.0,
               horizontal: MediaQuery.sizeOf(context).width * 0.05),
           child: const Text(
-            "Reccomend",
+            "Recommend",
             style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff697C37),
@@ -282,7 +278,7 @@ class _BroccoliSoupState extends State<BroccoliSoup> {
                   image: "assets/crispystripedbasswithcitrussoba.jpg",
                   title: "Crispy Striped",
                   time: "30min",
-                  foodDetail: const CrispyReccommend(),
+                  foodDetail: const CrispyStriped(),
                   bookmark: false,
                 ),
               ),
@@ -292,7 +288,7 @@ class _BroccoliSoupState extends State<BroccoliSoup> {
                   image: "assets/VeganCongeeRecipe.jpg",
                   title: "Rice Porridge",
                   time: "40min",
-                  foodDetail: const RiceReccomend(),
+                  foodDetail: const RicePorridge(),
                   bookmark: false,
                 ),
               ),

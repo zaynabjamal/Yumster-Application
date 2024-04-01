@@ -1,7 +1,7 @@
-import 'package:flutter_application/foodDetails/vegererian/broccoli_cheddar_soup.dart';
-import 'package:flutter_application/foodDetails/vegererian/dutch_baby_pancake.dart';
-import 'package:flutter_application/foodDetails/vegererian/homemade_fried_rice.dart';
-import 'package:flutter_application/foodDetails/vegererian/pesto_spaghetti.dart';
+import 'package:flutter_application/foodDetails/vegeterian/broccoli_cheddar_soup.dart';
+import 'package:flutter_application/foodDetails/vegeterian/dutch_baby_pancake.dart';
+import 'package:flutter_application/foodDetails/vegeterian/homemade_fried_rice.dart';
+import 'package:flutter_application/foodDetails/vegeterian/pesto_spaghetti.dart';
 import 'package:flutter_application/modules/food_data_module.dart';
 
 List<FoodTypeModel> vegeData = [
