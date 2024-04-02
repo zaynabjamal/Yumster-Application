@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/custom%20classes/text_field.dart';
@@ -28,8 +29,9 @@ class _LoginState extends State<Login> {
   // ----------------- REGULAR EXPRESSION FOR EMAIL
   RegExp regex = RegExp(
       r'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$');
-
+  bool _isSignedIn = false; // Flag to track if user is signed in
 // sing user in
+
   Future<void> _signin() async {
     String email = _emailOrUsernameController.text.trim();
     String password = _passwordController.text.trim();
@@ -39,9 +41,17 @@ class _LoginState extends State<Login> {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
 
       //if signin successful, then navigate to homepage
+
+      setState(() {
+        _isSignedIn = true; // Update sign-in status
+      });
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => const HomePage()));
-    } on FirebaseAuthException catch (e) {
+    }
+    //   Navigator.pushReplacement(
+    //       context, MaterialPageRoute(builder: (context) => const HomePage()));
+    // }
+    on FirebaseAuthException catch (e) {
       displayMessage(e.message ?? "An error occured");
     }
   }
@@ -104,7 +114,7 @@ class _LoginState extends State<Login> {
                 ),
                 const Gap(50),
                 CustomTextField(
-                  label: 'Email/Username',
+                  label: 'Email',
                   controller: _emailOrUsernameController,
                   hideText: false,
                 ),
