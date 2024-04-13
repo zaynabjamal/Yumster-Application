@@ -48,6 +48,7 @@ dependencies:
   gridwidget: ^0.0.1
   provider: ^6.1.1
   image_picker: ^1.0.7
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
